@@ -617,8 +617,14 @@ img {
   transform: translateY(-2px);
 }
 
-.usecase-card__emoji {
-  font-size: 1.8rem;
+.usecase-card__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(228, 31, 40, 0.1);
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 

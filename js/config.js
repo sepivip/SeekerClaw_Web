@@ -87,7 +87,7 @@ window.SITE_CONFIG = {
     description: 'From portfolio monitoring to DeFi research — SeekerClaw handles it all autonomously.',
     items: [
       {
-        emoji: '\u{1F40B}',
+        icon: 'eye',
         title: 'Wallet Watcher',
         messages: [
           '"Alert me on X when my SOL balance drops below 5"',
@@ -95,7 +95,7 @@ window.SITE_CONFIG = {
         ],
       },
       {
-        emoji: '\u{1F4CA}',
+        icon: 'trending-up',
         title: 'DeFi Assistant',
         messages: [
           '"What\'s the current price of SOL, JUP, and BONK?"',
@@ -103,14 +103,14 @@ window.SITE_CONFIG = {
         ],
       },
       {
-        emoji: '\u{1F514}',
+        icon: 'bell',
         title: 'Onchain Notifications',
         messages: [
           'Agent monitors your wallet and sends X alerts for incoming/outgoing transactions.',
         ],
       },
       {
-        emoji: '\u{1F5D3}\u{FE0F}',
+        icon: 'calendar',
         title: 'Crypto Calendar',
         messages: [
           '"Remind me about the Jupiter airdrop claim on March 15th"',
@@ -118,14 +118,14 @@ window.SITE_CONFIG = {
         ],
       },
       {
-        emoji: '\u{1F30D}',
+        icon: 'map-pin',
         title: 'Travel + Crypto',
         messages: [
           'Agent knows your GPS location, finds local crypto-friendly spots, converts prices, and can send SOL to a friend.',
         ],
       },
       {
-        emoji: '\u{1F91D}',
+        icon: 'share',
         title: 'Social + Web3',
         messages: [
           '"Text my friend that I just sent them 2 SOL"',

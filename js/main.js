@@ -116,14 +116,30 @@
   setText('[data-usecases-title]', C.useCases.title);
   setText('[data-usecases-desc]', C.useCases.description);
 
+  const ucIcons = {
+    'eye': '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>',
+    'trending-up': '<path d="M3.5 18.5l6-6 4 4L22 6m0 0h-6m6 0v6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>',
+    'bell': '<path d="M12 2a6 6 0 0 0-6 6c0 7-3 9-3 9h18s-3-2-3-9a6 6 0 0 0-6-6zm-1.27 19a2 2 0 0 0 3.46 0H10.73z"/>',
+    'calendar': '<path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>',
+    'map-pin': '<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>',
+    'share': '<path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0 0 18 8a3 3 0 1 0-3-3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 0 0 6 9a3 3 0 1 0 0 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 0 0 2.92 2.92A2.92 2.92 0 0 0 21 19.08 2.92 2.92 0 0 0 18 16.08z"/>',
+  };
+
   const ucGrid = $('.usecases__grid');
   if (ucGrid && C.useCases.items) {
     ucGrid.innerHTML = '';
     C.useCases.items.forEach((uc) => {
       const card = document.createElement('div');
       card.className = 'usecase-card reveal';
+      var iconPath = ucIcons[uc.icon] || '';
+      var isStroke = uc.icon === 'trending-up';
+      var iconSvg = iconPath
+        ? '<svg width="24" height="24" viewBox="0 0 24 24"'
+          + (isStroke ? ' fill="none" stroke="#E41F28"' : ' fill="#E41F28"')
+          + '>' + iconPath + '</svg>'
+        : '';
       card.innerHTML =
-        '<div class="usecase-card__emoji">' + uc.emoji + '</div>'
+        '<div class="usecase-card__icon">' + iconSvg + '</div>'
         + '<h3 class="usecase-card__title">' + uc.title + '</h3>'
         + uc.messages.map((m) =>
           '<div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> ' + m + '</div>'
