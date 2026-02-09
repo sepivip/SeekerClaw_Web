@@ -13,7 +13,7 @@ window.SITE_CONFIG = {
     nameHtml: 'Seeker<span class="accent">Claw</span>',
     tagline: 'Your phone. Your agent. Your keys. Your rules.',
     footer: 'Built for Seeker. Powered by Solana.',
-    logo: 'assets/logo.jpg',          // path to logo image (set '' to hide)
+    logo: 'assets/logo.svg',          // path to logo image (set '' to hide)
   },
 
   /* ── Links ───────────────────────────────────────────── */
