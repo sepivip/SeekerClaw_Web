@@ -5,7 +5,7 @@
    Edit this file to rebrand or update the entire site.
    ═══════════════════════════════════════════════════════════ */
 
-const SITE_CONFIG = {
+window.SITE_CONFIG = {
 
   /* ── Brand ───────────────────────────────────────────── */
   brand: {
