@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SeekerClaw — The AI Agent Layer for Solana Seeker</title>
-  <meta name="description" content="SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Manage crypto, control your device, and stay connected via X — all from one app.">
+  <meta name="description" content="SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Monitor your wallet, control your device, and stay connected via Telegram — all from one app.">
   <meta name="theme-color" content="#06080f">
 
   <!-- Open Graph -->
@@ -61,7 +61,7 @@
           <span class="gradient-text">for Solana Seeker</span>
         </h1>
         <p class="hero__desc reveal" data-hero-desc>
-          SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, manages your crypto, controls your phone, and keeps you updated on X. 24/7.
+          SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, monitors your wallet, controls your phone, and connects via Telegram for real-time updates. 24/7.
         </p>
         <div class="hero__actions reveal">
           <a data-link-dapp data-hero-cta-primary href="#" class="btn btn--primary btn--lg">
@@ -72,20 +72,32 @@
         </div>
       </div>
       <div class="hero__visual reveal">
-        <div class="hero__phone">
-          <div class="hero__phone-screen">
-            <div class="hero__phone-header">
-              <span class="hero__phone-dot"></span>
-              <span class="hero__phone-dot"></span>
-              <span class="hero__phone-dot"></span>
+        <div class="hero__device">
+          <div class="hero__device-notch"></div>
+          <div class="hero__device-screen">
+            <div class="hero__device-statusbar">
+              <span class="hero__device-time">14:37</span>
+              <span class="hero__device-icons">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 0 0-6 0zm-4-4l2 2a7.074 7.074 0 0 1 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+              </span>
             </div>
-            <div class="hero__phone-line"><span class="c-purple">agent</span>.<span class="c-green">start</span>()</div>
-            <div class="hero__phone-line"><span class="c-muted">// checking SOL balance...</span></div>
-            <div class="hero__phone-line"><span class="c-cyan">→</span> <span class="c-green">12.45 SOL</span> <span class="c-muted">($2,847.50)</span></div>
-            <div class="hero__phone-line"><span class="c-muted">// monitoring wallet...</span></div>
-            <div class="hero__phone-line"><span class="c-cyan">→</span> x.<span class="c-green">post</span>(<span class="c-purple">"Portfolio up 8%"</span>)</div>
-            <div class="hero__phone-line"><span class="c-green">✓</span> Message sent to @user</div>
-            <div class="hero__phone-cursor"></div>
+            <div class="hero__device-app">
+              <div class="hero__device-app-header">
+                <img src="assets/logo.svg" alt="" class="hero__device-app-logo">
+                <span class="hero__device-app-name">SeekerClaw</span>
+                <span class="hero__device-app-status">● Live</span>
+              </div>
+              <div class="hero__phone-screen">
+                <div class="hero__phone-line"><span class="c-purple">agent</span>.<span class="c-green">start</span>()</div>
+                <div class="hero__phone-line"><span class="c-muted">// checking SOL balance...</span></div>
+                <div class="hero__phone-line"><span class="c-cyan">→</span> <span class="c-green">12.45 SOL</span> <span class="c-muted">($2,847.50)</span></div>
+                <div class="hero__phone-line"><span class="c-muted">// monitoring wallet...</span></div>
+                <div class="hero__phone-line"><span class="c-cyan">→</span> telegram.<span class="c-green">send</span>(<span class="c-purple">"Portfolio up 8%"</span>)</div>
+                <div class="hero__phone-line"><span class="c-green">✓</span> Alert delivered</div>
+                <div class="hero__phone-cursor"></div>
+              </div>
+            </div>
           </div>
           <div class="claw-marks">
             <div class="claw-mark"></div>
@@ -128,7 +140,7 @@
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h3 class="feature-card__title">Social & Messaging</h3>
-          <p class="feature-card__desc">Full X integration for two-way agent communication. Send SMS, make calls, manage contacts — your agent reports back via DMs and posts.</p>
+          <p class="feature-card__desc">Telegram integration for two-way agent communication. Send SMS, make calls, manage contacts — your agent reports back in real time.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-card__icon">
@@ -152,6 +164,18 @@
           <p class="feature-card__desc">18+ built-in skills: crypto prices, news, todos, reminders, GitHub, translations. Easily extensible — add new skills without touching core code.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+  <section class="how-it-works" id="howitworks">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag" data-hiw-tag>Get Started</p>
+        <h2 class="section-title" data-hiw-title>How It Works</h2>
+      </div>
+      <!-- Steps rebuilt dynamically from config -->
+      <div class="hiw__steps"></div>
     </div>
   </section>
 
@@ -201,7 +225,7 @@
       <div class="vision__content reveal">
         <h2 class="vision__title" data-vision-title><span class="gradient-text">The Vision</span></h2>
         <p class="vision__text" data-vision-text>
-          Every Seeker owner gets a personal AI agent that lives on their phone 24/7, manages their crypto life, posts updates on X, joins Discord — and gets smarter every day.
+          Every Seeker owner gets a personal AI agent that lives on their phone 24/7, monitors their wallet, keeps them informed via Telegram — and gets smarter every day.
         </p>
         <p class="vision__tagline" data-vision-tagline>
           SeekerClaw is how Solana Seeker becomes the first true <strong>AI + Crypto phone</strong>.
@@ -249,6 +273,8 @@
           <a href="#usecases" class="footer__link">Use Cases</a>
           <a href="#roadmap" class="footer__link">Roadmap</a>
           <a href="#waitlist" class="footer__link">Waitlist</a>
+          <a href="copyright.html" class="footer__link">Copyright</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
         </div>
         <div class="footer__social">
           <a data-link-github href="#" class="footer__social-link" aria-label="GitHub">
@@ -261,6 +287,7 @@
       </div>
       <div class="footer__bottom">
         <p data-brand-footer>Built for Seeker. Powered by Solana.</p>
+        <p class="footer__powered-by">Powered by <a data-link-openclaw href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a> — open-source AI agent framework</p>
       </div>
     </div>
   </footer>

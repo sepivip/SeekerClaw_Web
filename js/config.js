@@ -21,6 +21,7 @@ window.SITE_CONFIG = {
     dappStore: '#',                    // dApp Store / download URL
     github: '#',                       // GitHub repo URL
     x: 'https://x.com/SeekerClaw',    // X (Twitter) profile
+    openclaw: 'https://github.com/openclaw/openclaw', // OpenClaw framework
     waitlistForm: 'https://formspree.io/f/YOUR_FORM_ID', // Formspree endpoint
   },
 
@@ -29,7 +30,7 @@ window.SITE_CONFIG = {
     tag: 'Built for Solana Seeker',
     titleLine1: 'The AI Agent Layer',
     titleLine2: 'for Solana Seeker',   // rendered with gradient
-    description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, manages your crypto, controls your phone, and keeps you updated on X. 24/7.',
+    description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, monitors your wallet, controls your phone, and connects via Telegram for real-time updates. 24/7.',
     ctaPrimary: 'Get on dApp Store',
     ctaSecondary: 'Join Waitlist',
   },
@@ -60,7 +61,7 @@ window.SITE_CONFIG = {
       {
         icon: 'chat',
         title: 'Social & Messaging',
-        desc: 'Full X integration for two-way agent communication. Send SMS, make calls, manage contacts — your agent reports back via DMs and posts.',
+        desc: 'Telegram integration for two-way agent communication. Send SMS, make calls, manage contacts — your agent reports back in real time.',
       },
       {
         icon: 'phone',
@@ -80,6 +81,17 @@ window.SITE_CONFIG = {
     ],
   },
 
+  /* ── How It Works ───────────────────────────────────── */
+  howItWorks: {
+    tag: 'Get Started',
+    title: 'How It Works',
+    steps: [
+      { number: '01', title: 'Install SeekerClaw', desc: 'Download from the dApp Store onto your Solana Seeker phone.' },
+      { number: '02', title: 'Connect Wallet + Telegram', desc: 'Link your Seed Vault wallet and Telegram account in seconds.' },
+      { number: '03', title: 'Your Agent Goes Live', desc: 'SeekerClaw runs 24/7 — monitoring, alerting, and acting autonomously.' },
+    ],
+  },
+
   /* ── Use Cases ───────────────────────────────────────── */
   useCases: {
     tag: 'Real-World Scenarios',
@@ -90,7 +102,7 @@ window.SITE_CONFIG = {
         icon: 'eye',
         title: 'Wallet Watcher',
         messages: [
-          '"Alert me on X when my SOL balance drops below 5"',
+          '"Alert me on Telegram when my SOL balance drops below 5"',
           '"Check my portfolio every morning and send me a summary"',
         ],
       },
@@ -106,7 +118,7 @@ window.SITE_CONFIG = {
         icon: 'bell',
         title: 'Onchain Notifications',
         messages: [
-          'Agent monitors your wallet and sends X alerts for incoming/outgoing transactions.',
+          'Agent monitors your wallet and sends Telegram alerts for incoming/outgoing transactions.',
         ],
       },
       {
@@ -129,7 +141,7 @@ window.SITE_CONFIG = {
         title: 'Social + Web3',
         messages: [
           '"Text my friend that I just sent them 2 SOL"',
-          '"Search Twitter for the latest Solana Mobile news"',
+          '"Search the web for the latest Solana Mobile news"',
         ],
       },
     ],
@@ -146,7 +158,7 @@ window.SITE_CONFIG = {
       ['Wallet access',            '\u2717',      '\u2713 Via Seed Vault'],
       ['Persistent memory',        '\u2717',      '\u2713 Remembers everything'],
       ['Controls your phone',      '\u2717',      '\u2713 Calls, SMS, apps, GPS'],
-      ['Messaging integration',    '\u2717',      '\u2713 X (more coming)'],
+      ['Messaging integration',    '\u2717',      '\u2713 Telegram (more coming)'],
       ['Crypto-native',            '\u2717',      '\u2713 Solana-first'],
       ['Autonomous scheduling',    '\u2717',      '\u2713 Runs tasks 24/7'],
       ['Extensible skills',        '\u2717',      '\u2713 Modular system'],
@@ -164,7 +176,7 @@ window.SITE_CONFIG = {
         label: 'Now',
         items: [
           'Solana wallet (balance, transactions, history)',
-          'X integration',
+          'Telegram integration',
           'Full Android device control',
           'Persistent memory & scheduling',
           '18+ built-in skills',
@@ -175,7 +187,7 @@ window.SITE_CONFIG = {
         label: 'Next',
         items: [
           'Transaction monitoring & smart alerts',
-          'Discord & WhatsApp integration',
+          'X, Discord & WhatsApp integration',
           'SPL token sends & swaps',
           'DeFi position tracking',
         ],
@@ -198,7 +210,7 @@ window.SITE_CONFIG = {
   /* ── Vision ──────────────────────────────────────────── */
   vision: {
     title: 'The Vision',
-    text: 'Every Seeker owner gets a personal AI agent that lives on their phone 24/7, manages their crypto life, posts updates on X, joins Discord — and gets smarter every day.',
+    text: 'Every Seeker owner gets a personal AI agent that lives on their phone 24/7, monitors their wallet, keeps them informed via Telegram — and gets smarter every day.',
     taglineHtml: 'SeekerClaw is how Solana Seeker becomes the first true <strong>AI + Crypto phone</strong>.',
   },
 
@@ -219,7 +231,7 @@ window.SITE_CONFIG = {
     { code: '<span class="c-muted">// checking SOL balance...</span>' },
     { code: '<span class="c-cyan">\u2192</span> <span class="c-green">12.45 SOL</span> <span class="c-muted">($2,847.50)</span>' },
     { code: '<span class="c-muted">// monitoring wallet...</span>' },
-    { code: '<span class="c-cyan">\u2192</span> x.<span class="c-green">post</span>(<span class="c-purple">"Portfolio up 8%"</span>)' },
-    { code: '<span class="c-green">\u2713</span> Message sent to @user' },
+    { code: '<span class="c-cyan">\u2192</span> telegram.<span class="c-green">send</span>(<span class="c-purple">"Portfolio up 8%"</span>)' },
+    { code: '<span class="c-green">\u2713</span> Alert delivered' },
   ],
 };

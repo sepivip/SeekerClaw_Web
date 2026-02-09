@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — SeekerClaw</title>
+  <meta name="description" content="Privacy policy for SeekerClaw. Your data stays on your device — no tracking, no analytics, no cloud servers.">
+  <meta name="theme-color" content="#06080f">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/legal.css">
+</head>
+<body>
+
+  <nav class="legal-nav">
+    <div class="legal-container">
+      <a href="index.html" class="legal-nav__logo">
+        <img src="assets/logo.svg" alt="SeekerClaw" class="legal-nav__logo-img">
+        <span class="legal-nav__logo-text">Seeker<span class="accent">Claw</span></span>
+      </a>
+      <div class="legal-nav__links">
+        <a href="index.html" class="legal-nav__link">Home</a>
+        <a href="copyright.html" class="legal-nav__link">Copyright</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="legal">
+    <div class="legal-container">
+      <h1 class="legal__title">Privacy Policy</h1>
+      <p class="legal__updated">Last updated: February 2026</p>
+
+      <section class="legal__section">
+        <h2>Overview</h2>
+        <p>SeekerClaw is an open-source Android application that runs entirely on your Solana Seeker device. We are committed to your privacy: <strong>we do not collect, store, or transmit your personal data to any server we operate</strong>.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>On-Device Processing</h2>
+        <p>SeekerClaw runs locally on your phone. All app data — including conversation history, agent memory, wallet references, scheduled tasks, and configuration — is stored exclusively on your device. We do not operate cloud servers or backend infrastructure for this app.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Wallet Data</h2>
+        <p>SeekerClaw interacts with your Solana wallet through the <strong>Seed Vault</strong> hardware security module on the Seeker phone. Your private keys and seed phrases are managed by Seed Vault and <strong>never leave the hardware enclave</strong>. SeekerClaw does not have access to your private keys. Wallet balance and transaction data queried from the Solana blockchain is processed on-device and is not transmitted to us.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>AI Processing &amp; Third-Party LLM APIs</h2>
+        <p>SeekerClaw uses third-party large language model (LLM) APIs for AI capabilities. To use these features, <strong>you provide your own API key</strong>, which is stored locally on your device. When you interact with the AI agent, your prompts and conversation context are sent directly from your device to the LLM provider (e.g., OpenAI, Anthropic, or other configured providers).</p>
+        <p>We do not proxy, intercept, or store these requests. Please review the privacy policy of your chosen LLM provider to understand how they handle your data.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Telegram Integration</h2>
+        <p>SeekerClaw connects to Telegram using a <strong>bot token that you provide</strong>. This token is stored locally on your device. Messages between you and your SeekerClaw agent are routed through Telegram's infrastructure. We do not have access to your Telegram bot token, messages, or account information. Refer to <a href="https://telegram.org/privacy" target="_blank" rel="noopener noreferrer">Telegram's Privacy Policy</a> for details on their data handling.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>No Analytics or Tracking</h2>
+        <p>SeekerClaw does <strong>not</strong> include any analytics SDKs, tracking pixels, telemetry, or crash reporting services. We do not collect usage data, device identifiers, IP addresses, or behavioral metrics. We have no way to know how you use the app.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>No Cookies</h2>
+        <p>SeekerClaw is a native Android application. It does not use cookies or web-based tracking technologies. This landing page website does not use cookies either.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>No Token Distribution</h2>
+        <p>SeekerClaw does not issue, distribute, or manage any cryptocurrency tokens or rewards. The app is a utility tool — it does not participate in any token economy.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Data You Control</h2>
+        <p>Since all data is stored on your device, you have full control:</p>
+        <ul>
+          <li>Clear app data or uninstall to remove all SeekerClaw data</li>
+          <li>Revoke your LLM API key at any time through your provider's dashboard</li>
+          <li>Revoke your Telegram bot token through BotFather</li>
+          <li>Manage wallet permissions through the Seeker's Seed Vault settings</li>
+        </ul>
+      </section>
+
+      <section class="legal__section">
+        <h2>Changes to This Policy</h2>
+        <p>If we update this privacy policy, we will post the revised version on this page with an updated date. Since SeekerClaw is open-source, any changes to data handling can be independently verified in the <a href="https://github.com/sepivip/SeekerClaw" target="_blank" rel="noopener noreferrer">source code</a>.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Contact</h2>
+        <p>For privacy questions or concerns, please open an issue on <a href="https://github.com/sepivip/SeekerClaw/issues" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="legal-footer">
+    <div class="legal-container">
+      <p>&copy; 2026 Beka Zakaidze &middot; <a href="copyright.html">Copyright</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

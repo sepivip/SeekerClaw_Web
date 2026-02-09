@@ -69,10 +69,7 @@
   /* ── Terminal lines ──────────────────────────────────── */
   const termScreen = $('.hero__phone-screen');
   if (termScreen && C.terminal) {
-    // keep header dots, rebuild lines
-    const header = termScreen.querySelector('.hero__phone-header');
     termScreen.innerHTML = '';
-    if (header) termScreen.appendChild(header);
     C.terminal.forEach((line) => {
       const div = document.createElement('div');
       div.className = 'hero__phone-line';
@@ -106,10 +103,39 @@
     });
   }
 
+  /* ── Links: OpenClaw ─────────────────────────────────── */
+  setAllAttr('[data-link-openclaw]', 'href', C.links.openclaw);
+
   /* ── Features ────────────────────────────────────────── */
   setText('[data-features-tag]', C.features.tag);
   setText('[data-features-title]', C.features.title);
   setText('[data-features-desc]', C.features.description);
+
+  /* ── How It Works ───────────────────────────────────── */
+  if (C.howItWorks) {
+    setText('[data-hiw-tag]', C.howItWorks.tag);
+    setText('[data-hiw-title]', C.howItWorks.title);
+
+    const hiwSteps = $('.hiw__steps');
+    if (hiwSteps && C.howItWorks.steps) {
+      hiwSteps.innerHTML = '';
+      C.howItWorks.steps.forEach((step, i) => {
+        const div = document.createElement('div');
+        div.className = 'hiw__step reveal';
+        div.innerHTML =
+          '<div class="hiw__step-number">' + step.number + '</div>'
+          + '<h3 class="hiw__step-title">' + step.title + '</h3>'
+          + '<p class="hiw__step-desc">' + step.desc + '</p>';
+        hiwSteps.appendChild(div);
+        if (i < C.howItWorks.steps.length - 1) {
+          var connector = document.createElement('div');
+          connector.className = 'hiw__connector reveal';
+          connector.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>';
+          hiwSteps.appendChild(connector);
+        }
+      });
+    }
+  }
 
   /* ── Use Cases ───────────────────────────────────────── */
   setText('[data-usecases-tag]', C.useCases.tag);
