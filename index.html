@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- Styles: theme tokens first, then layout -->
+  <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,8 +27,8 @@
   <nav class="nav" id="nav">
     <div class="nav__container">
       <a href="#" class="nav__logo">
-        <img src="assets/logo.jpg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
-        <span class="nav__logo-text">Seeker<span class="accent">Claw</span></span>
+        <img data-brand-logo src="assets/logo.jpg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
+        <span class="nav__logo-text" data-brand-name>Seeker<span class="accent">Claw</span></span>
       </a>
       <div class="nav__links" id="navLinks">
         <a href="#features" class="nav__link">Features</a>
@@ -34,7 +36,7 @@
         <a href="#roadmap" class="nav__link">Roadmap</a>
         <a href="#waitlist" class="nav__link">Waitlist</a>
       </div>
-      <a href="#" class="btn btn--primary nav__cta">Get on dApp Store</a>
+      <a data-link-dapp href="#" class="btn btn--primary nav__cta">Get on dApp Store</a>
       <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -50,20 +52,20 @@
     </div>
     <div class="hero__container">
       <div class="hero__content">
-        <p class="hero__tag reveal">Built for Solana Seeker</p>
-        <h1 class="hero__title reveal">
+        <p class="hero__tag reveal" data-hero-tag>Built for Solana Seeker</p>
+        <h1 class="hero__title reveal" data-hero-title>
           The AI Agent Layer<br>
           <span class="gradient-text">for Solana Seeker</span>
         </h1>
-        <p class="hero__desc reveal">
+        <p class="hero__desc reveal" data-hero-desc>
           SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, manages your crypto, controls your phone, and keeps you updated on X. 24/7.
         </p>
         <div class="hero__actions reveal">
-          <a href="#" class="btn btn--primary btn--lg">
+          <a data-link-dapp data-hero-cta-primary href="#" class="btn btn--primary btn--lg">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Get on dApp Store
           </a>
-          <a href="#waitlist" class="btn btn--outline btn--lg">Join Waitlist</a>
+          <a href="#waitlist" class="btn btn--outline btn--lg" data-hero-cta-secondary>Join Waitlist</a>
         </div>
       </div>
       <div class="hero__visual reveal">
@@ -82,7 +84,6 @@
             <div class="hero__phone-line"><span class="c-green">✓</span> Message sent to @user</div>
             <div class="hero__phone-cursor"></div>
           </div>
-          <!-- Claw marks decoration -->
           <div class="claw-marks">
             <div class="claw-mark"></div>
             <div class="claw-mark"></div>
@@ -91,36 +92,20 @@
         </div>
       </div>
     </div>
-    <!-- Stats strip -->
-    <div class="stats reveal">
-      <div class="stats__item">
-        <span class="stats__number" data-target="150000">0</span>
-        <span class="stats__suffix">+</span>
-        <span class="stats__label">Seeker Devices</span>
-      </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item">
-        <span class="stats__number" data-target="18">0</span>
-        <span class="stats__suffix">+</span>
-        <span class="stats__label">Built-in Skills</span>
-      </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item">
-        <span class="stats__number">24/7</span>
-        <span class="stats__label">Autonomous Agent</span>
-      </div>
-    </div>
+    <!-- Stats strip — rebuilt dynamically from config -->
+    <div class="stats reveal"></div>
   </header>
 
   <!-- ═══════════════════ FEATURES ═══════════════════ -->
   <section class="features" id="features">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-tag">Capabilities</p>
-        <h2 class="section-title">What SeekerClaw Does</h2>
-        <p class="section-desc">A full-stack AI agent running natively on the most crypto-native phone in the world.</p>
+        <p class="section-tag" data-features-tag>Capabilities</p>
+        <h2 class="section-title" data-features-title>What SeekerClaw Does</h2>
+        <p class="section-desc" data-features-desc>A full-stack AI agent running natively on the most crypto-native phone in the world.</p>
       </div>
       <div class="features__grid">
+        <!-- Feature cards kept in HTML (SVG icons are hard to config-drive) -->
         <div class="feature-card reveal">
           <div class="feature-card__icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9945FF"/><stop offset="100%" style="stop-color:#14F195"/></linearGradient></defs></svg>
@@ -171,76 +156,12 @@
   <section class="usecases" id="usecases">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-tag">Real-World Scenarios</p>
-        <h2 class="section-title">What Seeker Owners Are Doing</h2>
-        <p class="section-desc">From portfolio monitoring to DeFi research — SeekerClaw handles it all autonomously.</p>
+        <p class="section-tag" data-usecases-tag>Real-World Scenarios</p>
+        <h2 class="section-title" data-usecases-title>What Seeker Owners Are Doing</h2>
+        <p class="section-desc" data-usecases-desc>From portfolio monitoring to DeFi research — SeekerClaw handles it all autonomously.</p>
       </div>
-      <div class="usecases__grid">
-        <div class="usecase-card reveal">
-          <div class="usecase-card__emoji">&#x1F40B;</div>
-          <h3 class="usecase-card__title">Wallet Watcher</h3>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Alert me on X when my SOL balance drops below 5"
-          </div>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Check my portfolio every morning and send me a summary"
-          </div>
-        </div>
-        <div class="usecase-card reveal">
-          <div class="usecase-card__emoji">&#x1F4CA;</div>
-          <h3 class="usecase-card__title">DeFi Assistant</h3>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "What's the current price of SOL, JUP, and BONK?"
-          </div>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Research the latest Solana DeFi protocols and summarize"
-          </div>
-        </div>
-        <div class="usecase-card reveal">
-          <div class="usecase-card__emoji">&#x1F514;</div>
-          <h3 class="usecase-card__title">Onchain Notifications</h3>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            Agent monitors your wallet and sends X alerts for incoming/outgoing transactions.
-          </div>
-        </div>
-        <div class="usecase-card reveal">
-          <div class="usecase-card__emoji">&#x1F5D3;&#xFE0F;</div>
-          <h3 class="usecase-card__title">Crypto Calendar</h3>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Remind me about the Jupiter airdrop claim on March 15th"
-          </div>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Every Friday at 6pm, show me my weekly portfolio performance"
-          </div>
-        </div>
-        <div class="usecase-card reveal">
-          <div class="usecase-card__emoji">&#x1F30D;</div>
-          <h3 class="usecase-card__title">Travel + Crypto</h3>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            Agent knows your GPS location, finds local crypto-friendly spots, converts prices, and can send SOL to a friend.
-          </div>
-        </div>
-        <div class="usecase-card reveal">
-          <div class="usecase-card__emoji">&#x1F91D;</div>
-          <h3 class="usecase-card__title">Social + Web3</h3>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Text my friend that I just sent them 2 SOL"
-          </div>
-          <div class="usecase-card__msg">
-            <span class="usecase-card__prompt">&gt;</span>
-            "Search Twitter for the latest Solana Mobile news"
-          </div>
-        </div>
-      </div>
+      <!-- Cards rebuilt dynamically from config -->
+      <div class="usecases__grid"></div>
     </div>
   </section>
 
@@ -248,67 +169,13 @@
   <section class="comparison" id="comparison">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-tag">The Difference</p>
-        <h2 class="section-title">Why SeekerClaw is Different</h2>
-        <p class="section-desc">No other AI agent runs natively on a crypto phone with hardware wallet integration, device control, and messaging — all at once.</p>
+        <p class="section-tag" data-comparison-tag>The Difference</p>
+        <h2 class="section-title" data-comparison-title>Why SeekerClaw is Different</h2>
+        <p class="section-desc" data-comparison-desc>No other AI agent runs natively on a crypto phone with hardware wallet integration, device control, and messaging — all at once.</p>
       </div>
       <div class="comparison__table-wrap reveal">
-        <table class="comparison__table">
-          <thead>
-            <tr>
-              <th class="comparison__feature-col">Feature</th>
-              <th class="comparison__other-col">Regular AI Apps</th>
-              <th class="comparison__seeker-col">SeekerClaw on Seeker</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Runs on device</td>
-              <td><span class="comparison__muted">Cloud only</span></td>
-              <td><span class="comparison__check">&#10003;</span> Native on Seeker</td>
-            </tr>
-            <tr>
-              <td>Wallet access</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Via Seed Vault</td>
-            </tr>
-            <tr>
-              <td>Persistent memory</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Remembers everything</td>
-            </tr>
-            <tr>
-              <td>Controls your phone</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Calls, SMS, apps, GPS</td>
-            </tr>
-            <tr>
-              <td>Messaging integration</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> X (more coming)</td>
-            </tr>
-            <tr>
-              <td>Crypto-native</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Solana-first</td>
-            </tr>
-            <tr>
-              <td>Autonomous scheduling</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Runs tasks 24/7</td>
-            </tr>
-            <tr>
-              <td>Extensible skills</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Modular system</td>
-            </tr>
-            <tr>
-              <td>Hardware wallet security</td>
-              <td><span class="comparison__x">&#10005;</span></td>
-              <td><span class="comparison__check">&#10003;</span> Seed Vault signing</td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Table rebuilt dynamically from config -->
+        <table class="comparison__table"></table>
       </div>
     </div>
   </section>
@@ -317,50 +184,11 @@
   <section class="roadmap" id="roadmap">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-tag">What's Coming</p>
-        <h2 class="section-title">Roadmap</h2>
+        <p class="section-tag" data-roadmap-tag>What's Coming</p>
+        <h2 class="section-title" data-roadmap-title>Roadmap</h2>
       </div>
-      <div class="roadmap__grid">
-        <div class="roadmap__col roadmap__col--now reveal">
-          <div class="roadmap__col-header">
-            <span class="roadmap__status roadmap__status--now"></span>
-            Now
-          </div>
-          <ul class="roadmap__list">
-            <li>Solana wallet (balance, transactions, history)</li>
-            <li>X integration</li>
-            <li>Full Android device control</li>
-            <li>Persistent memory & scheduling</li>
-            <li>18+ built-in skills</li>
-          </ul>
-        </div>
-        <div class="roadmap__col roadmap__col--next reveal">
-          <div class="roadmap__col-header">
-            <span class="roadmap__status roadmap__status--next"></span>
-            Next
-          </div>
-          <ul class="roadmap__list">
-            <li>Transaction monitoring & smart alerts</li>
-            <li>Discord & WhatsApp integration</li>
-            <li>SPL token sends & swaps</li>
-            <li>DeFi position tracking</li>
-          </ul>
-        </div>
-        <div class="roadmap__col roadmap__col--future reveal">
-          <div class="roadmap__col-header">
-            <span class="roadmap__status roadmap__status--future"></span>
-            Future
-          </div>
-          <ul class="roadmap__list">
-            <li>Multi-agent coordination</li>
-            <li>Community skill marketplace</li>
-            <li>Multi-chain support</li>
-            <li>Vision — agent sees your camera</li>
-            <li>Agent-to-agent economy on Solana</li>
-            <li>DePIN & IoT device control</li>
-          </ul>
-        </div>
-      </div>
+      <!-- Columns rebuilt dynamically from config -->
+      <div class="roadmap__grid"></div>
     </div>
   </section>
 
@@ -368,11 +196,11 @@
   <section class="vision">
     <div class="container">
       <div class="vision__content reveal">
-        <h2 class="vision__title gradient-text">The Vision</h2>
-        <p class="vision__text">
+        <h2 class="vision__title" data-vision-title><span class="gradient-text">The Vision</span></h2>
+        <p class="vision__text" data-vision-text>
           Every Seeker owner gets a personal AI agent that lives on their phone 24/7, manages their crypto life, posts updates on X, joins Discord — and gets smarter every day.
         </p>
-        <p class="vision__tagline">
+        <p class="vision__tagline" data-vision-tagline>
           SeekerClaw is how Solana Seeker becomes the first true <strong>AI + Crypto phone</strong>.
         </p>
       </div>
@@ -383,14 +211,14 @@
   <section class="waitlist" id="waitlist">
     <div class="container">
       <div class="waitlist__content reveal">
-        <p class="section-tag">Be First</p>
-        <h2 class="section-title">Get Early Access</h2>
-        <p class="section-desc">Join the waitlist and be the first to turn your Seeker into an autonomous AI agent.</p>
-        <form class="waitlist__form" id="waitlistForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <p class="section-tag" data-waitlist-tag>Be First</p>
+        <h2 class="section-title" data-waitlist-title>Get Early Access</h2>
+        <p class="section-desc" data-waitlist-desc>Join the waitlist and be the first to turn your Seeker into an autonomous AI agent.</p>
+        <form class="waitlist__form" id="waitlistForm" data-link-form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="waitlist__input-wrap">
-            <input type="email" name="email" class="waitlist__input" placeholder="your@email.com" required autocomplete="email">
+            <input type="email" name="email" class="waitlist__input" data-waitlist-input placeholder="your@email.com" required autocomplete="email">
             <button type="submit" class="btn btn--primary waitlist__btn">
-              <span class="waitlist__btn-text">Join Waitlist</span>
+              <span class="waitlist__btn-text" data-waitlist-btn-text>Join Waitlist</span>
               <span class="waitlist__btn-loading" hidden>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
               </span>
@@ -408,10 +236,10 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a href="#" class="nav__logo">
-            <img src="assets/logo.jpg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
-            <span class="nav__logo-text">Seeker<span class="accent">Claw</span></span>
+            <img data-brand-logo src="assets/logo.jpg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
+            <span class="nav__logo-text" data-brand-name>Seeker<span class="accent">Claw</span></span>
           </a>
-          <p class="footer__tagline">Your phone. Your agent. Your keys. Your rules.</p>
+          <p class="footer__tagline" data-brand-tagline>Your phone. Your agent. Your keys. Your rules.</p>
         </div>
         <div class="footer__links">
           <a href="#features" class="footer__link">Features</a>
@@ -420,20 +248,22 @@
           <a href="#waitlist" class="footer__link">Waitlist</a>
         </div>
         <div class="footer__social">
-          <a href="#" class="footer__social-link" aria-label="GitHub">
+          <a data-link-github href="#" class="footer__social-link" aria-label="GitHub">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
-          <a href="https://x.com/SeekerClaw" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">
+          <a data-link-x href="https://x.com/SeekerClaw" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>Built for Seeker. Powered by Solana.</p>
+        <p data-brand-footer>Built for Seeker. Powered by Solana.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Config first, then app logic -->
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
