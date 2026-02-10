@@ -66,20 +66,41 @@
   );
   setText('[data-hero-cta-secondary]', C.hero.ctaSecondary);
 
-  /* ── Terminal lines ──────────────────────────────────── */
-  const termScreen = $('.hero__phone-screen');
-  if (termScreen && C.terminal) {
-    termScreen.innerHTML = '';
-    C.terminal.forEach((line) => {
-      const div = document.createElement('div');
-      div.className = 'hero__phone-line';
-      div.innerHTML = line.code;
-      termScreen.appendChild(div);
+  /* ── Device slideshow (Home / Console / Settings) ──── */
+  (function initSlideshow() {
+    var slides   = $$('.hero__slide');
+    var hotspots = $$('.hero__hotspot');
+    if (!slides.length) return;
+
+    var current  = 0;
+    var count    = slides.length;
+    var interval = 4000;
+    var timer    = null;
+
+    function goTo(index) {
+      slides[current].classList.remove('hero__slide--active');
+      current = index % count;
+      slides[current].classList.add('hero__slide--active');
+    }
+
+    function startAuto() {
+      stopAuto();
+      timer = setInterval(function () { goTo(current + 1); }, interval);
+    }
+
+    function stopAuto() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    hotspots.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        goTo(parseInt(btn.dataset.tab, 10));
+        startAuto();
+      });
     });
-    const cursor = document.createElement('div');
-    cursor.className = 'hero__phone-cursor';
-    termScreen.appendChild(cursor);
-  }
+
+    startAuto();
+  })();
 
   /* ── Stats ───────────────────────────────────────────── */
   const statsContainer = $('.stats');

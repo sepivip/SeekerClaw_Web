@@ -73,37 +73,15 @@
       </div>
       <div class="hero__visual reveal">
         <div class="hero__device">
-          <div class="hero__device-notch"></div>
-          <div class="hero__device-screen">
-            <div class="hero__device-statusbar">
-              <span class="hero__device-time">14:37</span>
-              <span class="hero__device-icons">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 0 0-6 0zm-4-4l2 2a7.074 7.074 0 0 1 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
-              </span>
-            </div>
-            <div class="hero__device-app">
-              <div class="hero__device-app-header">
-                <img src="assets/logo-icon.svg" alt="" class="hero__device-app-logo">
-                <span class="hero__device-app-name">SeekerClaw</span>
-                <span class="hero__device-app-status">● Live</span>
-              </div>
-              <div class="hero__phone-screen">
-                <div class="hero__phone-line"><span class="c-purple">agent</span>.<span class="c-green">start</span>()</div>
-                <div class="hero__phone-line"><span class="c-muted">// checking SOL balance...</span></div>
-                <div class="hero__phone-line"><span class="c-cyan">→</span> <span class="c-green">12.45 SOL</span> <span class="c-muted">($2,847.50)</span></div>
-                <div class="hero__phone-line"><span class="c-muted">// monitoring wallet...</span></div>
-                <div class="hero__phone-line"><span class="c-cyan">→</span> telegram.<span class="c-green">send</span>(<span class="c-purple">"Portfolio up 8%"</span>)</div>
-                <div class="hero__phone-line"><span class="c-green">✓</span> Alert delivered</div>
-                <div class="hero__phone-cursor"></div>
-              </div>
-            </div>
+          <div class="hero__slides">
+            <img src="assets/slide-home.png" alt="SeekerClaw Home — agent dashboard" class="hero__slide hero__slide--active" data-slide="0">
+            <img src="assets/slide-console.png" alt="SeekerClaw Console — system logs" class="hero__slide" data-slide="1">
+            <img src="assets/slide-settings.png" alt="SeekerClaw Settings — configuration" class="hero__slide" data-slide="2">
           </div>
-          <div class="claw-marks">
-            <div class="claw-mark"></div>
-            <div class="claw-mark"></div>
-            <div class="claw-mark"></div>
-          </div>
+          <!-- Invisible hotspots over the phone's bottom nav bar -->
+          <button class="hero__hotspot hero__hotspot--home" data-tab="0" aria-label="Home"></button>
+          <button class="hero__hotspot hero__hotspot--console" data-tab="1" aria-label="Console"></button>
+          <button class="hero__hotspot hero__hotspot--settings" data-tab="2" aria-label="Settings"></button>
         </div>
       </div>
     </div>

@@ -195,7 +195,7 @@ img {
 }
 
 .nav__logo-img {
-  height: 40px;
+  height: 46px;
   width: auto;
   object-fit: contain;
 }
@@ -251,7 +251,6 @@ img {
    ══════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -348,7 +347,7 @@ img {
   flex-wrap: wrap;
 }
 
-/* Device mock */
+/* Device — real Seeker phone image with terminal overlay */
 .hero__visual {
   display: flex;
   justify-content: center;
@@ -357,139 +356,53 @@ img {
 
 .hero__device {
   position: relative;
-  width: 300px;
-  background: #0a0a0a;
-  border: 2px solid #2a2a2a;
-  border-radius: 36px;
-  padding: 8px;
-  box-shadow:
-    0 0 60px rgba(228, 31, 40, 0.08),
-    0 0 120px rgba(228, 31, 40, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  width: 420px;
+  filter: drop-shadow(0 0 60px rgba(228, 31, 40, 0.08)) drop-shadow(0 0 120px rgba(228, 31, 40, 0.04));
 }
 
-.hero__device-notch {
-  width: 80px;
-  height: 6px;
-  background: #1a1a1a;
-  border-radius: 3px;
-  margin: 6px auto 0;
+/* Slideshow — stacked images with crossfade */
+.hero__slides {
+  position: relative;
+  width: 100%;
 }
 
-.hero__device-screen {
-  background: #050810;
-  border-radius: 28px;
-  overflow: hidden;
-  margin-top: 6px;
-}
-
-.hero__device-statusbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px 4px;
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
-
-.hero__device-icons {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  color: var(--text-muted);
-}
-
-.hero__device-app {
-  padding: 0 12px 16px;
-}
-
-.hero__device-app-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 4px 10px;
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 4px;
-}
-
-.hero__device-app-logo {
-  width: 20px;
-  height: 20px;
-}
-
-.hero__device-app-name {
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.hero__device-app-status {
-  margin-left: auto;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: #14F195;
-}
-
-.hero__phone-screen {
-  padding: 8px 4px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.8;
-}
-
-.hero__phone-line {
-  opacity: 0;
-  animation: typeLine 0.4s var(--ease-out) forwards;
-}
-.hero__phone-line:nth-child(2) { animation-delay: 0.6s; }
-.hero__phone-line:nth-child(3) { animation-delay: 1.2s; }
-.hero__phone-line:nth-child(4) { animation-delay: 1.8s; }
-.hero__phone-line:nth-child(5) { animation-delay: 2.4s; }
-.hero__phone-line:nth-child(6) { animation-delay: 3.0s; }
-.hero__phone-line:nth-child(7) { animation-delay: 3.6s; }
-.hero__phone-line:nth-child(8) { animation-delay: 4.2s; }
-
-@keyframes typeLine {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero__phone-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 14px;
-  background: var(--green);
-  margin-top: 4px;
-  animation: blink 1s step-end infinite;
-  border-radius: 1px;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Claw marks */
-.claw-marks {
+.hero__slide {
+  width: 100%;
+  height: auto;
+  display: block;
   position: absolute;
-  top: -10px;
-  right: -20px;
-  display: flex;
-  gap: 6px;
-  transform: rotate(-25deg);
-  opacity: 0.5;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
 }
 
-.claw-mark {
-  width: 3px;
-  height: 50px;
-  background: linear-gradient(to bottom, var(--purple), transparent);
-  border-radius: 2px;
+.hero__slide:first-child {
+  position: relative;  /* first slide holds layout height */
 }
-.claw-mark:nth-child(2) { height: 65px; margin-top: -5px; }
-.claw-mark:nth-child(3) { height: 45px; margin-top: 3px; }
+
+.hero__slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Invisible hotspots over the phone's bottom nav bar */
+.hero__hotspot {
+  position: absolute;
+  top: 82%;
+  height: 9%;
+  width: 16.1%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+}
+
+.hero__hotspot--home     { left: 37.4%; }
+.hero__hotspot--console  { left: 53.6%; }
+.hero__hotspot--settings { left: 69.7%; }
 
 /* Stats strip */
 .stats {
@@ -1179,7 +1092,7 @@ img {
   .hero__desc { margin: 0 auto 2rem; }
   .hero__actions { justify-content: center; }
   .hero__visual { order: -1; }
-  .hero__device { width: 280px; }
+  .hero__device { width: 360px; }
 
   .features__grid,
   .usecases__grid {
@@ -1227,7 +1140,7 @@ img {
     min-height: auto;
   }
 
-  .hero__device { width: 260px; }
+  .hero__device { width: 320px; }
 
   .stats {
     flex-direction: column;
@@ -1304,9 +1217,8 @@ img {
 
   .hero__device {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
   }
-
   .waitlist__input-wrap {
     flex-direction: column;
   }
