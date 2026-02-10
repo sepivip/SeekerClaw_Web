@@ -195,20 +195,13 @@ img {
 }
 
 .nav__logo-img {
-  width: 34px;
-  height: 34px;
+  height: 32px;
+  width: auto;
   object-fit: contain;
 }
 
 .nav__logo-text {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: -0.02em;
-}
-.nav__logo-text .accent {
-  font-weight: 800;
-  -webkit-text-stroke: 0.4px currentColor;
+  display: none;
 }
 
 .nav__links {
