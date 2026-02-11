@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SeekerClaw Quick Setup QR</title>
+  <meta name="description" content="Build a SeekerClaw deep-link QR in under a minute and import config directly into the app.">
+  <meta name="theme-color" content="#06080f">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quick-setup-page.css">
+</head>
+<body class="quicksetup-page">
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo">
+        <img data-brand-logo src="assets/logo.svg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
+        <span class="nav__logo-text" data-brand-name>Seeker<span class="accent">Claw</span></span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html#features" class="nav__link">Features</a>
+        <a href="index.html#usecases" class="nav__link">Use Cases</a>
+        <a href="#builder" class="nav__link">Quick Setup</a>
+        <a href="index.html#waitlist" class="nav__link">Waitlist</a>
+      </div>
+      <a data-link-dapp href="#" class="btn btn--primary nav__cta">Get on dApp Store</a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="quicksetup-hero">
+    <div class="container quicksetup-hero__container">
+      <h1 class="quicksetup-hero__title reveal">
+        Deploy SeekerClaw config<br>
+        <span class="quicksetup-hero__title-sub">in under 1 minute</span>
+      </h1>
+      <p class="quicksetup-hero__desc reveal">
+        Fill the compact form, generate a QR deep link, then scan from SeekerClaw to import credentials and defaults in one step.
+      </p>
+    </div>
+  </header>
+
+  <section class="quick-setup" id="builder">
+    <div class="container quicksetup-page__container">
+      <div class="quick-setup__panel reveal">
+        <p class="quick-setup__warning">
+          Warning: Anyone who scans this QR can import these credentials.
+        </p>
+
+        <div class="quick-setup__layout">
+          <div class="quick-setup__form-wrap">
+            <form id="quickSetupForm" class="quick-setup__form" novalidate>
+              <div class="quick-setup__fields" id="quickSetupFields"></div>
+            </form>
+
+            <div class="quick-setup__actions">
+              <button type="button" class="btn btn--primary" id="quickSetupGenerateBtn">Generate QR</button>
+              <button type="button" class="btn btn--outline" id="quickSetupClearBtn">Clear</button>
+            </div>
+            <p class="quick-setup__status" id="quickSetupStatus" aria-live="polite"></p>
+          </div>
+
+          <aside class="quick-setup__qr-wrap">
+            <div class="quick-setup__qr-card">
+              <div class="quick-setup__qr-canvas-wrap">
+                <canvas id="quickSetupQrCanvas" width="320" height="320" aria-label="SeekerClaw Quick Setup QR"></canvas>
+              </div>
+              <p class="quick-setup__qr-caption" id="quickSetupQrCaption">Generate a QR to preview your SeekerClaw config import link.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer quicksetup-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <img data-brand-logo src="assets/logo.svg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
+            <span class="nav__logo-text" data-brand-name>Seeker<span class="accent">Claw</span></span>
+          </a>
+          <p class="footer__tagline" data-brand-tagline>Your phone. Your agent. Your keys. Your rules.</p>
+        </div>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Main Site</a>
+          <a href="index.html#features" class="footer__link">Features</a>
+          <a href="index.html#waitlist" class="footer__link">Waitlist</a>
+          <a href="copyright.html" class="footer__link">Copyright</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
+        </div>
+        <div class="footer__social">
+          <a data-link-github href="#" class="footer__social-link" aria-label="GitHub">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a data-link-x href="https://x.com/SeekerClaw" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p data-brand-footer>Built for Seeker. Powered by Solana.</p>
+        <p class="footer__powered-by">Powered by <a data-link-openclaw href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a> - open-source AI agent framework</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/quick-setup.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
