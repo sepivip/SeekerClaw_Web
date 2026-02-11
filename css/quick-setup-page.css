@@ -1,4 +1,7 @@
-/* Dedicated Quick Setup page: compact density, fast scan/fill workflow */
+/* ═══════════════════════════════════════════════════════════
+   Quick Setup Page — Dedicated compact density layout
+   Refined dark-mode form with custom controls & popovers
+   ═══════════════════════════════════════════════════════════ */
 
 body.quicksetup-page {
   min-height: 100vh;
@@ -7,6 +10,8 @@ body.quicksetup-page {
     radial-gradient(640px 260px at 18% 0%, rgba(149, 210, 230, 0.08), transparent 60%),
     var(--bg-deep);
 }
+
+/* ── Hero ─────────────────────────────────────────────────── */
 
 .quicksetup-hero {
   position: relative;
@@ -18,14 +23,6 @@ body.quicksetup-page {
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-
-.quicksetup-hero::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(228, 31, 40, 0.45), transparent);
 }
 
 .quicksetup-hero__container {
@@ -53,6 +50,8 @@ body.quicksetup-page {
   line-height: 1.45;
 }
 
+/* ── Section Reset ────────────────────────────────────────── */
+
 .quicksetup-page .quick-setup {
   background: transparent;
   padding: 0.9rem 0 3.5rem;
@@ -65,6 +64,8 @@ body.quicksetup-page {
 .quicksetup-page__container {
   max-width: 1180px;
 }
+
+/* ── Panel ────────────────────────────────────────────────── */
 
 .quicksetup-page .quick-setup__panel {
   padding: 1rem;
@@ -94,11 +95,13 @@ body.quicksetup-page {
   gap: 0;
 }
 
+/* ── Field Groups ─────────────────────────────────────────── */
+
 .quicksetup-page .qs-group {
   display: block;
-  padding: 0.58rem 0.35rem 0.62rem;
+  padding: 0.62rem 0.35rem 0.68rem;
   border: none;
-  border-bottom: 1px solid rgba(47, 60, 91, 0.58);
+  border-bottom: 1px solid rgba(47, 60, 91, 0.42);
   border-radius: 0;
   background: transparent;
 }
@@ -109,42 +112,58 @@ body.quicksetup-page {
 
 .quicksetup-page .qs-group__header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 0.7rem;
-  margin-bottom: 0.34rem;
+  margin-bottom: 0.42rem;
+  position: relative;
 }
 
 .quicksetup-page .qs-group__title {
   margin-bottom: 0;
   padding-top: 0;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  color: #e7ecfb;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   line-height: 1.2;
 }
 
+/* ── Info Popovers ────────────────────────────────────────── */
+
 .quicksetup-page .qs-group__info {
   margin: 0;
-  max-width: 360px;
-  border: 1px solid rgba(47, 60, 91, 0.55);
-  border-radius: 8px;
-  background: rgba(11, 15, 26, 0.45);
+  border: none;
+  border-radius: 6px;
+  background: transparent;
 }
 
 .quicksetup-page .qs-group__info-summary {
   list-style: none;
   cursor: pointer;
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-  padding: 0.32rem 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.22rem 0.45rem;
   line-height: 1.2;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.quicksetup-page .qs-group__info-summary:hover {
+  color: var(--text-secondary);
+  border-color: rgba(47, 60, 91, 0.5);
+  background: rgba(11, 15, 26, 0.4);
 }
 
 .quicksetup-page .qs-group__info-summary:focus-visible {
   outline: 2px solid rgba(228, 31, 40, 0.5);
   outline-offset: 1px;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 .quicksetup-page .qs-group__info-summary::-webkit-details-marker {
@@ -152,78 +171,99 @@ body.quicksetup-page {
 }
 
 .quicksetup-page .qs-group__info-summary::before {
-  content: "+";
-  display: inline-block;
+  content: "?";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
   margin-right: 0.3rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  border-radius: 50%;
+  border: 1px solid var(--text-muted);
   color: var(--text-muted);
+  vertical-align: middle;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.quicksetup-page .qs-group__info-summary:hover::before {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 .quicksetup-page .qs-group__info[open] .qs-group__info-summary::before {
-  content: "-";
+  background: rgba(228, 31, 40, 0.15);
+  border-color: rgba(228, 31, 40, 0.4);
+  color: #ff8f94;
+}
+
+/* Popover body — floats as overlay */
+.quicksetup-page .qs-group__info[open] {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 20;
+  width: max-content;
+  max-width: min(380px, calc(100vw - 2rem));
+  background: rgba(13, 17, 28, 0.97);
+  border: 1px solid rgba(47, 60, 91, 0.6);
+  border-radius: 10px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  animation: qs-popover-in 0.18s var(--ease-out) both;
+}
+
+@keyframes qs-popover-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
 }
 
 .quicksetup-page .qs-group__info-body {
-  border-top: 1px solid rgba(47, 60, 91, 0.45);
-  padding: 0.4rem 0.5rem 0.45rem;
+  border-top: 1px solid rgba(47, 60, 91, 0.35);
+  padding: 0.5rem 0.6rem 0.55rem;
 }
 
 .quicksetup-page .qs-group__info-line {
   margin: 0;
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   color: var(--text-secondary);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .quicksetup-page .qs-group__info-line + .qs-group__info-line {
-  margin-top: 0.28rem;
+  margin-top: 0.3rem;
 }
 
 .quicksetup-page .qs-group__info-label {
   font-weight: 600;
-  color: #d7def4;
-  margin-right: 0.3rem;
+  color: var(--text-primary);
+  margin-right: 0.25rem;
 }
 
 .quicksetup-page .qs-group__info-note {
   margin: 0.35rem 0 0;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
+  font-style: italic;
 }
+
+/* ── Field Grid ───────────────────────────────────────────── */
 
 .quicksetup-page .qs-group__grid {
   width: 100%;
   grid-template-columns: repeat(2, minmax(160px, 1fr));
-  gap: 0.34rem 0.64rem;
-}
-
-.quicksetup-page .qs-label {
-  font-size: 0.7rem;
-  margin-bottom: 0.12rem;
-}
-
-.quicksetup-page .qs-help {
-  display: none;
-}
-
-.quicksetup-page .qs-control {
-  font-size: 0.8rem;
-  min-height: 33px;
-  padding: 0.42rem 0.55rem;
-}
-
-.quicksetup-page .qs-toggle__text {
-  font-size: 0.78rem;
-}
-
-.quicksetup-page .qs-error {
-  min-height: 0.74rem;
-  font-size: 0.66rem;
+  gap: 0.38rem 0.64rem;
 }
 
 .quicksetup-page .qs-field {
   display: flex;
   flex-direction: column;
-  gap: 0.08rem;
+  gap: 0.1rem;
 }
 
 .quicksetup-page .qs-field--full {
@@ -238,8 +278,169 @@ body.quicksetup-page {
   min-height: 0.66rem;
 }
 
+.quicksetup-page .qs-label {
+  font-size: 0.7rem;
+  margin-bottom: 0.14rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.quicksetup-page .qs-help {
+  display: none;
+}
+
+/* ── Inputs ───────────────────────────────────────────────── */
+
+.quicksetup-page .qs-control {
+  font-size: 0.82rem;
+  min-height: 36px;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(6, 8, 15, 0.7);
+  border: 1px solid rgba(47, 60, 91, 0.45);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.quicksetup-page .qs-control:hover {
+  border-color: rgba(47, 60, 91, 0.7);
+  background: rgba(6, 8, 15, 0.85);
+}
+
+.quicksetup-page .qs-control:focus {
+  border-color: rgba(228, 31, 40, 0.55);
+  box-shadow: 0 0 0 3px rgba(228, 31, 40, 0.12);
+  background: rgba(6, 8, 15, 0.9);
+}
+
+.quicksetup-page .qs-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ── Custom Select Dropdown ───────────────────────────────── */
+
+.quicksetup-page .qs-select-wrap {
+  position: relative;
+}
+
+.quicksetup-page .qs-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  min-height: 36px;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(6, 8, 15, 0.7);
+  border: 1px solid rgba(47, 60, 91, 0.45);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.quicksetup-page .qs-select-trigger:hover {
+  border-color: rgba(47, 60, 91, 0.7);
+  background: rgba(6, 8, 15, 0.85);
+}
+
+.quicksetup-page .qs-select-trigger:focus {
+  border-color: rgba(228, 31, 40, 0.55);
+  box-shadow: 0 0 0 3px rgba(228, 31, 40, 0.12);
+  background: rgba(6, 8, 15, 0.9);
+  outline: none;
+}
+
+.quicksetup-page .qs-select-trigger.is-invalid {
+  border-color: rgba(255, 91, 97, 0.85);
+}
+
+.quicksetup-page .qs-select-arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.quicksetup-page .qs-select-wrap.is-open .qs-select-arrow {
+  transform: rotate(180deg);
+}
+
+.quicksetup-page .qs-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: rgba(13, 17, 28, 0.97);
+  border: 1px solid rgba(47, 60, 91, 0.6);
+  border-radius: 8px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  padding: 4px;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+}
+
+.quicksetup-page .qs-select-wrap.is-open .qs-select-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.quicksetup-page .qs-select-option {
+  display: block;
+  width: 100%;
+  padding: 0.45rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s, color 0.12s;
+}
+
+.quicksetup-page .qs-select-option:hover {
+  background: rgba(228, 31, 40, 0.1);
+  color: var(--text-primary);
+}
+
+.quicksetup-page .qs-select-option.is-selected {
+  color: var(--text-primary);
+  background: rgba(228, 31, 40, 0.15);
+}
+
+.quicksetup-page .qs-select-option + .qs-select-option {
+  margin-top: 2px;
+}
+
+/* ── Toggle ───────────────────────────────────────────────── */
+
+.quicksetup-page .qs-toggle__text {
+  font-size: 0.78rem;
+}
+
+/* ── Errors ───────────────────────────────────────────────── */
+
+.quicksetup-page .qs-error {
+  min-height: 0.74rem;
+  font-size: 0.66rem;
+}
+
+/* ── Actions ──────────────────────────────────────────────── */
+
 .quicksetup-page .quick-setup__actions {
-  margin-top: 0.62rem;
+  margin-top: 0.72rem;
   gap: 0.5rem;
   padding-left: 0.08rem;
 }
@@ -252,6 +453,11 @@ body.quicksetup-page {
   line-height: 1.2;
   justify-content: center;
   touch-action: manipulation;
+  transition: transform 0.15s var(--ease-out), box-shadow 0.2s;
+}
+
+.quicksetup-page .quick-setup__actions .btn:active {
+  transform: scale(0.97);
 }
 
 .quicksetup-page .quick-setup__actions .btn:focus-visible {
@@ -264,6 +470,8 @@ body.quicksetup-page {
   min-height: 1rem;
   font-size: 0.78rem;
 }
+
+/* ── QR Sidebar ───────────────────────────────────────────── */
 
 .quicksetup-page .quick-setup__qr-wrap {
   top: 76px;
@@ -323,11 +531,28 @@ body.quicksetup-page {
   border-radius: 9px;
   font-size: 0.78rem;
   justify-content: center;
+  transition: transform 0.15s var(--ease-out);
 }
+
+.quicksetup-page .quick-setup__copy-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
 
 .quicksetup-footer {
   padding-top: 1rem;
 }
+
+/* ── Popover backdrop (click-away) ────────────────────────── */
+
+.qs-popover-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 19;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
   .quicksetup-page .quick-setup__layout {
@@ -350,8 +575,10 @@ body.quicksetup-page {
     gap: 0.35rem;
   }
 
-  .quicksetup-page .qs-group__info {
-    max-width: 100%;
+  .quicksetup-page .qs-group__info[open] {
+    right: auto;
+    left: 0;
+    max-width: calc(100vw - 3rem);
   }
 
   .quicksetup-page .qs-group__title {

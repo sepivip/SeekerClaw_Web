@@ -444,16 +444,88 @@
 
           let control;
           if (field.type === "select") {
-            control = createElements("select", "qs-control");
+            /* Custom styled select dropdown */
+            const currentVal = getByPath(state, field.path) || "";
+            const currentLabel = (field.options.find(function (o) { return o.value === currentVal; }) || field.options[0] || {}).label || "";
+
+            const wrap = createElements("div", "qs-select-wrap");
+            const trigger = createElements("button", "qs-select-trigger");
+            trigger.type = "button";
+            trigger.setAttribute("role", "combobox");
+            trigger.setAttribute("aria-expanded", "false");
+            trigger.setAttribute("aria-haspopup", "listbox");
+
+            const triggerText = createElements("span", "qs-select-value", currentLabel);
+            const triggerArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            triggerArrow.setAttribute("class", "qs-select-arrow");
+            triggerArrow.setAttribute("viewBox", "0 0 24 24");
+            triggerArrow.setAttribute("fill", "none");
+            triggerArrow.setAttribute("stroke", "currentColor");
+            triggerArrow.setAttribute("stroke-width", "2");
+            triggerArrow.setAttribute("stroke-linecap", "round");
+            triggerArrow.setAttribute("stroke-linejoin", "round");
+            var chevron = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+            chevron.setAttribute("points", "6 9 12 15 18 9");
+            triggerArrow.appendChild(chevron);
+
+            trigger.appendChild(triggerText);
+            trigger.appendChild(triggerArrow);
+
+            const dropdown = createElements("div", "qs-select-dropdown");
+            dropdown.setAttribute("role", "listbox");
+
             for (const option of field.options) {
-              const optionEl = createElements("option");
-              optionEl.value = option.value;
-              optionEl.textContent = option.label;
-              if (option.value === getByPath(state, field.path)) {
-                optionEl.selected = true;
+              const optBtn = createElements("button", "qs-select-option", option.label);
+              optBtn.type = "button";
+              optBtn.dataset.value = option.value;
+              optBtn.setAttribute("role", "option");
+              if (option.value === currentVal) {
+                optBtn.classList.add("is-selected");
+                optBtn.setAttribute("aria-selected", "true");
               }
-              control.appendChild(optionEl);
+              optBtn.addEventListener("click", function () {
+                triggerText.textContent = option.label;
+                dropdown.querySelectorAll(".qs-select-option").forEach(function (b) {
+                  b.classList.remove("is-selected");
+                  b.setAttribute("aria-selected", "false");
+                });
+                optBtn.classList.add("is-selected");
+                optBtn.setAttribute("aria-selected", "true");
+                wrap.classList.remove("is-open");
+                trigger.setAttribute("aria-expanded", "false");
+                /* Fire change */
+                touched.add(field.path);
+                setByPath(state, field.path, option.value);
+                renderValidation(validateQuickSetup(state));
+              });
+              dropdown.appendChild(optBtn);
             }
+
+            trigger.addEventListener("click", function (e) {
+              e.stopPropagation();
+              var isOpen = wrap.classList.toggle("is-open");
+              trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            wrap.appendChild(trigger);
+            wrap.appendChild(dropdown);
+
+            /* Use trigger as the "control" for validation toggling */
+            control = trigger;
+            control.dataset.path = field.path;
+            controlsByPath.set(field.path, control);
+
+            labelEl.htmlFor = "";
+            fieldEl.appendChild(labelEl);
+            fieldEl.appendChild(wrap);
+
+            const errorEl = createElements("p", "qs-error");
+            errorEl.dataset.errorFor = field.path;
+            fieldEl.appendChild(errorEl);
+            errorsByPath.set(field.path, errorEl);
+
+            gridEl.appendChild(fieldEl);
+            continue;
           } else if (field.type === "toggle") {
             const toggleLabel = createElements("label", "qs-toggle");
             control = createElements("input");
@@ -658,6 +730,24 @@
         });
       });
     }
+
+    /* Close custom selects and info popovers on outside click */
+    document.addEventListener("click", function (e) {
+      /* Close custom selects */
+      fieldsRoot.querySelectorAll(".qs-select-wrap.is-open").forEach(function (wrap) {
+        if (!wrap.contains(e.target)) {
+          wrap.classList.remove("is-open");
+          var trig = wrap.querySelector(".qs-select-trigger");
+          if (trig) trig.setAttribute("aria-expanded", "false");
+        }
+      });
+      /* Close info popovers */
+      fieldsRoot.querySelectorAll(".qs-group__info[open]").forEach(function (det) {
+        if (!det.contains(e.target)) {
+          det.removeAttribute("open");
+        }
+      });
+    });
 
     renderFields();
   }
