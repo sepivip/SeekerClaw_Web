@@ -308,6 +308,17 @@
   }
 
   function clearCanvas(canvas) {
+    const canvasWrap = canvas && canvas.parentElement;
+    if (canvasWrap) {
+      const children = Array.from(canvasWrap.children);
+      for (const child of children) {
+        if (child !== canvas) {
+          child.remove();
+        }
+      }
+    }
+    canvas.style.display = "block";
+
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = "#0f1420";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -507,34 +518,69 @@
 
     async function renderQr(deepLink) {
       clearCanvas(canvas);
-      if (!window.QRCode || typeof window.QRCode.toCanvas !== "function") {
+      if (!window.QRCode) {
         setStatus("QR library failed to load. Check your connection and retry.", "error");
         return false;
       }
 
-      return new Promise((resolve) => {
-        window.QRCode.toCanvas(
-          canvas,
-          deepLink,
-          {
-            width: 320,
-            margin: 1,
-            errorCorrectionLevel: "M",
-            color: {
-              dark: "#eaf0ff",
-              light: "#0f1420",
+      if (typeof window.QRCode.toCanvas === "function") {
+        return new Promise((resolve) => {
+          window.QRCode.toCanvas(
+            canvas,
+            deepLink,
+            {
+              width: 320,
+              margin: 1,
+              errorCorrectionLevel: "M",
+              color: {
+                dark: "#eaf0ff",
+                light: "#0f1420",
+              },
             },
-          },
-          (error) => {
-            if (error) {
-              setStatus("Failed to render QR. Try shorter field values and generate again.", "error");
-              resolve(false);
-              return;
+            (error) => {
+              if (error) {
+                setStatus("Failed to render QR. Try shorter field values and generate again.", "error");
+                resolve(false);
+                return;
+              }
+              resolve(true);
             }
-            resolve(true);
+          );
+        });
+      }
+
+      if (typeof window.QRCode === "function") {
+        try {
+          const canvasWrap = canvas.parentElement;
+          if (!canvasWrap) {
+            setStatus("QR surface failed to initialize. Reload and try again.", "error");
+            return false;
           }
-        );
-      });
+
+          canvas.style.display = "none";
+          const hostEl = createElements("div", "quick-setup__qr-fallback-host");
+          canvasWrap.appendChild(hostEl);
+
+          new window.QRCode(hostEl, {
+            text: deepLink,
+            width: 320,
+            height: 320,
+            colorDark: "#eaf0ff",
+            colorLight: "#0f1420",
+            correctLevel: window.QRCode.CorrectLevel
+              ? window.QRCode.CorrectLevel.M
+              : undefined,
+          });
+
+          return true;
+        } catch {
+          setStatus("Failed to render QR. Try shorter field values and generate again.", "error");
+          return false;
+        }
+      }
+
+      setStatus("QR library failed to load. Check your connection and retry.", "error");
+      return false;
     }
 
     async function generateDeepLink() {

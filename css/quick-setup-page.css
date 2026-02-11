@@ -273,6 +273,14 @@ body.quicksetup-page {
   padding: 0.6rem;
 }
 
+.quicksetup-page .quick-setup__qr-fallback-host canvas,
+.quicksetup-page .quick-setup__qr-fallback-host img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
 .quicksetup-page .quick-setup__qr-caption {
   margin-top: 0.58rem;
   padding-inline: 0.1rem;
