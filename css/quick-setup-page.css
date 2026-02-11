@@ -14,6 +14,12 @@ body.quicksetup-page {
   overflow: hidden;
 }
 
+.quicksetup-hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .quicksetup-hero::after {
   content: "";
   position: absolute;
@@ -271,6 +277,26 @@ body.quicksetup-page {
 
 .quicksetup-page .quick-setup__qr-canvas-wrap {
   padding: 0.6rem;
+  position: relative;
+}
+
+.quicksetup-page .quick-setup__qr-canvas-wrap::after {
+  content: "QR will appear here";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.quicksetup-page .quick-setup__qr-canvas-wrap.has-qr::after {
+  opacity: 0;
 }
 
 .quicksetup-page .quick-setup__qr-fallback-host canvas,
@@ -287,6 +313,16 @@ body.quicksetup-page {
   font-size: 0.76rem;
   line-height: 1.45;
   text-wrap: pretty;
+}
+
+.quicksetup-page .quick-setup__copy-btn {
+  margin-top: 0.62rem;
+  width: 100%;
+  min-height: 36px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 9px;
+  font-size: 0.78rem;
+  justify-content: center;
 }
 
 .quicksetup-footer {

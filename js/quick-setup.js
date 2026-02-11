@@ -337,6 +337,7 @@
     const captionEl = document.getElementById("quickSetupQrCaption");
     const generateBtn = document.getElementById("quickSetupGenerateBtn");
     const clearBtn = document.getElementById("quickSetupClearBtn");
+    const copyBtn = document.getElementById("quickSetupCopyBtn");
     if (
       !canvas ||
       !statusEl ||
@@ -346,6 +347,8 @@
     ) {
       return;
     }
+
+    let lastDeepLink = "";
 
     let state = createDefaultState();
     const touched = new Set();
@@ -602,7 +605,15 @@
         return;
       }
 
+      lastDeepLink = deepLink;
+      var canvasWrap = canvas.parentElement;
+      if (canvasWrap) {
+        canvasWrap.classList.add("has-qr");
+      }
       captionEl.textContent = "Scan with SeekerClaw app to import this configuration.";
+      if (copyBtn) {
+        copyBtn.hidden = false;
+      }
       setStatus(
         "QR ready. Payload size: " + payload.length.toLocaleString() + " chars.",
         "success"
@@ -613,16 +624,40 @@
       state = createDefaultState();
       touched.clear();
       submitAttempted = false;
+      lastDeepLink = "";
       renderFields();
       captionEl.textContent = "Generate a QR to preview your SeekerClaw config import link.";
       setStatus("", "");
       clearCanvas(canvas);
+      var canvasWrap = canvas.parentElement;
+      if (canvasWrap) {
+        canvasWrap.classList.remove("has-qr");
+      }
+      if (copyBtn) {
+        copyBtn.hidden = true;
+      }
     }
 
     clearCanvas(canvas);
 
     generateBtn.addEventListener("click", generateDeepLink);
     clearBtn.addEventListener("click", clearAll);
+
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        if (!lastDeepLink) {
+          return;
+        }
+        navigator.clipboard.writeText(lastDeepLink).then(function () {
+          var original = copyBtn.textContent;
+          copyBtn.textContent = "Copied!";
+          setTimeout(function () {
+            copyBtn.innerHTML =
+              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Deep Link';
+          }, 1500);
+        });
+      });
+    }
 
     renderFields();
   }

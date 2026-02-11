@@ -37,10 +37,14 @@
   </nav>
 
   <header class="quicksetup-hero">
+    <div class="quicksetup-hero__bg">
+      <div class="hero__orb"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
     <div class="container quicksetup-hero__container">
       <h1 class="quicksetup-hero__title reveal">
         Deploy SeekerClaw config<br>
-        <span class="quicksetup-hero__title-sub">in under 1 minute</span>
+        <span class="quicksetup-hero__title-sub gradient-text">in under 1 minute</span>
       </h1>
       <p class="quicksetup-hero__desc reveal">
         Fill the compact form, generate a QR deep link, then scan from SeekerClaw to import credentials and defaults in one step.
@@ -74,6 +78,10 @@
                 <canvas id="quickSetupQrCanvas" width="320" height="320" aria-label="SeekerClaw Quick Setup QR"></canvas>
               </div>
               <p class="quick-setup__qr-caption" id="quickSetupQrCaption">Generate a QR to preview your SeekerClaw config import link.</p>
+              <button type="button" class="btn btn--outline quick-setup__copy-btn" id="quickSetupCopyBtn" hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Deep Link
+              </button>
             </div>
           </aside>
         </div>
