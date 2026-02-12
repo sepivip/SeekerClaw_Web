@@ -27,25 +27,7 @@
 <body>
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
-  <nav class="nav" id="nav">
-    <div class="nav__container">
-      <a href="#" class="nav__logo">
-        <img data-brand-logo src="assets/logo.svg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
-        <span class="nav__logo-text" data-brand-name>Seeker<span class="accent">Claw</span></span>
-      </a>
-      <div class="nav__links" id="navLinks">
-        <a href="#features" class="nav__link">Features</a>
-        <a href="#usecases" class="nav__link">Use Cases</a>
-        <a href="#roadmap" class="nav__link">Roadmap</a>
-        <a href="quick-setup.html" class="nav__link">Quick Setup</a>
-        <a href="#waitlist" class="nav__link">Waitlist</a>
-      </div>
-      <a data-link-dapp href="#" class="btn btn--primary nav__cta">Get on dApp Store</a>
-      <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <div id="site-nav"></div>
 
   <!-- ═══════════════════ HERO ═══════════════════ -->
   <header class="hero" id="hero">
@@ -69,7 +51,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Get on dApp Store
           </a>
-          <a href="#waitlist" class="btn btn--outline btn--lg" data-hero-cta-secondary>Join Waitlist</a>
+          <a href="quick-setup.html" class="btn btn--outline btn--lg" data-hero-cta-secondary>Quick Setup</a>
         </div>
       </div>
       <div class="hero__visual reveal">
@@ -213,67 +195,27 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ WAITLIST ═══════════════════ -->
-  <section class="waitlist" id="waitlist">
+  <!-- ═══════════════════ GET STARTED CTA ═══════════════════ -->
+  <section class="cta-setup" id="cta-setup">
     <div class="container">
-      <div class="waitlist__content reveal">
-        <p class="section-tag" data-waitlist-tag>Be First</p>
-        <h2 class="section-title" data-waitlist-title>Get Early Access</h2>
-        <p class="section-desc" data-waitlist-desc>Join the waitlist and be the first to turn your Seeker into an autonomous AI agent.</p>
-        <form class="waitlist__form" id="waitlistForm" data-link-form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="waitlist__input-wrap">
-            <input type="email" name="email" class="waitlist__input" data-waitlist-input placeholder="your@email.com" required autocomplete="email">
-            <button type="submit" class="btn btn--primary waitlist__btn">
-              <span class="waitlist__btn-text" data-waitlist-btn-text>Join Waitlist</span>
-              <span class="waitlist__btn-loading" hidden>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
-              </span>
-            </button>
-          </div>
-          <p class="waitlist__status" id="waitlistStatus" hidden></p>
-        </form>
+      <div class="cta-setup__content reveal">
+        <p class="section-tag">Get Started</p>
+        <h2 class="section-title">Set Up Your Agent in Under a Minute</h2>
+        <p class="section-desc">Use our Quick Setup tool to generate a config QR code, then scan it with SeekerClaw to import your credentials and defaults instantly.</p>
+        <a href="quick-setup.html" class="btn btn--primary btn--lg cta-setup__btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+          Quick Setup
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <a href="#" class="nav__logo">
-            <img data-brand-logo src="assets/logo.svg" alt="SeekerClaw" class="nav__logo-img" onerror="this.style.display='none'">
-            <span class="nav__logo-text" data-brand-name>Seeker<span class="accent">Claw</span></span>
-          </a>
-          <p class="footer__tagline" data-brand-tagline>Your phone. Your agent. Your keys. Your rules.</p>
-        </div>
-        <div class="footer__links">
-          <a href="#features" class="footer__link">Features</a>
-          <a href="#usecases" class="footer__link">Use Cases</a>
-          <a href="#roadmap" class="footer__link">Roadmap</a>
-          <a href="quick-setup.html" class="footer__link">Quick Setup</a>
-          <a href="#waitlist" class="footer__link">Waitlist</a>
-          <a href="copyright.html" class="footer__link">Copyright</a>
-          <a href="privacy.html" class="footer__link">Privacy</a>
-        </div>
-        <div class="footer__social">
-          <a data-link-github href="#" class="footer__social-link" aria-label="GitHub">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a data-link-x href="https://x.com/SeekerClaw" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p data-brand-footer>Built for Seeker. Powered by Solana.</p>
-        <p class="footer__powered-by">Powered by <a data-link-openclaw href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a> — open-source AI agent framework</p>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
-  <!-- Config first, then app logic -->
+  <!-- Config → Components → App logic -->
   <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "038074ada36d4b01ae030f2450a496ea"}'></script>

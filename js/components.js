@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════════════════════
+   SeekerClaw — Shared Components (Nav + Footer)
+   ───────────────────────────────────────────────────────────
+   Injects consistent nav and footer into every page.
+   Reads link definitions from SITE_CONFIG.
+   Must load AFTER config.js and BEFORE main.js.
+   ═══════════════════════════════════════════════════════════ */
+
+(function () {
+  'use strict';
+
+  var C = window.SITE_CONFIG;
+  if (!C) return;
+
+  /* ── Page detection ────────────────────────────────── */
+  function getCurrentPage() {
+    var path = window.location.pathname;
+    var file = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    return file;
+  }
+
+  function isIndex() {
+    var p = getCurrentPage();
+    return p === '' || p === '/' || p === 'index.html';
+  }
+
+  function resolveHref(link) {
+    if (link.type === 'page') return link.href;
+    // Anchor links: on index page use as-is, elsewhere prefix with index.html
+    return isIndex() ? link.href : 'index.html' + link.href;
+  }
+
+  function isActive(link) {
+    var current = getCurrentPage();
+    if (link.type === 'page') return link.href === current;
+    return false;
+  }
+
+  /* ── Build nav HTML ────────────────────────────────── */
+  function buildNav() {
+    var logoHref = isIndex() ? '#' : 'index.html';
+
+    var linksHtml = C.nav.links.map(function (link) {
+      var cls = 'nav__link' + (isActive(link) ? ' nav__link--active' : '');
+      return '<a href="' + resolveHref(link) + '" class="' + cls + '">' + link.label + '</a>';
+    }).join('');
+
+    return ''
+      + '<nav class="nav" id="nav">'
+      + '  <div class="nav__container">'
+      + '    <a href="' + logoHref + '" class="nav__logo">'
+      + '      <img src="' + C.brand.logo + '" alt="' + C.brand.name + '" class="nav__logo-img" onerror="this.style.display=\'none\'">'
+      + '      <span class="nav__logo-text">' + C.brand.nameHtml + '</span>'
+      + '    </a>'
+      + '    <div class="nav__links" id="navLinks">' + linksHtml + '</div>'
+      + '    <a href="' + C.links.dappStore + '" class="btn btn--primary nav__cta">' + C.nav.ctaLabel + '</a>'
+      + '    <button class="nav__burger" id="navBurger" aria-label="Toggle menu">'
+      + '      <span></span><span></span><span></span>'
+      + '    </button>'
+      + '  </div>'
+      + '</nav>';
+  }
+
+  /* ── Build footer HTML ─────────────────────────────── */
+  function buildFooter() {
+    var logoHref = isIndex() ? '#' : 'index.html';
+
+    var linksHtml = C.footer.links.map(function (link) {
+      return '<a href="' + resolveHref(link) + '" class="footer__link">' + link.label + '</a>';
+    }).join('');
+
+    var githubSvg = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>';
+    var xSvg = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
+
+    return ''
+      + '<footer class="footer">'
+      + '  <div class="container">'
+      + '    <div class="footer__top">'
+      + '      <div class="footer__brand">'
+      + '        <a href="' + logoHref + '" class="nav__logo">'
+      + '          <img src="' + C.brand.logo + '" alt="' + C.brand.name + '" class="nav__logo-img" onerror="this.style.display=\'none\'">'
+      + '          <span class="nav__logo-text">' + C.brand.nameHtml + '</span>'
+      + '        </a>'
+      + '        <p class="footer__tagline">' + C.brand.tagline + '</p>'
+      + '      </div>'
+      + '      <div class="footer__links">' + linksHtml + '</div>'
+      + '      <div class="footer__social">'
+      + '        <a href="' + C.links.github + '" class="footer__social-link" aria-label="GitHub">' + githubSvg + '</a>'
+      + '        <a href="' + C.links.x + '" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">' + xSvg + '</a>'
+      + '      </div>'
+      + '    </div>'
+      + '    <div class="footer__bottom">'
+      + '      <p>' + C.brand.footer + '</p>'
+      + '      <p class="footer__powered-by">Powered by <a href="' + C.links.openclaw + '" target="_blank" rel="noopener noreferrer">OpenClaw</a> \u2014 open-source AI agent framework</p>'
+      + '    </div>'
+      + '  </div>'
+      + '</footer>';
+  }
+
+  /* ── Inject into page ──────────────────────────────── */
+  var navSlot = document.getElementById('site-nav');
+  var footerSlot = document.getElementById('site-footer');
+
+  if (navSlot) navSlot.innerHTML = buildNav();
+  if (footerSlot) footerSlot.innerHTML = buildFooter();
+})();

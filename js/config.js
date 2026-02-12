@@ -22,7 +22,29 @@ window.SITE_CONFIG = {
     github: '#',                       // GitHub repo URL
     x: 'https://x.com/SeekerClaw',    // X (Twitter) profile
     openclaw: 'https://github.com/openclaw/openclaw', // OpenClaw framework
-    waitlistForm: 'https://formspree.io/f/YOUR_FORM_ID', // Formspree endpoint
+  },
+
+  /* ── Navigation (shared across all pages) ──────────── */
+  nav: {
+    links: [
+      { label: 'Features',    href: '#features',        type: 'anchor' },
+      { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
+      { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
+      { label: 'Quick Setup', href: 'quick-setup.html', type: 'page'   },
+    ],
+    ctaLabel: 'Get on dApp Store',
+  },
+
+  /* ── Footer (shared across all pages) ──────────────── */
+  footer: {
+    links: [
+      { label: 'Features',    href: '#features',        type: 'anchor' },
+      { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
+      { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
+      { label: 'Quick Setup', href: 'quick-setup.html', type: 'page'   },
+      { label: 'Copyright',   href: 'copyright.html',   type: 'page'   },
+      { label: 'Privacy',     href: 'privacy.html',     type: 'page'   },
+    ],
   },
 
   /* ── Hero Section ────────────────────────────────────── */
@@ -32,7 +54,8 @@ window.SITE_CONFIG = {
     titleLine2: 'for Solana Seeker',   // rendered with gradient
     description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, monitors your wallet, controls your phone, and connects via Telegram for real-time updates. 24/7.',
     ctaPrimary: 'Get on dApp Store',
-    ctaSecondary: 'Join Waitlist',
+    ctaSecondary: 'Quick Setup',
+    ctaSecondaryHref: 'quick-setup.html',
   },
 
   /* ── Stats ───────────────────────────────────────────── */
@@ -212,17 +235,6 @@ window.SITE_CONFIG = {
     title: 'The Vision',
     text: 'Every Seeker owner gets a personal AI agent that lives on their phone 24/7, monitors their wallet, keeps them informed via Telegram — and gets smarter every day.',
     taglineHtml: 'SeekerClaw is how Solana Seeker becomes the first true <strong>AI + Crypto phone</strong>.',
-  },
-
-  /* ── Waitlist ────────────────────────────────────────── */
-  waitlist: {
-    tag: 'Be First',
-    title: 'Get Early Access',
-    description: 'Join the waitlist and be the first to turn your Seeker into an autonomous AI agent.',
-    placeholder: 'your@email.com',
-    buttonText: 'Join Waitlist',
-    successMsg: "You're on the list! We'll be in touch.",
-    errorMsg: 'Something went wrong. Please try again or reach out directly.',
   },
 
   /* ── Terminal Mock (hero phone) ──────────────────────── */

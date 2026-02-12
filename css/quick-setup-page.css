@@ -540,7 +540,7 @@ body.quicksetup-page {
 
 /* ── Footer ───────────────────────────────────────────────── */
 
-.quicksetup-footer {
+.quicksetup-page .footer {
   padding-top: 1rem;
 }
 

@@ -1,46 +1,9 @@
 /* ═══════════════════════════════════════════════════════════
    SeekerClaw — Legal Pages (Copyright & Privacy)
    ───────────────────────────────────────────────────────────
-   Shared styles for copyright.html and privacy.html.
-   Uses theme tokens from theme.css.
+   Content styles for copyright.html and privacy.html.
+   Nav and footer are handled by the shared components.js.
    ═══════════════════════════════════════════════════════════ */
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: var(--font-body);
-  font-weight: 400;
-  color: var(--text-primary);
-  background: var(--bg-deep);
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-.accent {
-  color: var(--color-accent);
-  font-weight: inherit;
-}
 
 /* ── Container ────────────────────────────────────────────── */
 .legal-container {
@@ -48,67 +11,6 @@ a:hover {
   max-width: 780px;
   margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-/* ── Navigation ───────────────────────────────────────────── */
-.legal-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(6, 8, 15, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 0.75rem 0;
-}
-
-.legal-nav .legal-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 780px;
-}
-
-.legal-nav__logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.legal-nav__logo:hover {
-  text-decoration: none;
-  opacity: 1;
-}
-
-.legal-nav__logo-img {
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-
-.legal-nav__logo-text {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-.legal-nav__links {
-  display: flex;
-  gap: 1.25rem;
-}
-
-.legal-nav__link {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-
-.legal-nav__link:hover {
-  color: var(--text-primary);
-  text-decoration: none;
 }
 
 /* ── Main Content ─────────────────────────────────────────── */
@@ -239,39 +141,20 @@ a:hover {
   font-weight: 500;
 }
 
-/* ── Footer ───────────────────────────────────────────────── */
-.legal-footer {
-  border-top: 1px solid var(--border-subtle);
-  padding: 1.5rem 0;
-  text-align: center;
+/* ── Legal-specific link styling ──────────────────────────── */
+.legal a {
+  color: var(--color-primary);
 }
 
-.legal-footer p {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.legal-footer a {
-  color: var(--text-secondary);
-  font-weight: 400;
-}
-
-.legal-footer a:hover {
-  color: var(--text-primary);
+.legal a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   .legal {
     padding: 3rem 0 4rem;
-  }
-
-  .legal-nav__links {
-    gap: 0.75rem;
-  }
-
-  .legal-nav__link {
-    font-size: 0.8rem;
   }
 
   .legal__code {

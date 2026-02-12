@@ -217,6 +217,7 @@ img {
   transition: color 0.2s;
 }
 .nav__link:hover { color: var(--text-primary); }
+.nav__link--active { color: var(--text-primary); font-weight: 500; }
 
 .nav__cta {
   margin-left: 1rem;
@@ -1034,9 +1035,9 @@ img {
 }
 
 /* ══════════════════════════════════════════════════════════
-   WAITLIST
+   CTA — QUICK SETUP
    ══════════════════════════════════════════════════════════ */
-.waitlist {
+.cta-setup {
   padding: var(--section-pad) 0;
   background: var(--bg-surface);
   text-align: center;
@@ -1044,7 +1045,7 @@ img {
   overflow: hidden;
 }
 
-.waitlist::before {
+.cta-setup::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -1056,69 +1057,16 @@ img {
   opacity: 0.2;
 }
 
-.waitlist__content {
-  max-width: 540px;
+.cta-setup__content {
+  max-width: 580px;
   margin: 0 auto;
 }
 
-.waitlist__form {
+.cta-setup__btn {
   margin-top: 2rem;
-}
-
-.waitlist__input-wrap {
-  display: flex;
-  gap: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 5px;
-  transition: border-color 0.3s;
-}
-
-.waitlist__input-wrap:focus-within {
-  border-color: var(--purple);
-  box-shadow: 0 0 24px rgba(228, 31, 40, 0.12);
-}
-
-.waitlist__input {
-  flex: 1;
-  background: none;
-  border: none;
-  padding: 0.75rem 1rem;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  outline: none;
-}
-
-.waitlist__input::placeholder {
-  color: var(--text-muted);
-}
-
-.waitlist__btn {
-  border-radius: 10px;
-  padding: 0.75rem 1.75rem;
-}
-
-.waitlist__btn-loading svg {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.waitlist__status {
-  margin-top: 0.75rem;
-  font-size: 0.88rem;
-}
-
-.waitlist__status.success {
-  color: var(--green);
-}
-
-.waitlist__status.error {
-  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -1445,13 +1393,5 @@ img {
   .hero__device {
     width: 100%;
     max-width: 300px;
-  }
-  .waitlist__input-wrap {
-    flex-direction: column;
-  }
-
-  .waitlist__btn {
-    width: 100%;
-    justify-content: center;
   }
 }

@@ -52,7 +52,6 @@
   setAllAttr('[data-link-dapp]', 'href', C.links.dappStore);
   setAllAttr('[data-link-github]', 'href', C.links.github);
   setAllAttr('[data-link-x]', 'href', C.links.x);
-  setAttr('[data-link-form]', 'action', C.links.waitlistForm);
 
   /* ── Hero ─────────────────────────────────────────────── */
   setText('[data-hero-tag]', C.hero.tag);
@@ -65,6 +64,9 @@
     + C.hero.ctaPrimary
   );
   setText('[data-hero-cta-secondary]', C.hero.ctaSecondary);
+  if (C.hero.ctaSecondaryHref) {
+    setAttr('[data-hero-cta-secondary]', 'href', C.hero.ctaSecondaryHref);
+  }
 
   /* ── Device slideshow (Home / Console / Settings) ──── */
   (function initSlideshow() {
@@ -248,13 +250,6 @@
   setText('[data-vision-text]', C.vision.text);
   setHtml('[data-vision-tagline]', C.vision.taglineHtml);
 
-  /* ── Waitlist ────────────────────────────────────────── */
-  setText('[data-waitlist-tag]', C.waitlist.tag);
-  setText('[data-waitlist-title]', C.waitlist.title);
-  setText('[data-waitlist-desc]', C.waitlist.description);
-  setAttr('[data-waitlist-input]', 'placeholder', C.waitlist.placeholder);
-  setText('[data-waitlist-btn-text]', C.waitlist.buttonText);
-
   /* ══════════════════════════════════════════════════════
      INTERACTIONS & ANIMATIONS
      ══════════════════════════════════════════════════════ */
@@ -342,51 +337,6 @@
   );
 
   $$('.stats__number[data-target]').forEach((el) => statsObserver.observe(el));
-
-  /* ── Waitlist form handling ────────────────────────── */
-  const form = document.getElementById('waitlistForm');
-  const statusEl = document.getElementById('waitlistStatus');
-
-  if (form && statusEl) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const btnText = form.querySelector('.waitlist__btn-text');
-      const btnLoading = form.querySelector('.waitlist__btn-loading');
-      const submitBtn = form.querySelector('.waitlist__btn');
-
-      if (btnText) btnText.hidden = true;
-      if (btnLoading) btnLoading.hidden = false;
-      submitBtn.disabled = true;
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { Accept: 'application/json' },
-        });
-
-        if (response.ok) {
-          statusEl.textContent = C.waitlist.successMsg;
-          statusEl.className = 'waitlist__status success';
-          statusEl.hidden = false;
-          form.reset();
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch {
-        statusEl.textContent = C.waitlist.errorMsg;
-        statusEl.className = 'waitlist__status error';
-        statusEl.hidden = false;
-      }
-
-      if (btnText) btnText.hidden = false;
-      if (btnLoading) btnLoading.hidden = true;
-      submitBtn.disabled = false;
-    });
-  }
 
   /* ── Smooth scroll for anchor links ────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
