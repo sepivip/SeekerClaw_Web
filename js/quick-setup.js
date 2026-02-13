@@ -408,7 +408,7 @@
 
       const card = createElements("div", "qs-tooltip");
       card.id = tooltipId;
-      card.setAttribute("role", "dialog");
+      card.setAttribute("role", "region");
       card.setAttribute("aria-label", "Help for " + field.label);
       card.hidden = true;
       card.setAttribute("aria-hidden", "true");
