@@ -1,0 +1,7 @@
+# SeekerClaw — seekerclaw.xyz
+# Allow all crawlers (search engines + AI agents)
+
+User-agent: *
+Allow: /
+
+Sitemap: https://seekerclaw.xyz/sitemap.xml

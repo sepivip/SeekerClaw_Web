@@ -7,10 +7,76 @@
   <meta name="description" content="SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Monitor your wallet, control your device, and stay connected via Telegram — all from one app.">
   <meta name="theme-color" content="#06080f">
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://seekerclaw.xyz/">
+
   <!-- Open Graph -->
   <meta property="og:title" content="SeekerClaw — The AI Agent Layer for Solana Seeker">
-  <meta property="og:description" content="Your phone. Your agent. Your keys. Your rules. Turn your Seeker into an autonomous AI agent.">
+  <meta property="og:description" content="Turn your Seeker phone into an autonomous AI agent. Monitor wallets, automate DeFi, get Telegram alerts — 24/7 on-device.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seekerclaw.xyz/">
+  <meta property="og:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="SeekerClaw — The AI Agent Layer for Solana Seeker">
+  <meta property="og:site_name" content="SeekerClaw">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SeekerClaw">
+  <meta name="twitter:title" content="SeekerClaw — The AI Agent Layer for Solana Seeker">
+  <meta name="twitter:description" content="Turn your Seeker phone into an autonomous AI agent. Monitor wallets, automate DeFi, get Telegram alerts — 24/7 on-device.">
+  <meta name="twitter:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta name="twitter:image:alt" content="SeekerClaw — The AI Agent Layer for Solana Seeker">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://seekerclaw.xyz/#organization",
+        "name": "SeekerClaw",
+        "url": "https://seekerclaw.xyz",
+        "logo": "https://seekerclaw.xyz/assets/logo.svg",
+        "sameAs": ["https://x.com/SeekerClaw"],
+        "description": "The AI Agent Layer for Solana Seeker phone"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://seekerclaw.xyz/#website",
+        "url": "https://seekerclaw.xyz",
+        "name": "SeekerClaw",
+        "publisher": { "@id": "https://seekerclaw.xyz/#organization" }
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://seekerclaw.xyz/#app",
+        "name": "SeekerClaw",
+        "description": "SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Monitor your wallet, control your device, and stay connected via Telegram.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Android",
+        "offers": {
+          "@type": "Offer",
+          "price": 0,
+          "priceCurrency": "USD"
+        },
+        "creator": { "@id": "https://seekerclaw.xyz/#organization" },
+        "featureList": [
+          "Wallet monitoring",
+          "DeFi automation",
+          "NFT tracking",
+          "Telegram notifications",
+          "On-device AI agent",
+          "Device control",
+          "Modular skill system"
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -29,6 +95,7 @@
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <div id="site-nav"></div>
 
+  <main>
   <!-- ═══════════════════ HERO ═══════════════════ -->
   <header class="hero" id="hero">
     <div class="hero__bg">
@@ -68,8 +135,23 @@
         </div>
       </div>
     </div>
-    <!-- Stats strip — rebuilt dynamically from config -->
-    <div class="stats reveal"></div>
+    <!-- Stats strip — enhanced dynamically from config -->
+    <div class="stats reveal">
+      <div class="stats__item">
+        <span class="stats__number">150,000</span><span class="stats__suffix">+</span>
+        <span class="stats__label">Seeker Devices</span>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <span class="stats__number">18</span><span class="stats__suffix">+</span>
+        <span class="stats__label">Built-in Skills</span>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <span class="stats__number">24/7</span>
+        <span class="stats__label">Autonomous Agent</span>
+      </div>
+    </div>
   </header>
 
   <!-- ═══════════════════ FEATURES ═══════════════════ -->
@@ -135,8 +217,30 @@
         <p class="section-tag" data-hiw-tag>Get Started</p>
         <h2 class="section-title" data-hiw-title>How It Works</h2>
       </div>
-      <!-- Steps rebuilt dynamically from config -->
-      <div class="hiw__steps"></div>
+      <!-- Steps — enhanced dynamically from config -->
+      <div class="hiw__steps">
+        <div class="hiw__step reveal">
+          <div class="hiw__step-number">01</div>
+          <h3 class="hiw__step-title">Install SeekerClaw</h3>
+          <p class="hiw__step-desc">Download from the dApp Store onto your Solana Seeker phone.</p>
+        </div>
+        <div class="hiw__connector reveal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="hiw__step reveal">
+          <div class="hiw__step-number">02</div>
+          <h3 class="hiw__step-title">Connect Wallet + Telegram</h3>
+          <p class="hiw__step-desc">Link your Seed Vault wallet and Telegram account in seconds.</p>
+        </div>
+        <div class="hiw__connector reveal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="hiw__step reveal">
+          <div class="hiw__step-number">03</div>
+          <h3 class="hiw__step-title">Your Agent Goes Live</h3>
+          <p class="hiw__step-desc">SeekerClaw runs 24/7 — monitoring, alerting, and acting autonomously.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -148,8 +252,37 @@
         <h2 class="section-title" data-usecases-title>What Seeker Owners Are Doing</h2>
         <p class="section-desc" data-usecases-desc>From portfolio monitoring to DeFi research — SeekerClaw handles it all autonomously.</p>
       </div>
-      <!-- Cards rebuilt dynamically from config -->
-      <div class="usecases__grid"></div>
+      <!-- Cards — enhanced dynamically from config -->
+      <div class="usecases__grid">
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Wallet Watcher</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Alert me on Telegram when my SOL balance drops below 5"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Check my portfolio every morning and send me a summary"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">DeFi Assistant</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "What's the current price of SOL, JUP, and BONK?"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Research the latest Solana DeFi protocols and summarize"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Onchain Notifications</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> Agent monitors your wallet and sends Telegram alerts for incoming/outgoing transactions.</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Crypto Calendar</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Remind me about the Jupiter airdrop claim on March 15th"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Every Friday at 6pm, show me my weekly portfolio performance"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Travel + Crypto</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> Agent knows your GPS location, finds local crypto-friendly spots, converts prices, and can send SOL to a friend.</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Social + Web3</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Text my friend that I just sent them 2 SOL"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Search the web for the latest Solana Mobile news"</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -162,8 +295,25 @@
         <p class="section-desc" data-comparison-desc>No other AI agent runs natively on a crypto phone with hardware wallet integration, device control, and messaging — all at once.</p>
       </div>
       <div class="comparison__table-wrap reveal">
-        <!-- Table rebuilt dynamically from config -->
-        <table class="comparison__table"></table>
+        <!-- Table — enhanced dynamically from config -->
+        <table class="comparison__table">
+          <thead><tr>
+            <th class="comparison__feature-col">Feature</th>
+            <th class="comparison__other-col">Regular AI Apps</th>
+            <th class="comparison__seeker-col">SeekerClaw on Seeker</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Runs on device</td><td><span class="comparison__muted">Cloud only</span></td><td><span class="comparison__check">&#10003;</span> Native on Seeker</td></tr>
+            <tr><td>Wallet access</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Via Seed Vault</td></tr>
+            <tr><td>Persistent memory</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Remembers everything</td></tr>
+            <tr><td>Controls your phone</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Calls, SMS, apps, GPS</td></tr>
+            <tr><td>Messaging integration</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Telegram (more coming)</td></tr>
+            <tr><td>Crypto-native</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Solana-first</td></tr>
+            <tr><td>Autonomous scheduling</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Runs tasks 24/7</td></tr>
+            <tr><td>Extensible skills</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Modular system</td></tr>
+            <tr><td>Hardware wallet security</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Seed Vault signing</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -175,8 +325,39 @@
         <p class="section-tag" data-roadmap-tag>What's Coming</p>
         <h2 class="section-title" data-roadmap-title>Roadmap</h2>
       </div>
-      <!-- Columns rebuilt dynamically from config -->
-      <div class="roadmap__grid"></div>
+      <!-- Columns — enhanced dynamically from config -->
+      <div class="roadmap__grid">
+        <div class="roadmap__col roadmap__col--now reveal">
+          <div class="roadmap__col-header"><span class="roadmap__status roadmap__status--now"></span> Now</div>
+          <ul class="roadmap__list">
+            <li>Solana wallet (balance, transactions, history)</li>
+            <li>Telegram integration</li>
+            <li>Full Android device control</li>
+            <li>Persistent memory &amp; scheduling</li>
+            <li>18+ built-in skills</li>
+          </ul>
+        </div>
+        <div class="roadmap__col roadmap__col--next reveal">
+          <div class="roadmap__col-header"><span class="roadmap__status roadmap__status--next"></span> Next</div>
+          <ul class="roadmap__list">
+            <li>Transaction monitoring &amp; smart alerts</li>
+            <li>X, Discord &amp; WhatsApp integration</li>
+            <li>SPL token sends &amp; swaps</li>
+            <li>DeFi position tracking</li>
+          </ul>
+        </div>
+        <div class="roadmap__col roadmap__col--future reveal">
+          <div class="roadmap__col-header"><span class="roadmap__status roadmap__status--future"></span> Future</div>
+          <ul class="roadmap__list">
+            <li>Multi-agent coordination</li>
+            <li>Community skill marketplace</li>
+            <li>Multi-chain support</li>
+            <li>Vision — agent sees your camera</li>
+            <li>Agent-to-agent economy on Solana</li>
+            <li>DePIN &amp; IoT device control</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -209,6 +390,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <div id="site-footer"></div>
