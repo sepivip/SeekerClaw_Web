@@ -130,82 +130,61 @@ body.quicksetup-page {
   line-height: 1.2;
 }
 
-/* ── Info Popovers ────────────────────────────────────────── */
+/* ── Label Row (label + tooltip trigger) ──────────────────── */
 
-.quicksetup-page .qs-group__info {
-  margin: 0;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
+.quicksetup-page .qs-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-.quicksetup-page .qs-group__info-summary {
-  list-style: none;
-  cursor: pointer;
-  font-size: 0.66rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  padding: 0.22rem 0.45rem;
-  line-height: 1.2;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-  user-select: none;
-  white-space: nowrap;
+/* ── Field Tooltips ──────────────────────────────────────── */
+
+.quicksetup-page .qs-tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-.quicksetup-page .qs-group__info-summary:hover {
-  color: var(--text-secondary);
-  border-color: rgba(47, 60, 91, 0.5);
-  background: rgba(11, 15, 26, 0.4);
-}
-
-.quicksetup-page .qs-group__info-summary:focus-visible {
-  outline: 2px solid rgba(228, 31, 40, 0.5);
-  outline-offset: 1px;
-  border-radius: 5px;
-}
-
-.quicksetup-page .qs-group__info-summary::-webkit-details-marker {
-  display: none;
-}
-
-.quicksetup-page .qs-group__info-summary::before {
-  content: "?";
+.quicksetup-page .qs-tooltip-trigger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
-  margin-right: 0.3rem;
-  font-size: 0.58rem;
-  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
   border-radius: 50%;
-  border: 1px solid var(--text-muted);
+  background: transparent;
   color: var(--text-muted);
-  vertical-align: middle;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
 }
 
-.quicksetup-page .qs-group__info-summary:hover::before {
-  border-color: var(--text-secondary);
+.quicksetup-page .qs-tooltip-trigger:hover {
   color: var(--text-secondary);
+  background: rgba(47, 60, 91, 0.3);
 }
 
-.quicksetup-page .qs-group__info[open] .qs-group__info-summary::before {
-  background: rgba(228, 31, 40, 0.15);
-  border-color: rgba(228, 31, 40, 0.4);
+.quicksetup-page .qs-tooltip-trigger[aria-expanded="true"] {
   color: #ff8f94;
+  background: rgba(228, 31, 40, 0.15);
 }
 
-/* Popover body — floats as overlay */
-.quicksetup-page .qs-group__info[open] {
+.quicksetup-page .qs-tooltip-trigger:focus-visible {
+  outline: 2px solid rgba(228, 31, 40, 0.5);
+  outline-offset: 1px;
+}
+
+.quicksetup-page .qs-tooltip {
   position: absolute;
-  right: 0;
-  top: calc(100% + 4px);
-  z-index: 20;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%) translateY(-4px);
+  z-index: 25;
   width: max-content;
-  max-width: min(380px, calc(100vw - 2rem));
+  max-width: min(340px, calc(100vw - 2rem));
   background: rgba(13, 17, 28, 0.97);
   border: 1px solid rgba(47, 60, 91, 0.6);
   border-radius: 10px;
@@ -213,43 +192,62 @@ body.quicksetup-page {
     0 4px 6px rgba(0, 0, 0, 0.2),
     0 12px 40px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(16px);
-  animation: qs-popover-in 0.18s var(--ease-out) both;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-@keyframes qs-popover-in {
-  from {
-    opacity: 0;
-    transform: translateY(-4px) scale(0.98);
-  }
+.quicksetup-page .qs-tooltip.is-open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
 
-.quicksetup-page .qs-group__info-body {
-  border-top: 1px solid rgba(47, 60, 91, 0.35);
-  padding: 0.5rem 0.6rem 0.55rem;
-}
-
-.quicksetup-page .qs-group__info-line {
-  margin: 0;
-  font-size: 0.68rem;
+.quicksetup-page .qs-tooltip__body {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.72rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.quicksetup-page .qs-group__info-line + .qs-group__info-line {
-  margin-top: 0.3rem;
-}
-
-.quicksetup-page .qs-group__info-label {
-  font-weight: 600;
+.quicksetup-page .qs-tooltip__body strong {
   color: var(--text-primary);
-  margin-right: 0.25rem;
+  font-weight: 600;
 }
 
-.quicksetup-page .qs-group__info-note {
-  margin: 0.35rem 0 0;
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  font-style: italic;
+.quicksetup-page .qs-tooltip__body code {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  background: rgba(47, 60, 91, 0.35);
+  color: #c4d0f0;
+}
+
+.quicksetup-page .qs-tooltip__body a {
+  color: #ff8f94;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.quicksetup-page .qs-tooltip__body a:hover {
+  color: #ffb3b6;
+}
+
+.quicksetup-page .qs-tooltip__link {
+  display: block;
+  padding: 0.4rem 0.65rem 0.5rem;
+  border-top: 1px solid rgba(47, 60, 91, 0.35);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #ff8f94;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+
+.quicksetup-page .qs-tooltip__link:hover {
+  color: #ffb3b6;
+  background: rgba(228, 31, 40, 0.08);
 }
 
 /* ── Field Grid ───────────────────────────────────────────── */
@@ -544,13 +542,7 @@ body.quicksetup-page {
   padding-top: 1rem;
 }
 
-/* ── Popover backdrop (click-away) ────────────────────────── */
-
-.qs-popover-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 19;
-}
+/* (tooltip click-away is handled via JS) */
 
 /* ── Responsive ───────────────────────────────────────────── */
 
@@ -575,12 +567,6 @@ body.quicksetup-page {
     gap: 0.35rem;
   }
 
-  .quicksetup-page .qs-group__info[open] {
-    right: auto;
-    left: 0;
-    max-width: calc(100vw - 3rem);
-  }
-
   .quicksetup-page .qs-group__title {
     padding-top: 0;
   }
@@ -591,6 +577,18 @@ body.quicksetup-page {
 
   .quicksetup-page .qs-field {
     gap: 0.22rem;
+  }
+
+  .quicksetup-page .qs-tooltip {
+    left: 0;
+    right: 0;
+    transform: translateX(0) translateY(-4px);
+    width: auto;
+    max-width: none;
+  }
+
+  .quicksetup-page .qs-tooltip.is-open {
+    transform: translateX(0) translateY(0);
   }
 }
 
