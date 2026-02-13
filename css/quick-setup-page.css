@@ -579,16 +579,24 @@ body.quicksetup-page {
     gap: 0.22rem;
   }
 
+  .quicksetup-page .qs-tooltip-wrap {
+    position: static;
+  }
+
+  .quicksetup-page .qs-field {
+    position: relative;
+  }
+
   .quicksetup-page .qs-tooltip {
     left: 0;
     right: 0;
-    transform: translateX(0) translateY(-4px);
+    transform: translateY(-4px);
     width: auto;
     max-width: none;
   }
 
   .quicksetup-page .qs-tooltip.is-open {
-    transform: translateX(0) translateY(0);
+    transform: translateY(0);
   }
 }
 

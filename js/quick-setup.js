@@ -369,9 +369,19 @@
       }
     }
 
+    function closeAllSelects() {
+      fieldsRoot.querySelectorAll(".qs-select-wrap.is-open").forEach(function (wrap) {
+        wrap.classList.remove("is-open");
+        var trig = wrap.querySelector(".qs-select-trigger");
+        if (trig) trig.setAttribute("aria-expanded", "false");
+      });
+    }
+
     function closeAllTooltips() {
       fieldsRoot.querySelectorAll(".qs-tooltip.is-open").forEach(function (el) {
         el.classList.remove("is-open");
+        el.hidden = true;
+        el.setAttribute("aria-hidden", "true");
         var btn = el.previousElementSibling;
         if (btn && btn.classList.contains("qs-tooltip-trigger")) {
           btn.setAttribute("aria-expanded", "false");
@@ -382,16 +392,21 @@
     function buildTooltipEl(field) {
       if (!field.tooltip) return null;
 
+      var tooltipId = "qs-tip-" + field.path.replace(/\./g, "-");
       const wrap = createElements("span", "qs-tooltip-wrap");
 
       const btn = createElements("button", "qs-tooltip-trigger");
       btn.type = "button";
       btn.setAttribute("aria-expanded", "false");
       btn.setAttribute("aria-label", "Help for " + field.label);
+      btn.setAttribute("aria-describedby", tooltipId);
       btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
 
       const card = createElements("div", "qs-tooltip");
+      card.id = tooltipId;
       card.setAttribute("role", "tooltip");
+      card.hidden = true;
+      card.setAttribute("aria-hidden", "true");
 
       const body = createElements("div", "qs-tooltip__body");
       body.innerHTML = field.tooltip;
@@ -411,7 +426,10 @@
         e.stopPropagation();
         var wasOpen = card.classList.contains("is-open");
         closeAllTooltips();
+        closeAllSelects();
         if (!wasOpen) {
+          card.hidden = false;
+          card.setAttribute("aria-hidden", "false");
           card.classList.add("is-open");
           btn.setAttribute("aria-expanded", "true");
         }
@@ -521,6 +539,7 @@
 
             trigger.addEventListener("click", function (e) {
               e.stopPropagation();
+              closeAllTooltips();
               var isOpen = wrap.classList.toggle("is-open");
               trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
             });
@@ -742,7 +761,7 @@
 
     /* Close custom selects and tooltips on outside click */
     document.addEventListener("click", function (e) {
-      /* Close custom selects */
+      /* Close custom selects not containing the click target */
       fieldsRoot.querySelectorAll(".qs-select-wrap.is-open").forEach(function (wrap) {
         if (!wrap.contains(e.target)) {
           wrap.classList.remove("is-open");
@@ -750,11 +769,13 @@
           if (trig) trig.setAttribute("aria-expanded", "false");
         }
       });
-      /* Close tooltips */
+      /* Close tooltips not containing the click target */
       fieldsRoot.querySelectorAll(".qs-tooltip.is-open").forEach(function (tip) {
         var tipWrap = tip.closest(".qs-tooltip-wrap");
         if (tipWrap && !tipWrap.contains(e.target)) {
           tip.classList.remove("is-open");
+          tip.hidden = true;
+          tip.setAttribute("aria-hidden", "true");
           var btn = tipWrap.querySelector(".qs-tooltip-trigger");
           if (btn) btn.setAttribute("aria-expanded", "false");
         }
