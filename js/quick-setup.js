@@ -470,14 +470,13 @@
             "qs-field" + (field.fullWidth ? " qs-field--full" : "")
           );
 
-          const labelRow = createElements("div", "qs-label-row");
-          const labelEl = createElements("label", "qs-label");
-          const labelText = field.label + (field.required ? " *" : "");
-          labelEl.textContent = labelText;
-          labelRow.appendChild(labelEl);
-
           let control;
+          let labelRow, labelEl;
           if (field.type !== "toggle") {
+            labelRow = createElements("div", "qs-label-row");
+            labelEl = createElements("label", "qs-label");
+            labelEl.textContent = field.label + (field.required ? " *" : "");
+            labelRow.appendChild(labelEl);
             const tooltipEl = buildTooltipEl(field);
             if (tooltipEl) {
               labelRow.appendChild(tooltipEl);
