@@ -377,7 +377,7 @@
       });
     }
 
-    function closeAllTooltips() {
+    function closeAllTooltips(returnFocus) {
       fieldsRoot.querySelectorAll(".qs-tooltip.is-open").forEach(function (el) {
         el.classList.remove("is-open");
         el.hidden = true;
@@ -385,7 +385,10 @@
         var wrap = el.closest(".qs-tooltip-wrap");
         if (wrap) {
           var btn = wrap.querySelector(".qs-tooltip-trigger");
-          if (btn) btn.setAttribute("aria-expanded", "false");
+          if (btn) {
+            btn.setAttribute("aria-expanded", "false");
+            if (returnFocus) btn.focus();
+          }
         }
       });
     }
@@ -411,6 +414,7 @@
       card.setAttribute("aria-hidden", "true");
 
       const body = createElements("div", "qs-tooltip__body");
+      /* Safe: tooltip HTML is static content from QUICK_SETUP_SCHEMA, not user input */
       body.innerHTML = field.tooltip;
       card.appendChild(body);
 
@@ -434,6 +438,10 @@
           card.setAttribute("aria-hidden", "false");
           card.classList.add("is-open");
           btn.setAttribute("aria-expanded", "true");
+          /* Move focus into the tooltip; prefer first link, else the card itself */
+          var focusTarget = card.querySelector("a, button") || card;
+          if (focusTarget === card) card.setAttribute("tabindex", "-1");
+          focusTarget.focus();
         }
       });
 
@@ -782,6 +790,14 @@
           if (btn) btn.setAttribute("aria-expanded", "false");
         }
       });
+    });
+
+    /* Close tooltips and selects on Escape key, returning focus to trigger */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeAllTooltips(true);
+        closeAllSelects();
+      }
     });
 
     renderFields();
