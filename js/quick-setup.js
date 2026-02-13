@@ -393,7 +393,7 @@
       if (!field.tooltip) return null;
 
       var tooltipId = "qs-tip-" + field.path.replace(/\./g, "-");
-      const wrap = createElements("span", "qs-tooltip-wrap");
+      const wrap = createElements("div", "qs-tooltip-wrap");
 
       const btn = createElements("button", "qs-tooltip-trigger");
       btn.type = "button";
@@ -466,12 +466,13 @@
           labelEl.textContent = labelText;
           labelRow.appendChild(labelEl);
 
-          const tooltipEl = buildTooltipEl(field);
-          if (tooltipEl) {
-            labelRow.appendChild(tooltipEl);
-          }
-
           let control;
+          if (field.type !== "toggle") {
+            const tooltipEl = buildTooltipEl(field);
+            if (tooltipEl) {
+              labelRow.appendChild(tooltipEl);
+            }
+          }
           if (field.type === "select") {
             /* Custom styled select dropdown */
             const currentVal = getByPath(state, field.path) || "";
