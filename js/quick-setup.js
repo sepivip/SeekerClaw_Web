@@ -435,13 +435,6 @@
         }
       });
 
-      btn.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          btn.click();
-        }
-      });
-
       wrap.appendChild(btn);
       wrap.appendChild(card);
       return wrap;
@@ -484,12 +477,16 @@
             const currentVal = getByPath(state, field.path) || "";
             const currentLabel = (field.options.find(function (o) { return o.value === currentVal; }) || field.options[0] || {}).label || "";
 
+            const selectLabelId = "qs-label-" + field.path.replace(/\./g, "-");
+            labelEl.id = selectLabelId;
+
             const wrap = createElements("div", "qs-select-wrap");
             const trigger = createElements("button", "qs-select-trigger");
             trigger.type = "button";
             trigger.setAttribute("role", "combobox");
             trigger.setAttribute("aria-expanded", "false");
             trigger.setAttribute("aria-haspopup", "listbox");
+            trigger.setAttribute("aria-labelledby", selectLabelId);
 
             const triggerText = createElements("span", "qs-select-value", currentLabel);
             const triggerArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -563,6 +560,7 @@
             gridEl.appendChild(fieldEl);
             continue;
           } else if (field.type === "toggle") {
+            const toggleRow = createElements("div", "qs-label-row");
             const toggleLabel = createElements("label", "qs-toggle");
             control = createElements("input");
             control.type = "checkbox";
@@ -570,7 +568,10 @@
             const toggleText = createElements("span", "qs-toggle__text", field.label);
             toggleLabel.appendChild(control);
             toggleLabel.appendChild(toggleText);
-            fieldEl.appendChild(toggleLabel);
+            toggleRow.appendChild(toggleLabel);
+            const toggleTip = buildTooltipEl(field);
+            if (toggleTip) toggleRow.appendChild(toggleTip);
+            fieldEl.appendChild(toggleRow);
           } else {
             control = createElements("input", "qs-control");
             const baseType = field.type || "text";
@@ -592,8 +593,6 @@
             control.id = labelEl.htmlFor;
             fieldEl.appendChild(labelRow);
             fieldEl.appendChild(control);
-          } else {
-            fieldEl.appendChild(labelRow);
           }
 
           const errorEl = createElements("p", "qs-error");

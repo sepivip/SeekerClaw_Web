@@ -150,9 +150,9 @@ body.quicksetup-page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  padding: 0;
+  width: 24px;
+  height: 24px;
+  padding: 3px;
   border: none;
   border-radius: 50%;
   background: transparent;
