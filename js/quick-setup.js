@@ -382,9 +382,10 @@
         el.classList.remove("is-open");
         el.hidden = true;
         el.setAttribute("aria-hidden", "true");
-        var btn = el.previousElementSibling;
-        if (btn && btn.classList.contains("qs-tooltip-trigger")) {
-          btn.setAttribute("aria-expanded", "false");
+        var wrap = el.closest(".qs-tooltip-wrap");
+        if (wrap) {
+          var btn = wrap.querySelector(".qs-tooltip-trigger");
+          if (btn) btn.setAttribute("aria-expanded", "false");
         }
       });
     }
@@ -399,12 +400,13 @@
       btn.type = "button";
       btn.setAttribute("aria-expanded", "false");
       btn.setAttribute("aria-label", "Help for " + field.label);
-      btn.setAttribute("aria-describedby", tooltipId);
+      btn.setAttribute("aria-controls", tooltipId);
       btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
 
       const card = createElements("div", "qs-tooltip");
       card.id = tooltipId;
-      card.setAttribute("role", "tooltip");
+      card.setAttribute("role", "dialog");
+      card.setAttribute("aria-label", "Help for " + field.label);
       card.hidden = true;
       card.setAttribute("aria-hidden", "true");
 
