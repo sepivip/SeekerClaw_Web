@@ -61,7 +61,8 @@ window.SITE_CONFIG = {
   /* ── Stats ───────────────────────────────────────────── */
   stats: [
     { value: 150000, suffix: '+', label: 'Seeker Devices' },
-    { value: 18,     suffix: '+', label: 'Built-in Skills' },
+    { value: 25,     suffix: '+', label: 'Built-in Tools' },
+    { value: 68,     suffix: '+',  label: 'Commits Shipped' },
     { value: '24/7', suffix: '',  label: 'Autonomous Agent' },
   ],
 
@@ -79,12 +80,12 @@ window.SITE_CONFIG = {
       {
         icon: 'brain',
         title: 'Autonomous AI Agent',
-        desc: 'Powered by frontier LLMs with persistent memory, customizable personality, and scheduled automation that runs around the clock.',
+        desc: 'Powered by frontier LLMs with ranked memory search, SQL.js indexed recall, customizable personality, and cron-based automation that runs around the clock.',
       },
       {
         icon: 'chat',
         title: 'Social & Messaging',
-        desc: 'Telegram integration for two-way agent communication. Send SMS, make calls, manage contacts — your agent reports back in real time.',
+        desc: 'Telegram integration with reactions, blockquotes, and HTML formatting. Send SMS, make calls, manage contacts — your agent reports back in real time.',
       },
       {
         icon: 'phone',
@@ -94,12 +95,12 @@ window.SITE_CONFIG = {
       {
         icon: 'globe',
         title: 'Web Intelligence',
-        desc: 'Real-time web search, page reading, crypto prices, news, weather, and deep research on any topic — delivered to your chat.',
+        desc: 'Multi-provider web search, markdown page extraction with caching, crypto prices, news, weather, and deep research — all with smart retry and error resilience.',
       },
       {
         icon: 'tool',
         title: 'Modular Skill System',
-        desc: '18+ built-in skills: crypto prices, news, todos, reminders, GitHub, translations. Easily extensible — add new skills without touching core code.',
+        desc: '25+ built-in tools with per-session analytics, usage tracking, and error rate monitoring. Easily extensible — add new skills without touching core code.',
       },
     ],
   },
@@ -179,13 +180,14 @@ window.SITE_CONFIG = {
     rows: [
       ['Runs on device',           'Cloud only',  '\u2713 Native on Seeker'],
       ['Wallet access',            '\u2717',      '\u2713 Via Seed Vault'],
-      ['Persistent memory',        '\u2717',      '\u2713 Remembers everything'],
+      ['Ranked memory search',     '\u2717',      '\u2713 SQL.js indexed recall'],
       ['Controls your phone',      '\u2717',      '\u2713 Calls, SMS, apps, GPS'],
-      ['Messaging integration',    '\u2717',      '\u2713 Telegram (more coming)'],
+      ['Messaging + reactions',    '\u2717',      '\u2713 Telegram with full formatting'],
       ['Crypto-native',            '\u2717',      '\u2713 Solana-first'],
-      ['Autonomous scheduling',    '\u2717',      '\u2713 Runs tasks 24/7'],
-      ['Extensible skills',        '\u2717',      '\u2713 Modular system'],
-      ['Hardware wallet security',  '\u2717',      '\u2713 Seed Vault signing'],
+      ['Cron scheduling',          '\u2717',      '\u2713 Natural language + recurring'],
+      ['Usage analytics',          '\u2717',      '\u2713 Per-session token tracking'],
+      ['Error resilience',         '\u2717',      '\u2713 Auto-retry + graceful fallback'],
+      ['Hardware wallet security', '\u2717',      '\u2713 Seed Vault signing'],
     ],
   },
 
@@ -196,13 +198,17 @@ window.SITE_CONFIG = {
     columns: [
       {
         phase: 'now',
-        label: 'Now',
+        label: 'Shipped ✅',
         items: [
           'Solana wallet (balance, transactions, history)',
-          'Telegram integration',
-          'Full Android device control',
-          'Persistent memory & scheduling',
-          '18+ built-in skills',
+          'Telegram with reactions & blockquotes',
+          'Full Android device control (12 bridge tools)',
+          'SQL.js ranked memory search & indexing',
+          '25+ built-in tools with analytics',
+          'Cron scheduling (natural language + recurring)',
+          'Multi-provider web search & markdown fetch',
+          'Per-session usage tracking & error resilience',
+          'OpenClaw v2026.2.12 parity (4 sprints shipped)',
         ],
       },
       {
@@ -213,6 +219,8 @@ window.SITE_CONFIG = {
           'X, Discord & WhatsApp integration',
           'SPL token sends & swaps',
           'DeFi position tracking',
+          'Vector embeddings for semantic memory',
+          'Media attachments & inline keyboards',
         ],
       },
       {
