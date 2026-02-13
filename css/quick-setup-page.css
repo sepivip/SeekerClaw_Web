@@ -577,14 +577,11 @@ body.quicksetup-page {
 
   .quicksetup-page .qs-field {
     gap: 0.22rem;
+    position: relative;
   }
 
   .quicksetup-page .qs-tooltip-wrap {
     position: static;
-  }
-
-  .quicksetup-page .qs-field {
-    position: relative;
   }
 
   .quicksetup-page .qs-tooltip {
