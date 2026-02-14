@@ -25,7 +25,7 @@
             { value: "api_key", label: "api_key" },
             { value: "setup_token", label: "setup_token" },
           ],
-          tooltip: '<strong>API Key</strong> — Direct access. Get from <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer">console.anthropic.com</a> → API Keys → Create Key.<br><br><strong>Setup Token</strong> — Temporary. Run <code>openclaw setup-token</code> on any machine with OpenClaw.',
+          tooltip: '<strong>API Key</strong> — Direct access. Get from <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer">console.anthropic.com</a> → API Keys → Create Key.<br><br><strong>Setup Token</strong> — Temporary. Run <code>claude setup-token</code> on any machine with Claude Code.',
         },
         {
           path: "auth.credential",
@@ -45,10 +45,14 @@
         {
           path: "agent.model",
           label: "Model",
-          type: "text",
+          type: "select",
           required: true,
-          placeholder: "claude-opus-4-6",
-          tooltip: 'Recommended: <code>claude-sonnet-4-20250514</code> (fast + affordable) for daily use, <code>claude-opus-4-6</code> (smartest) for complex tasks. Changeable later in the app settings.',
+          options: [
+            { value: "claude-sonnet-4-5", label: "Sonnet 4.5 — balanced" },
+            { value: "claude-opus-4-6", label: "Opus 4.6 — smartest" },
+            { value: "claude-haiku-4-5", label: "Haiku 4.5 — fast" },
+          ],
+          tooltip: '<strong>Sonnet 4.5</strong> — Best balance of speed and quality for daily use.<br><strong>Opus 4.6</strong> — Most capable, best for complex tasks.<br><strong>Haiku 4.5</strong> — Fastest and most affordable.<br><br>Uses aliases — the API resolves to the latest snapshot automatically. Changeable later in the app.',
         },
         {
           path: "agent.name",
@@ -112,7 +116,7 @@
       ownerId: "",
     },
     agent: {
-      model: "claude-opus-4-6",
+      model: "claude-sonnet-4-5",
       name: "SeekerClaw",
     },
     integrations: {
@@ -183,7 +187,7 @@
       },
       agent: {
         ...(isPlainObject(baseConfig.agent) ? baseConfig.agent : {}),
-        model: normalizeString(getByPath(formState, "agent.model")) || "claude-opus-4-6",
+        model: normalizeString(getByPath(formState, "agent.model")) || "claude-sonnet-4-5",
         name: normalizeString(getByPath(formState, "agent.name")) || "SeekerClaw",
       },
       integrations: {
