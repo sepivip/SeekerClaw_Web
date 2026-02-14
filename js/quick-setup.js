@@ -15,11 +15,6 @@
   const QUICK_SETUP_SCHEMA = [
     {
       title: "Claude Authentication",
-      info: {
-        label: "How to get your Claude credential",
-        what: "Defines how SeekerClaw authenticates with your AI provider.",
-        how: "Use your provider API key or setup token from your provider dashboard or SeekerClaw app setup flow.",
-      },
       fields: [
         {
           path: "auth.type",
@@ -30,7 +25,7 @@
             { value: "api_key", label: "api_key" },
             { value: "setup_token", label: "setup_token" },
           ],
-          help: "Choose the credential mode used by your SeekerClaw app.",
+          tooltip: '<strong>API Key</strong> — Direct access. Get from <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer">console.anthropic.com</a> → API Keys → Create Key.<br><br><strong>Setup Token</strong> — Temporary. Run <code>openclaw setup-token</code> on any machine with OpenClaw.',
         },
         {
           path: "auth.credential",
@@ -40,16 +35,12 @@
           secret: true,
           fullWidth: true,
           placeholder: "sk-ant-… or setup token",
+          tooltip: 'Paste your API key (starts with <code>sk-ant-...</code>) or setup token here. This stays on your device — never sent to our servers.',
         },
       ],
     },
     {
       title: "Agent",
-      info: {
-        label: "About model and agent name",
-        what: "Sets your assistant model and display name in SeekerClaw.",
-        how: "Use the model you plan to run in the app (for example claude-opus-4-6) and any name you prefer.",
-      },
       fields: [
         {
           path: "agent.model",
@@ -57,6 +48,7 @@
           type: "text",
           required: true,
           placeholder: "claude-opus-4-6",
+          tooltip: 'Recommended: <code>claude-sonnet-4-20250514</code> (fast + affordable) for daily use, <code>claude-opus-4-6</code> (smartest) for complex tasks. Changeable later in the app settings.',
         },
         {
           path: "agent.name",
@@ -64,16 +56,12 @@
           type: "text",
           required: true,
           placeholder: "SeekerClaw",
+          tooltip: 'Your agent\'s display name in Telegram conversations. Pick something fun — this is who you\'ll be chatting with daily.',
         },
       ],
     },
     {
       title: "Telegram",
-      info: {
-        label: "How to get your Telegram bot token",
-        what: "Connects SeekerClaw to your Telegram bot and owner account.",
-        how: "Create a bot with @BotFather to get Bot Token. Owner ID is optional and can be found via @userinfobot.",
-      },
       fields: [
         {
           path: "telegram.botToken",
@@ -82,6 +70,8 @@
           required: true,
           secret: true,
           placeholder: "123456:ABC…",
+          tooltip: 'Create your Telegram bot in 60 seconds:<br>1️⃣ Open Telegram → search <strong>@BotFather</strong> → tap Start<br>2️⃣ Send <code>/newbot</code><br>3️⃣ Pick a name (e.g. "My SeekerClaw")<br>4️⃣ Pick a username (must end in <code>bot</code>)<br>5️⃣ BotFather replies with your token — copy & paste here<br><br>⚠️ Never share this token. It gives full control of your bot.',
+          tooltipLink: { label: "Open @BotFather", url: "https://t.me/BotFather" },
         },
         {
           path: "telegram.ownerId",
@@ -89,16 +79,13 @@
           type: "text",
           required: false,
           placeholder: "Optional",
+          tooltip: 'Find your Telegram ID:<br>1️⃣ Open Telegram → search <strong>@userinfobot</strong><br>2️⃣ Tap Start<br>3️⃣ It instantly replies with your ID (a number like <code>7561373860</code>)<br>4️⃣ Copy & paste here<br><br>This locks your agent so only <strong>you</strong> can talk to it.',
+          tooltipLink: { label: "Open @userinfobot", url: "https://t.me/userinfobot" },
         },
       ],
     },
     {
       title: "Integrations",
-      info: {
-        label: "How to get your Brave API key",
-        what: "Optional external service keys used by specific tools.",
-        how: "Brave API key is optional. Add one only if you want Brave-powered web search in supported tools.",
-      },
       fields: [
         {
           path: "integrations.braveApiKey",
@@ -108,6 +95,8 @@
           secret: true,
           fullWidth: true,
           placeholder: "Optional",
+          tooltip: 'Optional. Enables web search for your agent. Free plan = 2,000 queries/month.<br><br>Get yours at <a href="https://brave.com/search/api" target="_blank" rel="noopener noreferrer">brave.com/search/api</a> → Sign up → Copy key.',
+          tooltipLink: { label: "Get Brave API Key", url: "https://brave.com/search/api" },
         },
       ],
     },
@@ -380,6 +369,87 @@
       }
     }
 
+    function closeAllSelects() {
+      fieldsRoot.querySelectorAll(".qs-select-wrap.is-open").forEach(function (wrap) {
+        wrap.classList.remove("is-open");
+        var trig = wrap.querySelector(".qs-select-trigger");
+        if (trig) trig.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    function closeAllTooltips(returnFocus) {
+      fieldsRoot.querySelectorAll(".qs-tooltip.is-open").forEach(function (el) {
+        el.classList.remove("is-open");
+        el.hidden = true;
+        el.setAttribute("aria-hidden", "true");
+        var wrap = el.closest(".qs-tooltip-wrap");
+        if (wrap) {
+          var btn = wrap.querySelector(".qs-tooltip-trigger");
+          if (btn) {
+            btn.setAttribute("aria-expanded", "false");
+            if (returnFocus) btn.focus();
+          }
+        }
+      });
+    }
+
+    function buildTooltipEl(field) {
+      if (!field.tooltip) return null;
+
+      var tooltipId = "qs-tip-" + field.path.replace(/\./g, "-");
+      const wrap = createElements("div", "qs-tooltip-wrap");
+
+      const btn = createElements("button", "qs-tooltip-trigger");
+      btn.type = "button";
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "Help for " + field.label);
+      btn.setAttribute("aria-controls", tooltipId);
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+
+      const card = createElements("div", "qs-tooltip");
+      card.id = tooltipId;
+      card.setAttribute("role", "region");
+      card.setAttribute("aria-label", "Help for " + field.label);
+      card.hidden = true;
+      card.setAttribute("aria-hidden", "true");
+
+      const body = createElements("div", "qs-tooltip__body");
+      /* Safe: tooltip HTML is static content from QUICK_SETUP_SCHEMA, not user input */
+      body.innerHTML = field.tooltip;
+      card.appendChild(body);
+
+      if (field.tooltipLink) {
+        const linkEl = document.createElement("a");
+        linkEl.className = "qs-tooltip__link";
+        linkEl.href = field.tooltipLink.url;
+        linkEl.target = "_blank";
+        linkEl.rel = "noopener noreferrer";
+        linkEl.textContent = field.tooltipLink.label + " ↗";
+        card.appendChild(linkEl);
+      }
+
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var wasOpen = card.classList.contains("is-open");
+        closeAllTooltips();
+        closeAllSelects();
+        if (!wasOpen) {
+          card.hidden = false;
+          card.setAttribute("aria-hidden", "false");
+          card.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+          /* Move focus into the tooltip; prefer first link, else the card itself */
+          var focusTarget = card.querySelector("a, button") || card;
+          if (focusTarget === card) card.setAttribute("tabindex", "-1");
+          focusTarget.focus();
+        }
+      });
+
+      wrap.appendChild(btn);
+      wrap.appendChild(card);
+      return wrap;
+    }
+
     function renderFields() {
       fieldsRoot.innerHTML = "";
       controlsByPath.clear();
@@ -387,48 +457,10 @@
 
       for (const group of QUICK_SETUP_SCHEMA) {
         const groupEl = createElements("section", "qs-group");
-        const titleEl = createElements("h3", "qs-group__title", group.title);
         const headerEl = createElements("div", "qs-group__header");
-        const gridEl = createElements("div", "qs-group__grid");
+        const titleEl = createElements("h3", "qs-group__title", group.title);
         headerEl.appendChild(titleEl);
-        if (isPlainObject(group.info)) {
-          const infoEl = createElements("details", "qs-group__info");
-          const summaryEl = createElements(
-            "summary",
-            "qs-group__info-summary",
-            normalizeString(group.info.label) || "Section help"
-          );
-          const bodyEl = createElements("div", "qs-group__info-body");
-
-          if (group.info.what) {
-            const whatLineEl = createElements("p", "qs-group__info-line");
-            const whatLabelEl = createElements("span", "qs-group__info-label", "What:");
-            const whatTextEl = createElements("span", "qs-group__info-text", group.info.what);
-            whatLineEl.appendChild(whatLabelEl);
-            whatLineEl.appendChild(whatTextEl);
-            bodyEl.appendChild(whatLineEl);
-          }
-
-          if (group.info.how) {
-            const howLineEl = createElements("p", "qs-group__info-line");
-            const howLabelEl = createElements("span", "qs-group__info-label", "How:");
-            const howTextEl = createElements("span", "qs-group__info-text", group.info.how);
-            howLineEl.appendChild(howLabelEl);
-            howLineEl.appendChild(howTextEl);
-            bodyEl.appendChild(howLineEl);
-          }
-
-          const docsLineEl = createElements(
-            "p",
-            "qs-group__info-note",
-            "Detailed docs page will be added soon."
-          );
-          bodyEl.appendChild(docsLineEl);
-
-          infoEl.appendChild(summaryEl);
-          infoEl.appendChild(bodyEl);
-          headerEl.appendChild(infoEl);
-        }
+        const gridEl = createElements("div", "qs-group__grid");
         groupEl.appendChild(headerEl);
         groupEl.appendChild(gridEl);
 
@@ -438,15 +470,25 @@
             "qs-field" + (field.fullWidth ? " qs-field--full" : "")
           );
 
-          const labelEl = createElements("label", "qs-label");
-          const labelText = field.label + (field.required ? " *" : "");
-          labelEl.textContent = labelText;
-
           let control;
+          let labelRow, labelEl;
+          if (field.type !== "toggle") {
+            labelRow = createElements("div", "qs-label-row");
+            labelEl = createElements("label", "qs-label");
+            labelEl.textContent = field.label + (field.required ? " *" : "");
+            labelRow.appendChild(labelEl);
+            const tooltipEl = buildTooltipEl(field);
+            if (tooltipEl) {
+              labelRow.appendChild(tooltipEl);
+            }
+          }
           if (field.type === "select") {
             /* Custom styled select dropdown */
             const currentVal = getByPath(state, field.path) || "";
             const currentLabel = (field.options.find(function (o) { return o.value === currentVal; }) || field.options[0] || {}).label || "";
+
+            const selectLabelId = "qs-label-" + field.path.replace(/\./g, "-");
+            labelEl.id = selectLabelId;
 
             const wrap = createElements("div", "qs-select-wrap");
             const trigger = createElements("button", "qs-select-trigger");
@@ -454,6 +496,7 @@
             trigger.setAttribute("role", "combobox");
             trigger.setAttribute("aria-expanded", "false");
             trigger.setAttribute("aria-haspopup", "listbox");
+            trigger.setAttribute("aria-labelledby", selectLabelId);
 
             const triggerText = createElements("span", "qs-select-value", currentLabel);
             const triggerArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -503,6 +546,7 @@
 
             trigger.addEventListener("click", function (e) {
               e.stopPropagation();
+              closeAllTooltips();
               var isOpen = wrap.classList.toggle("is-open");
               trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
             });
@@ -515,8 +559,7 @@
             control.dataset.path = field.path;
             controlsByPath.set(field.path, control);
 
-            labelEl.htmlFor = "";
-            fieldEl.appendChild(labelEl);
+            fieldEl.appendChild(labelRow);
             fieldEl.appendChild(wrap);
 
             const errorEl = createElements("p", "qs-error");
@@ -527,6 +570,7 @@
             gridEl.appendChild(fieldEl);
             continue;
           } else if (field.type === "toggle") {
+            const toggleRow = createElements("div", "qs-label-row");
             const toggleLabel = createElements("label", "qs-toggle");
             control = createElements("input");
             control.type = "checkbox";
@@ -534,7 +578,10 @@
             const toggleText = createElements("span", "qs-toggle__text", field.label);
             toggleLabel.appendChild(control);
             toggleLabel.appendChild(toggleText);
-            fieldEl.appendChild(toggleLabel);
+            toggleRow.appendChild(toggleLabel);
+            const toggleTip = buildTooltipEl(field);
+            if (toggleTip) toggleRow.appendChild(toggleTip);
+            fieldEl.appendChild(toggleRow);
           } else {
             control = createElements("input", "qs-control");
             const baseType = field.type || "text";
@@ -554,18 +601,8 @@
           if (field.type !== "toggle") {
             labelEl.htmlFor = "qs-" + field.path.replace(/\./g, "-");
             control.id = labelEl.htmlFor;
-            fieldEl.appendChild(labelEl);
+            fieldEl.appendChild(labelRow);
             fieldEl.appendChild(control);
-          } else if (field.help) {
-            const hiddenLabel = createElements("span", "qs-label");
-            hiddenLabel.textContent = field.label;
-            hiddenLabel.hidden = true;
-            fieldEl.appendChild(hiddenLabel);
-          }
-
-          if (field.help) {
-            const helpEl = createElements("p", "qs-help", field.help);
-            fieldEl.appendChild(helpEl);
           }
 
           const errorEl = createElements("p", "qs-error");
@@ -731,9 +768,9 @@
       });
     }
 
-    /* Close custom selects and info popovers on outside click */
+    /* Close custom selects and tooltips on outside click */
     document.addEventListener("click", function (e) {
-      /* Close custom selects */
+      /* Close custom selects not containing the click target */
       fieldsRoot.querySelectorAll(".qs-select-wrap.is-open").forEach(function (wrap) {
         if (!wrap.contains(e.target)) {
           wrap.classList.remove("is-open");
@@ -741,12 +778,25 @@
           if (trig) trig.setAttribute("aria-expanded", "false");
         }
       });
-      /* Close info popovers */
-      fieldsRoot.querySelectorAll(".qs-group__info[open]").forEach(function (det) {
-        if (!det.contains(e.target)) {
-          det.removeAttribute("open");
+      /* Close tooltips not containing the click target */
+      fieldsRoot.querySelectorAll(".qs-tooltip.is-open").forEach(function (tip) {
+        var tipWrap = tip.closest(".qs-tooltip-wrap");
+        if (tipWrap && !tipWrap.contains(e.target)) {
+          tip.classList.remove("is-open");
+          tip.hidden = true;
+          tip.setAttribute("aria-hidden", "true");
+          var btn = tipWrap.querySelector(".qs-tooltip-trigger");
+          if (btn) btn.setAttribute("aria-expanded", "false");
         }
       });
+    });
+
+    /* Close tooltips and selects on Escape key, returning focus to trigger */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeAllTooltips(true);
+        closeAllSelects();
+      }
     });
 
     renderFields();
