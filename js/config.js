@@ -43,6 +43,7 @@ window.SITE_CONFIG = {
       { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
       { label: 'Quick Setup', href: 'quick-setup.html', type: 'page'   },
       { label: 'Copyright',   href: 'copyright.html',   type: 'page'   },
+      { label: 'License',     href: 'license.html',     type: 'page'   },
       { label: 'Privacy',     href: 'privacy.html',     type: 'page'   },
     ],
   },
