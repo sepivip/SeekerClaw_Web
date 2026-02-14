@@ -440,6 +440,7 @@ body.quicksetup-page {
 .quicksetup-page .quick-setup__actions {
   margin-top: 0.72rem;
   gap: 0.5rem;
+  padding-left: 0.35rem;
 }
 
 .quicksetup-page .quick-setup__actions .btn {
