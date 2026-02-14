@@ -52,7 +52,7 @@ window.SITE_CONFIG = {
     tag: 'Built for Solana Seeker',
     titleLine1: 'The AI Agent Layer',
     titleLine2: 'for Solana Seeker',   // rendered with gradient
-    description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, monitors your wallet, controls your phone, and connects via Telegram for real-time updates. 24/7.',
+    description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent — one that lives on your device, monitors your wallet, runs shell commands, and connects via Telegram for real-time updates. 24/7.',
     ctaPrimary: 'Get on dApp Store',
     ctaSecondary: 'Quick Setup',
     ctaSecondaryHref: 'quick-setup.html',
@@ -85,12 +85,12 @@ window.SITE_CONFIG = {
       {
         icon: 'chat',
         title: 'Social & Messaging',
-        desc: 'Telegram integration with reactions, blockquotes, and HTML formatting. Send SMS, make calls, manage contacts — your agent reports back in real time.',
+        desc: 'Telegram integration with reactions, blockquotes, and HTML formatting. Your agent reports back in real time with rich message support.',
       },
       {
-        icon: 'phone',
-        title: 'Deep Device Control',
-        desc: 'GPS location, app launching, clipboard, battery monitoring, text-to-speech — full native control of your Seeker phone.',
+        icon: 'terminal',
+        title: 'Shell Access',
+        desc: '22 sandboxed Unix commands including curl — inspect files, hit APIs, check disk space, and grep through data directly on device.',
       },
       {
         icon: 'globe',
@@ -135,7 +135,7 @@ window.SITE_CONFIG = {
         title: 'DeFi Assistant',
         messages: [
           '"What\'s the current price of SOL, JUP, and BONK?"',
-          '"Research the latest Solana DeFi protocols and summarize"',
+          '"Check my wallet balance and alert me if it drops below 5 SOL"',
         ],
       },
       {
@@ -154,18 +154,19 @@ window.SITE_CONFIG = {
         ],
       },
       {
-        icon: 'map-pin',
-        title: 'Travel + Crypto',
+        icon: 'terminal',
+        title: 'Shell & DevOps',
         messages: [
-          'Agent knows your GPS location, finds local crypto-friendly spots, converts prices, and can send SOL to a friend.',
+          '"Check disk space and clean up old files"',
+          '"Curl this API endpoint and summarize the JSON response"',
         ],
       },
       {
-        icon: 'share',
-        title: 'Social + Web3',
+        icon: 'globe',
+        title: 'Web Research',
         messages: [
-          '"Text my friend that I just sent them 2 SOL"',
           '"Search the web for the latest Solana Mobile news"',
+          '"Fetch this article and give me a 3-bullet summary"',
         ],
       },
     ],
@@ -175,13 +176,13 @@ window.SITE_CONFIG = {
   comparison: {
     tag: 'The Difference',
     title: 'Why SeekerClaw is Different',
-    description: 'No other AI agent runs natively on a crypto phone with hardware wallet integration, device control, and messaging — all at once.',
+    description: 'No other AI agent runs natively on a crypto phone with hardware wallet integration, shell access, and messaging — all at once.',
     headers: ['Feature', 'Regular AI Apps', 'SeekerClaw on Seeker'],
     rows: [
       ['Runs on device',           'Cloud only',  '\u2713 Native on Seeker'],
       ['Wallet access',            '\u2717',      '\u2713 Via Seed Vault'],
       ['Ranked memory search',     '\u2717',      '\u2713 SQL.js indexed recall'],
-      ['Controls your phone',      '\u2717',      '\u2713 Calls, SMS, apps, GPS'],
+      ['Shell access',              '\u2717',      '\u2713 22 Unix commands + curl'],
       ['Messaging + reactions',    '\u2717',      '\u2713 Telegram with full formatting'],
       ['Crypto-native',            '\u2717',      '\u2713 Solana-first'],
       ['Cron scheduling',          '\u2717',      '\u2713 Natural language + recurring'],
@@ -202,7 +203,7 @@ window.SITE_CONFIG = {
         items: [
           'Solana wallet (balance, transactions, history)',
           'Telegram with reactions & blockquotes',
-          'Full Android device control (12 bridge tools)',
+          'Sandboxed shell exec (22 Unix commands + curl)',
           'SQL.js ranked memory search & indexing',
           '25+ built-in tools with analytics',
           'Cron scheduling (natural language + recurring)',
@@ -215,6 +216,7 @@ window.SITE_CONFIG = {
         phase: 'next',
         label: 'Next',
         items: [
+          'Full Android device control (SMS, calls, GPS, apps)',
           'Transaction monitoring & smart alerts',
           'X, Discord & WhatsApp integration',
           'SPL token sends & swaps',
