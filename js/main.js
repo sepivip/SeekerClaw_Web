@@ -209,9 +209,9 @@
     const h = C.comparison.headers;
     compTable.innerHTML =
       '<thead><tr>'
-      + '<th class="comparison__feature-col">' + h[0] + '</th>'
-      + '<th class="comparison__other-col">' + h[1] + '</th>'
-      + '<th class="comparison__seeker-col">' + h[2] + '</th>'
+      + '<th scope="col" class="comparison__feature-col">' + h[0] + '</th>'
+      + '<th scope="col" class="comparison__other-col">' + h[1] + '</th>'
+      + '<th scope="col" class="comparison__seeker-col">' + h[2] + '</th>'
       + '</tr></thead><tbody>'
       + C.comparison.rows.map((r) => {
         const otherCell = r[1] === '\u2717'

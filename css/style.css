@@ -87,6 +87,7 @@ img {
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
 
 .section-desc {
@@ -95,6 +96,33 @@ img {
   max-width: 580px;
   margin: 0 auto;
 }
+
+/* ── Skip link ────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 1100;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Focus-visible ────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid rgba(228, 31, 40, 0.6);
+  outline-offset: 2px;
+}
+
+/* Remove inner outline on elements that already show focus via box-shadow */
+.qs-control:focus-visible { outline: none; }
 
 /* ── Scroll Reveal ─────────────────────────────────────── */
 .reveal {
@@ -127,7 +155,7 @@ img {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: all 0.25s var(--ease-out);
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
   white-space: nowrap;
 }
 
@@ -332,6 +360,7 @@ img {
   line-height: 1.1;
   margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .hero__desc {
@@ -424,6 +453,7 @@ img {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 800;
+  font-variant-numeric: tabular-nums;
   background: var(--gradient-solana);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -473,7 +503,7 @@ img {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.75rem;
-  transition: all 0.35s var(--ease-out);
+  transition: background 0.35s var(--ease-out), transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
   position: relative;
   overflow: hidden;
 }
@@ -560,7 +590,7 @@ img {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.75rem;
-  transition: all 0.3s var(--ease-out);
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
 .usecase-card:hover {
@@ -1119,7 +1149,7 @@ img {
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text-secondary);
-  transition: all 0.25s var(--ease-out);
+  transition: color 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
 }
 .footer__social-link:hover {
   color: var(--text-primary);
@@ -1170,7 +1200,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  transition: all 0.35s var(--ease-out);
+  transition: background 0.35s var(--ease-out), transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .hiw__step:hover {
@@ -1393,5 +1423,15 @@ img {
   .hero__device {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

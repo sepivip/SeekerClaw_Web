@@ -46,10 +46,10 @@
     }).join('');
 
     return ''
-      + '<nav class="nav" id="nav">'
+      + '<nav class="nav" id="nav" aria-label="Main navigation">'
       + '  <div class="nav__container">'
       + '    <a href="' + logoHref + '" class="nav__logo">'
-      + '      <img src="' + C.brand.logo + '" alt="' + C.brand.name + '" class="nav__logo-img" onerror="this.style.display=\'none\'">'
+      + '      <img src="' + C.brand.logo + '" alt="' + C.brand.name + '" class="nav__logo-img">'
       + '      <span class="nav__logo-text">' + C.brand.nameHtml + '</span>'
       + '    </a>'
       + '    <div class="nav__links" id="navLinks">' + linksHtml + '</div>'
@@ -78,7 +78,7 @@
       + '    <div class="footer__top">'
       + '      <div class="footer__brand">'
       + '        <a href="' + logoHref + '" class="nav__logo">'
-      + '          <img src="' + C.brand.logo + '" alt="' + C.brand.name + '" class="nav__logo-img" onerror="this.style.display=\'none\'">'
+      + '          <img src="' + C.brand.logo + '" alt="' + C.brand.name + '" class="nav__logo-img">'
       + '          <span class="nav__logo-text">' + C.brand.nameHtml + '</span>'
       + '        </a>'
       + '        <p class="footer__tagline">' + C.brand.tagline + '</p>'
@@ -103,4 +103,9 @@
 
   if (navSlot) navSlot.innerHTML = buildNav();
   if (footerSlot) footerSlot.innerHTML = buildFooter();
+
+  /* ── Graceful logo fallback (replaces inline onerror) ── */
+  document.querySelectorAll('.nav__logo-img').forEach(function (img) {
+    img.addEventListener('error', function () { img.style.display = 'none'; });
+  });
 })();

@@ -6,6 +6,8 @@
   <title>SeekerClaw — The AI Agent Layer for Solana Seeker</title>
   <meta name="description" content="SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Monitor your wallet, control your device, and stay connected via Telegram — all from one app.">
   <meta name="theme-color" content="#06080f">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com;">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://seekerclaw.xyz/">
@@ -91,11 +93,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
   <div id="site-nav"></div>
 
-  <main>
+  <main id="main">
   <!-- ═══════════════════ HERO ═══════════════════ -->
   <header class="hero" id="hero">
     <div class="hero__bg">
@@ -124,9 +127,9 @@
       <div class="hero__visual reveal">
         <div class="hero__device">
           <div class="hero__slides">
-            <img src="assets/slide-home.png" alt="SeekerClaw Home — agent dashboard" class="hero__slide hero__slide--active" data-slide="0">
-            <img src="assets/slide-console.png" alt="SeekerClaw Console — system logs" class="hero__slide" data-slide="1">
-            <img src="assets/slide-settings.png" alt="SeekerClaw Settings — configuration" class="hero__slide" data-slide="2">
+            <img src="assets/slide-home.png" alt="SeekerClaw Home — agent dashboard" class="hero__slide hero__slide--active" data-slide="0" width="601" height="776">
+            <img src="assets/slide-console.png" alt="SeekerClaw Console — system logs" class="hero__slide" data-slide="1" width="601" height="776" loading="lazy">
+            <img src="assets/slide-settings.png" alt="SeekerClaw Settings — configuration" class="hero__slide" data-slide="2" width="601" height="776" loading="lazy">
           </div>
           <!-- Invisible hotspots over the phone's bottom nav bar -->
           <button class="hero__hotspot hero__hotspot--home" data-tab="0" aria-label="Home"></button>
@@ -166,7 +169,7 @@
         <!-- Feature cards kept in HTML (SVG icons are hard to config-drive) -->
         <div class="feature-card reveal">
           <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9945FF"/><stop offset="100%" style="stop-color:#14F195"/></linearGradient></defs></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <h3 class="feature-card__title">Solana Wallet Integration</h3>
           <p class="feature-card__desc">Check SOL & SPL token balances, send transactions via Seed Vault, and monitor your wallet history — all secured by hardware.</p>
@@ -299,9 +302,9 @@
         <!-- Table — enhanced dynamically from config -->
         <table class="comparison__table">
           <thead><tr>
-            <th class="comparison__feature-col">Feature</th>
-            <th class="comparison__other-col">Regular AI Apps</th>
-            <th class="comparison__seeker-col">SeekerClaw on Seeker</th>
+            <th scope="col" class="comparison__feature-col">Feature</th>
+            <th scope="col" class="comparison__other-col">Regular AI Apps</th>
+            <th scope="col" class="comparison__seeker-col">SeekerClaw on Seeker</th>
           </tr></thead>
           <tbody>
             <tr><td>Runs on device</td><td><span class="comparison__muted">Cloud only</span></td><td><span class="comparison__check">&#10003;</span> Native on Seeker</td></tr>

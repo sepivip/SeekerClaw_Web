@@ -28,7 +28,7 @@
   /* ── Text Colors ─────────────────────────────────────── */
   --text-primary: #eaf0ff;            /* Headings & body */
   --text-secondary: #8892b0;          /* Descriptions */
-  --text-muted: #4a5470;             /* Captions & hints */
+  --text-muted: #7a8ab0;             /* Captions & hints (WCAG AA 4.8:1 on --bg-deep) */
 
   /* ── Gradients (derived from brand colors) ───────────── */
   --gradient-brand: #E41F28;
