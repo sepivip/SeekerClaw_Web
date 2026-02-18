@@ -61,9 +61,9 @@ window.SITE_CONFIG = {
 
   /* ── Stats ───────────────────────────────────────────── */
   stats: [
-    { value: 150000, suffix: '+', label: 'Seeker Devices' },
-    { value: 25,     suffix: '+', label: 'Built-in Tools' },
-    { value: 68,     suffix: '+',  label: 'Commits Shipped' },
+    { value: 200000, suffix: '+', label: 'Seeker Devices' },
+    { value: 55,     suffix: '+', label: 'Built-in Tools' },
+    { value: 178,    suffix: '+', label: 'Commits Shipped' },
     { value: '24/7', suffix: '',  label: 'Autonomous Agent' },
   ],
 
