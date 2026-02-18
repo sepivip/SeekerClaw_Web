@@ -112,8 +112,8 @@ window.SITE_CONFIG = {
     title: 'How It Works',
     steps: [
       { number: '01', title: 'Install SeekerClaw', desc: 'Download from the dApp Store onto your Solana Seeker phone.' },
-      { number: '02', title: 'Connect Wallet + Telegram', desc: 'Link your Seed Vault wallet and Telegram account in seconds.' },
-      { number: '03', title: 'Your Agent Goes Live', desc: 'SeekerClaw runs 24/7 — monitoring, alerting, and acting autonomously.' },
+      { number: '02', title: 'Connect Telegram & AI', desc: 'Add your Telegram bot token and AI provider key — takes under a minute.' },
+      { number: '03', title: 'Your Claw Goes Live', desc: 'SeekerClaw runs 24/7 — monitoring, alerting, and acting autonomously.' },
     ],
   },
 
