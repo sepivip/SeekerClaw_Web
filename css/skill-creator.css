@@ -164,7 +164,7 @@ body.skillcreator-page {
 
 .sc-group {
   display: block;
-  padding: 1.25rem 0.15rem 0.85rem;
+  padding: 0.5rem 0.15rem 0.85rem;
   border: none;
   border-bottom: 1px solid rgba(47, 60, 91, 0.42);
   border-radius: 0;
@@ -172,8 +172,8 @@ body.skillcreator-page {
   margin: 0;
 }
 
-.sc-group:first-child {
-  padding-top: 0.5rem;
+.sc-group + .sc-group {
+  margin-top: 1.25rem;
 }
 
 .sc-group:last-child {
