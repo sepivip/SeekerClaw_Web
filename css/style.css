@@ -422,7 +422,7 @@ img {
   position: absolute;
   top: 82.09%;
   height: 9.02%;
-  width: 13.31%;
+  width: 12.06%;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -431,9 +431,9 @@ img {
 }
 
 .hero__hotspot--home     { left: 37.44%; }
-.hero__hotspot--console  { left: 50.75%; }
-.hero__hotspot--skills   { left: 64.06%; }
-.hero__hotspot--settings { left: 77.37%; }
+.hero__hotspot--console  { left: 49.50%; }
+.hero__hotspot--skills   { left: 61.56%; }
+.hero__hotspot--settings { left: 73.63%; }
 
 /* Stats strip */
 .stats {
