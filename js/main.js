@@ -68,7 +68,7 @@
     setAttr('[data-hero-cta-secondary]', 'href', C.hero.ctaSecondaryHref);
   }
 
-  /* ── Device slideshow (Home / Console / Settings) ──── */
+  /* ── Device slideshow (Home / Console / Skills / Settings) ── */
   (function initSlideshow() {
     var slides   = $$('.hero__slide');
     var hotspots = $$('.hero__hotspot');

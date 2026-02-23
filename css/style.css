@@ -420,9 +420,9 @@ img {
 /* Invisible hotspots over the phone's bottom nav bar */
 .hero__hotspot {
   position: absolute;
-  top: 82%;
-  height: 9%;
-  width: 16.1%;
+  top: 82.09%;
+  height: 9.02%;
+  width: 11.65%;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -430,9 +430,10 @@ img {
   padding: 0;
 }
 
-.hero__hotspot--home     { left: 37.4%; }
-.hero__hotspot--console  { left: 53.6%; }
-.hero__hotspot--settings { left: 69.7%; }
+.hero__hotspot--home     { left: 37.44%; }
+.hero__hotspot--console  { left: 50.75%; }
+.hero__hotspot--skills   { left: 64.06%; }
+.hero__hotspot--settings { left: 77.37%; }
 
 /* Stats strip */
 .stats {
