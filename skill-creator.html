@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Creator — SeekerClaw</title>
+  <meta name="description" content="Create custom skills for your SeekerClaw AI agent. Use the blank editor, pick a template, or generate a Claude prompt — all in your browser.">
+  <meta name="theme-color" content="#06080f">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com;">
+  <link rel="canonical" href="https://seekerclaw.xyz/skill-creator.html">
+  <meta property="og:title" content="Skill Creator — SeekerClaw">
+  <meta property="og:description" content="Create custom skills for your SeekerClaw AI agent. Blank editor, templates, or Claude prompt generator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seekerclaw.xyz/skill-creator.html">
+  <meta property="og:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta property="og:site_name" content="SeekerClaw">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SeekerClaw">
+  <meta name="twitter:title" content="Skill Creator — SeekerClaw">
+  <meta name="twitter:description" content="Create custom skills for your SeekerClaw AI agent. Blank editor, templates, or Claude prompt generator.">
+  <meta name="twitter:image" content="https://seekerclaw.xyz/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/skill-creator.css">
+</head>
+<body class="skillcreator-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="site-nav"></div>
+
+  <main id="main">
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <header class="sc-hero">
+    <div class="sc-hero__bg">
+      <div class="hero__orb"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
+    <div class="container sc-hero__container">
+      <h1 class="sc-hero__title reveal">
+        Create Custom Skills <span class="sc-hero__badge">Beta</span><br>
+        <span class="sc-hero__title-sub gradient-text">for your SeekerClaw agent</span>
+      </h1>
+      <p class="sc-hero__desc reveal">
+        Skills are <code>.md</code> files that teach your AI agent new capabilities — from checking crypto prices to sending SMS. Build one here, no code required.
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ BUILDER ═══════════════════ -->
+  <section class="sc-builder" id="builder">
+    <div class="container">
+
+      <!-- Mode Tabs -->
+      <div class="sc-tabs reveal">
+        <button class="sc-tab is-active" data-mode="blank" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Blank
+        </button>
+        <button class="sc-tab" data-mode="template" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Template
+        </button>
+        <button class="sc-tab" data-mode="prompt" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Claude CC Prompt
+        </button>
+      </div>
+
+      <!-- ──── BLANK MODE ──── -->
+      <div class="sc-panel" id="sc-panel-blank">
+        <div class="sc-layout">
+          <div class="sc-form-wrap">
+            <form id="scEditorForm" class="sc-form" novalidate>
+
+              <!-- Metadata Group -->
+              <fieldset class="sc-group">
+                <legend class="sc-group__title">Metadata</legend>
+                <div class="sc-group__grid sc-group__grid--meta">
+                  <div class="sc-field">
+                    <label class="sc-label" for="scName">Name <span class="sc-label__req">*</span></label>
+                    <input type="text" id="scName" class="qs-control" placeholder="my-skill-name" autocomplete="off">
+                  </div>
+                  <div class="sc-field">
+                    <label class="sc-label" for="scEmoji">Emoji</label>
+                    <input type="text" id="scEmoji" class="qs-control" value="🔧" maxlength="4" autocomplete="off">
+                  </div>
+                  <div class="sc-field">
+                    <label class="sc-label" for="scVersion">Version</label>
+                    <input type="text" id="scVersion" class="qs-control" value="1.0.0" autocomplete="off">
+                  </div>
+                  <div class="sc-field sc-field--full">
+                    <label class="sc-label" for="scDesc">Description <span class="sc-label__req">*</span></label>
+                    <textarea id="scDesc" class="qs-control sc-textarea--sm" rows="2" placeholder="One-line description — the AI reads this to decide when to activate the skill"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Requirements Group -->
+              <fieldset class="sc-group">
+                <legend class="sc-group__title">Requirements</legend>
+                <div class="sc-group__grid">
+                  <div class="sc-field">
+                    <label class="sc-label">Environment Variables</label>
+                    <div class="sc-tags" id="scEnvTags" data-placeholder="e.g. GITHUB_TOKEN"></div>
+                  </div>
+                  <div class="sc-field">
+                    <label class="sc-label">Required Binaries</label>
+                    <div class="sc-tags" id="scBinTags" data-placeholder="e.g. curl"></div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Instructions Group -->
+              <fieldset class="sc-group">
+                <legend class="sc-group__title">Instructions (Markdown Body)</legend>
+                <div class="sc-field">
+                  <textarea id="scBody" class="qs-control sc-textarea--lg" rows="16" placeholder="# My Skill&#10;&#10;Brief intro sentence.&#10;&#10;## When to Use&#10;&#10;User asks about:&#10;- &quot;Example trigger 1&quot;&#10;- &quot;Example trigger 2&quot;&#10;&#10;## Usage&#10;&#10;### Action Name&#10;&#10;```javascript&#10;tool_name({ param: &quot;value&quot; })&#10;```&#10;&#10;## Examples&#10;&#10;**User:** &quot;example&quot;&#10;**Action:** What the agent does"></textarea>
+                </div>
+              </fieldset>
+            </form>
+
+            <!-- Export Actions -->
+            <div class="sc-actions" id="scBlankActions">
+              <button type="button" class="btn btn--primary" id="scCopyBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy to Clipboard
+              </button>
+              <button type="button" class="btn btn--outline" id="scDownloadBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download .md
+              </button>
+              <p class="sc-status" id="scBlankStatus" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <!-- Live Preview -->
+          <aside class="sc-preview-wrap">
+            <div class="sc-preview-card">
+              <div class="sc-preview-header">
+                <span class="sc-preview-dot"></span>
+                <span class="sc-preview-dot"></span>
+                <span class="sc-preview-dot"></span>
+                <span class="sc-preview-filename" id="scPreviewFilename">SKILL.md</span>
+              </div>
+              <pre class="sc-preview" id="scPreview"><code>---
+name: ""
+version: "1.0.0"
+description: ""
+metadata:
+  openclaw:
+    emoji: "🔧"
+    requires:
+      bins: []
+      env: []
+---</code></pre>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- ──── TEMPLATE MODE ──── -->
+      <div class="sc-panel" id="sc-panel-template" hidden>
+        <p class="sc-templates-hint">Pick a template to pre-fill the editor. You can customize everything after loading.</p>
+        <div class="sc-templates-grid" id="scTemplatesGrid">
+          <!-- Generated by JS -->
+        </div>
+      </div>
+
+      <!-- ──── CLAUDE CC PROMPT MODE ──── -->
+      <div class="sc-panel" id="sc-panel-prompt" hidden>
+        <div class="sc-layout">
+          <div class="sc-form-wrap">
+            <form id="scPromptForm" class="sc-form" novalidate>
+
+              <fieldset class="sc-group">
+                <legend class="sc-group__title">Describe Your Skill</legend>
+                <div class="sc-field">
+                  <label class="sc-label" for="scPurpose">What should this skill do? <span class="sc-label__req">*</span></label>
+                  <textarea id="scPurpose" class="qs-control sc-textarea--sm" rows="3" placeholder="Track my daily water intake and remind me to drink"></textarea>
+                </div>
+                <div class="sc-group__grid">
+                  <div class="sc-field">
+                    <label class="sc-label" for="scApiService">API or service it uses</label>
+                    <input type="text" id="scApiService" class="qs-control" placeholder='CoinGecko API (free, no key)' autocomplete="off">
+                  </div>
+                  <div class="sc-field">
+                    <label class="sc-label" for="scApiKeys">API keys needed</label>
+                    <input type="text" id="scApiKeys" class="qs-control" placeholder="None" autocomplete="off">
+                  </div>
+                </div>
+                <div class="sc-field">
+                  <label class="sc-label" for="scExampleMsgs">Example trigger messages</label>
+                  <textarea id="scExampleMsgs" class="qs-control sc-textarea--sm" rows="3" placeholder="Log 2 glasses of water&#10;How much water today?&#10;Remind me to drink"></textarea>
+                </div>
+              </fieldset>
+
+              <fieldset class="sc-group">
+                <legend class="sc-group__title">Tools to Use</legend>
+                <p class="sc-group__hint">Select the tools your skill needs. Leave empty if unsure — Claude will figure it out.</p>
+                <div class="sc-tools-grid" id="scToolsGrid">
+                  <!-- Generated by JS -->
+                </div>
+              </fieldset>
+            </form>
+
+            <!-- Prompt Export -->
+            <div class="sc-actions" id="scPromptActions">
+              <button type="button" class="btn btn--primary" id="scCopyPromptBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Prompt
+              </button>
+              <p class="sc-status" id="scPromptStatus" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <!-- Prompt Preview -->
+          <aside class="sc-preview-wrap">
+            <div class="sc-preview-card">
+              <div class="sc-preview-header">
+                <span class="sc-preview-dot"></span>
+                <span class="sc-preview-dot"></span>
+                <span class="sc-preview-dot"></span>
+                <span class="sc-preview-filename">Claude Prompt</span>
+              </div>
+              <pre class="sc-preview sc-preview--prompt" id="scPromptPreview"><code>Fill in the form to generate a prompt...</code></pre>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- ──── INSTALL GUIDE ──── -->
+      <details class="sc-install reveal">
+        <summary class="sc-install__summary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          How to Install Your Skill
+        </summary>
+        <div class="sc-install__body">
+          <div class="sc-install__option">
+            <h3>Option 1: Send to Your Agent <span class="sc-install__tag">Easiest</span></h3>
+            <p>Send the skill to your SeekerClaw agent in Telegram — either way works:</p>
+            <ul class="sc-install__list">
+              <li><strong>Paste the text:</strong> Copy the SKILL.md content and send it as a message:</li>
+            </ul>
+            <pre class="sc-install__code">"Save this as a skill called {name}:
+
+[paste the SKILL.md content here]"</pre>
+            <ul class="sc-install__list">
+              <li><strong>Send as a file:</strong> Download the <code>.md</code> file and send it directly to your agent in Telegram. It will read and install it automatically.</li>
+            </ul>
+          </div>
+          <div class="sc-install__option">
+            <h3>Option 2: Use Claude Code</h3>
+            <p>If you used the "Claude CC Prompt" mode, paste the generated prompt into Claude Code. It will create the skill file — then send the resulting <code>.md</code> file to your agent in Telegram to install it.</p>
+          </div>
+          <p class="sc-install__note">After installation, your agent will automatically detect new skills on the next message. Try sending one of the trigger messages to test it!</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/skill-creator.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "038074ada36d4b01ae030f2450a496ea"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>
