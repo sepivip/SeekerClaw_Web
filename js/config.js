@@ -30,7 +30,7 @@ window.SITE_CONFIG = {
       { label: 'Features',    href: '#features',        type: 'anchor' },
       { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
       { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
-      { label: 'Quick Setup', href: 'quick-setup.html', type: 'page'   },
+      { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
     ],
     ctaLabel: 'Get on dApp Store',
@@ -42,7 +42,7 @@ window.SITE_CONFIG = {
       { label: 'Features',    href: '#features',        type: 'anchor' },
       { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
       { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
-      { label: 'Quick Setup', href: 'quick-setup.html', type: 'page'   },
+      { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
       { label: 'Copyright',   href: 'copyright.html',   type: 'page'   },
       { label: 'License',     href: 'license.html',     type: 'page'   },
@@ -58,7 +58,7 @@ window.SITE_CONFIG = {
     description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent. Monitor your wallet, trade on Jupiter, get Telegram alerts, control your device — all running 24/7 on your phone.',
     ctaPrimary: 'Get on dApp Store',
     ctaSecondary: 'Quick Setup',
-    ctaSecondaryHref: 'quick-setup.html',
+    ctaSecondaryHref: 'setup.html',
   },
 
   /* ── Stats ───────────────────────────────────────────── */

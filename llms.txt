@@ -14,7 +14,7 @@ SeekerClaw is a mobile application built specifically for the Solana Seeker phon
 ## Pages
 
 - [Home](https://seekerclaw.xyz/): Main landing page with features, use cases, comparison, and roadmap
-- [Quick Setup](https://seekerclaw.xyz/quick-setup.html): Generate a config QR code to import credentials into SeekerClaw
+- [Quick Setup](https://seekerclaw.xyz/setup.html): Generate a config QR code to import credentials into SeekerClaw
 - [Skill Creator](https://seekerclaw.xyz/skill-creator.html): Interactive 3-mode tool to build custom skills (blank editor, templates, Claude prompt generator)
 - [Privacy Policy](https://seekerclaw.xyz/privacy.html): Privacy policy — no data collection, no tracking, all on-device
 
