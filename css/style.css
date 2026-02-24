@@ -968,7 +968,7 @@ img {
 .qs-control {
   width: 100%;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-primary);
   background: rgba(6, 8, 15, 0.9);
   border: 1px solid var(--border);
@@ -1141,8 +1141,8 @@ img {
 }
 
 .footer__social-link {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1284,7 +1284,8 @@ img {
   .hero__device { width: 360px; }
 
   .features__grid,
-  .usecases__grid {
+  .usecases__grid,
+  .roadmap__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1409,6 +1410,15 @@ img {
     width: 100%;
     justify-content: center;
   }
+
+  .hero__orb { width: 300px; height: 300px; }
+  .hero__orb--2 { width: 200px; height: 200px; }
+
+  .vision::before { width: 300px; height: 300px; }
+
+  .section-header { margin-bottom: 2.5rem; }
+
+  .hero__grid { background-size: 40px 40px; }
 }
 
 /* Small mobile */
