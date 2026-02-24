@@ -48,11 +48,11 @@
           type: "select",
           required: true,
           options: [
-            { value: "claude-sonnet-4-5", label: "Sonnet 4.5 — balanced" },
+            { value: "claude-sonnet-4-6", label: "Sonnet 4.6 — balanced" },
             { value: "claude-opus-4-6", label: "Opus 4.6 — smartest" },
             { value: "claude-haiku-4-5", label: "Haiku 4.5 — fast" },
           ],
-          tooltip: '<strong>Sonnet 4.5</strong> — Best balance of speed and quality for daily use.<br><strong>Opus 4.6</strong> — Most capable, best for complex tasks.<br><strong>Haiku 4.5</strong> — Fastest and most affordable.<br><br>Uses aliases — the API resolves to the latest snapshot automatically. Changeable later in the app.',
+          tooltip: '<strong>Sonnet 4.6</strong> — Best balance of speed and quality for daily use.<br><strong>Opus 4.6</strong> — Most capable, best for complex tasks.<br><strong>Haiku 4.5</strong> — Fastest and most affordable.<br><br>Uses aliases — the API resolves to the latest snapshot automatically. Changeable later in the app.',
         },
         {
           path: "agent.name",
