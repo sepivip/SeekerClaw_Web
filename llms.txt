@@ -2,18 +2,20 @@
 
 > SeekerClaw is the AI Agent Layer for the Solana Seeker phone. It turns the Seeker into an autonomous AI agent that monitors wallets, controls device functions, and connects via Telegram — all running 24/7 on-device.
 
-SeekerClaw is a mobile application built specifically for the Solana Seeker phone (150K+ devices). It provides 18+ AI skills including wallet monitoring, DeFi automation, NFT tracking, Telegram notifications, and device control. The app runs autonomously on-device with user-held keys — no cloud custody. Open-source under the MIT License.
+SeekerClaw is a mobile application built specifically for the Solana Seeker phone (200K+ devices). It provides 55+ built-in tools including wallet monitoring, DeFi automation, NFT tracking, Telegram notifications, and device control. The agent scores 100% on SAB (Self-Awareness Benchmark) — 36 audit points across knowledge and diagnostics. The app runs autonomously on-device with user-held keys — no cloud custody. Open-source under the MIT License.
 
 - Operating system: Android (Solana Seeker phone only)
 - Wallet security: Hardware-secured via Seed Vault (private keys never leave the enclave)
 - AI: Uses third-party LLM APIs (user provides their own API key, stored locally)
 - Messaging: Telegram integration (user provides their own bot token)
 - Privacy: No analytics, no tracking, no cloud servers, all data on-device
+- Self-awareness: 100% SAB score — the agent knows its own tools, diagnoses its own problems, and reports failures
 
 ## Pages
 
 - [Home](https://seekerclaw.xyz/): Main landing page with features, use cases, comparison, and roadmap
 - [Quick Setup](https://seekerclaw.xyz/quick-setup.html): Generate a config QR code to import credentials into SeekerClaw
+- [Skill Creator](https://seekerclaw.xyz/skill-creator.html): Interactive 3-mode tool to build custom skills (blank editor, templates, Claude prompt generator)
 - [Privacy Policy](https://seekerclaw.xyz/privacy.html): Privacy policy — no data collection, no tracking, all on-device
 
 ## Links
