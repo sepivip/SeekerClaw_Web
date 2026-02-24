@@ -801,6 +801,12 @@ body.skillcreator-page {
 }
 
 @media (max-width: 768px) {
+  .skillcreator-page .qs-control,
+  .sc-tags__input,
+  .sc-textarea--lg {
+    font-size: 1rem;
+  }
+
   .sc-hero {
     padding-top: 5.6rem;
   }
