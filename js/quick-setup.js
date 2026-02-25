@@ -116,7 +116,7 @@
       ownerId: "",
     },
     agent: {
-      model: "claude-sonnet-4-5",
+      model: "claude-sonnet-4-6",
       name: "SeekerClaw",
     },
     integrations: {
@@ -187,7 +187,7 @@
       },
       agent: {
         ...(isPlainObject(baseConfig.agent) ? baseConfig.agent : {}),
-        model: normalizeString(getByPath(formState, "agent.model")) || "claude-sonnet-4-5",
+        model: normalizeString(getByPath(formState, "agent.model")) || "claude-sonnet-4-6",
         name: normalizeString(getByPath(formState, "agent.name")) || "SeekerClaw",
       },
       integrations: {
