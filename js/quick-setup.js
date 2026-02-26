@@ -206,6 +206,23 @@
     };
   }
 
+  function minifyEnvelope(envelope) {
+    const out = clone(envelope);
+    if (isPlainObject(out.config)) {
+      (function strip(obj) {
+        Object.keys(obj).forEach(function (k) {
+          var v = obj[k];
+          if (v === "") { delete obj[k]; return; }
+          if (isPlainObject(v)) {
+            strip(v);
+            if (Object.keys(v).length === 0) { delete obj[k]; }
+          }
+        });
+      })(out.config);
+    }
+    return out;
+  }
+
   function encodeBase64Url(jsonString) {
     const bytes = new TextEncoder().encode(jsonString);
     let binary = "";
@@ -313,9 +330,9 @@
     canvas.style.display = "block";
 
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#0f1420";
+    ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "#1a2235";
+    ctx.strokeStyle = "#e0e0e0";
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
   }
 
@@ -645,12 +662,12 @@
             canvas,
             deepLink,
             {
-              width: 320,
+              width: 400,
               margin: 1,
-              errorCorrectionLevel: "M",
+              errorCorrectionLevel: "L",
               color: {
-                dark: "#eaf0ff",
-                light: "#0f1420",
+                dark: "#000000",
+                light: "#ffffff",
               },
             },
             (error) => {
@@ -679,12 +696,12 @@
 
           new window.QRCode(hostEl, {
             text: deepLink,
-            width: 320,
-            height: 320,
-            colorDark: "#eaf0ff",
-            colorLight: "#0f1420",
+            width: 400,
+            height: 400,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
             correctLevel: window.QRCode.CorrectLevel
-              ? window.QRCode.CorrectLevel.M
+              ? window.QRCode.CorrectLevel.L
               : undefined,
           });
 
@@ -710,7 +727,7 @@
       }
 
       const envelope = buildConfigEnvelope(state);
-      const json = JSON.stringify(envelope);
+      const json = JSON.stringify(minifyEnvelope(envelope));
       const payload = encodeBase64Url(json);
       const deepLink = buildSeekerConfigLink(payload);
       const qrOk = await renderQr(deepLink);
