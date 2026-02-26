@@ -18,8 +18,8 @@ window.SITE_CONFIG = {
 
   /* ── Links ───────────────────────────────────────────── */
   links: {
-    dappStore: '#',                    // dApp Store / download URL
-    github: '#',                       // GitHub repo URL
+    dappStore: 'solanadappstore://details?id=com.seekerclaw.app', // dApp Store deep link
+    github: 'https://github.com/sepivip/SeekerClaw', // GitHub repo URL
     x: 'https://x.com/SeekerClaw',    // X (Twitter) profile
     telegram: 'https://t.me/seekerclaw', // Telegram channel
     openclaw: 'https://github.com/openclaw/openclaw', // OpenClaw framework
