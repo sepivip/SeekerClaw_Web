@@ -34,7 +34,7 @@ window.SITE_CONFIG = {
       { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
     ],
-    ctaLabel: 'Get on dApp Store',
+    ctaLabel: 'GitHub',
   },
 
   /* ── Footer (shared across all pages) ──────────────── */
@@ -66,7 +66,7 @@ window.SITE_CONFIG = {
   stats: [
     { value: 200000, suffix: '+', label: 'Seeker Devices' },
     { value: 56,     suffix: '+', label: 'Built-in Tools' },
-    { value: 179,    suffix: '+', label: 'PRs Shipped' },
+    { value: 191,    suffix: '+', label: 'PRs Shipped' },
     { value: '24/7', suffix: '',  label: 'Autonomous Agent' },
   ],
 
@@ -146,7 +146,7 @@ window.SITE_CONFIG = {
         icon: 'bell',
         title: 'Onchain Notifications',
         messages: [
-          'Agent monitors your wallet and sends Telegram alerts for incoming/outgoing transactions.',
+          'Schedule regular balance checks and get Telegram alerts when your portfolio hits key thresholds.',
         ],
       },
       {
@@ -186,7 +186,7 @@ window.SITE_CONFIG = {
       ['Runs on device',           'Cloud only',  '\u2713 Native on Seeker'],
       ['Wallet access',            '\u2717',      '\u2713 Via Seed Vault'],
       ['Persistent memory',        '\u2717',      '\u2713 Learns and remembers'],
-      ['Shell access',              '\u2717',      '\u2713 22 Unix commands + curl'],
+      ['Shell access',              '\u2717',      '\u2713 33 sandboxed commands'],
       ['Messaging + reactions',    '\u2717',      '\u2713 Telegram with full formatting'],
       ['Crypto-native',            '\u2717',      '\u2713 Solana-first'],
       ['Cron scheduling',          '\u2717',      '\u2713 Natural language + recurring'],
@@ -223,7 +223,6 @@ window.SITE_CONFIG = {
         items: [
           'Transaction monitoring & smart alerts',
           'Vector embeddings for semantic memory',
-          'dApp Store listing',
           'Community skill marketplace',
         ],
       },

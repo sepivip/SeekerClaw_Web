@@ -53,7 +53,7 @@
       + '      <span class="nav__logo-text">' + C.brand.nameHtml + '</span>'
       + '    </a>'
       + '    <div class="nav__links" id="navLinks">' + linksHtml + '</div>'
-      + '    <a href="' + C.links.dappStore + '" class="btn btn--primary nav__cta">' + C.nav.ctaLabel + '</a>'
+      + '    <a href="' + C.links.github + '" target="_blank" rel="noopener" class="btn btn--primary nav__cta">' + C.nav.ctaLabel + '</a>'
       + '    <button class="nav__burger" id="navBurger" aria-label="Toggle menu">'
       + '      <span></span><span></span><span></span>'
       + '    </button>'
