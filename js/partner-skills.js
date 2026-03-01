@@ -19,7 +19,6 @@
       id: 'clawpump',
       name: 'ClawPump',
       logo: 'assets/partner-skills/clawpump.jpg',
-      version: '1.1.0',
       category: 'Crypto & DeFi',
       tagline: 'Launch tokens on Solana via pump.fun',
       description: 'Launch tokens on Solana via ClawPump \u2014 gasless pump.fun launches, earn 65% of trading fees. Token creation, earnings tracking, domain search, and swap quotes.',
@@ -62,7 +61,7 @@
         + '  <h2 class="ps-skill-header__name">' + skill.name + '</h2>'
         + '  <div class="ps-skill-header__meta">'
         + '    <span class="ps-chip">' + skill.category + '</span>'
-        + '    <span class="ps-chip ps-chip--muted">v' + skill.version + '</span>'
+        + '    <span class="ps-chip ps-chip--muted" id="psVersionChip"></span>'
         + '  </div>'
         + '  <p class="ps-skill-header__partner">by <a href="' + skill.partnerUrl + '" target="_blank" rel="noopener noreferrer">' + skill.partner + '</a></p>'
         + '  <p class="ps-skill-header__desc">' + skill.description + '</p>'
@@ -109,6 +108,9 @@
     if (contentCache[id]) {
       code.textContent = contentCache[id];
       preview.classList.remove('ps-preview--loading');
+      var vMatch = contentCache[id].match(/^version:\s*"?(.+?)"?\s*$/m);
+      var chip = $('#psVersionChip');
+      if (vMatch && chip) chip.textContent = 'v' + vMatch[1];
       return;
     }
 
@@ -124,6 +126,9 @@
         contentCache[id] = text;
         code.textContent = text;
         preview.classList.remove('ps-preview--loading');
+        var vMatch = text.match(/^version:\s*"?(.+?)"?\s*$/m);
+        var chip = $('#psVersionChip');
+        if (vMatch && chip) chip.textContent = 'v' + vMatch[1];
       })
       .catch(function () {
         code.textContent = 'Could not load skill content.';
@@ -210,7 +215,6 @@
         + '    <div class="ps-card__name">' + skill.name + '</div>'
         + '    <div class="ps-card__meta">'
         + '      <span class="ps-chip">' + skill.category + '</span>'
-        + '      <span class="ps-chip ps-chip--muted">v' + skill.version + '</span>'
         + '    </div>'
         + '  </div>'
         + '</div>'
