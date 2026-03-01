@@ -19,7 +19,7 @@
       id: 'clawpump',
       name: 'ClawPump',
       logo: 'assets/partner-skills/clawpump.jpg',
-      version: '1.0.0',
+      version: '1.1.0',
       category: 'Crypto & DeFi',
       tagline: 'Launch tokens on Solana via pump.fun',
       description: 'Launch tokens on Solana via ClawPump \u2014 gasless pump.fun launches, earn 65% of trading fees. Token creation, earnings tracking, domain search, and swap quotes.',
