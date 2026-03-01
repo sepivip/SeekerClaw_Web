@@ -3,6 +3,7 @@ name: clawpump
 description: "Launch tokens on Solana via ClawPump — gasless pump.fun launches, earn 65% of trading fees. Use when: user wants to launch a token, create a memecoin, check ClawPump earnings, search domains, or get swap quotes. Don't use when: user wants crypto prices (use crypto-prices skill), wants to swap tokens (use solana_swap tool), or wants wallet balance (use solana_balance tool)."
 version: "1.0.0"
 emoji: "\U0001F43E"
+image: "https://seekerclaw.xyz/assets/partner-skills/clawpump.jpg"
 requires:
   bins: []
   env: []
