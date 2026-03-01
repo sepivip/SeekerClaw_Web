@@ -32,7 +32,7 @@ window.SITE_CONFIG = {
       { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
       { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
       { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
-      { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' },
+      // { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' }, // uncomment when partnership goes live
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
     ],
     ctaLabel: 'GitHub',
@@ -45,7 +45,7 @@ window.SITE_CONFIG = {
       { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
       { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
       { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
-      { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' },
+      // { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' }, // uncomment when partnership goes live
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
       { label: 'Copyright',   href: 'copyright.html',   type: 'page'   },
       { label: 'License',     href: 'license.html',     type: 'page'   },
