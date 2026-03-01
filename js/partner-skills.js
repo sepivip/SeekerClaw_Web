@@ -12,7 +12,7 @@
   /* ══════════════════════════════════════════════════════════
      SKILL DATA (embedded — matches skill-creator.js pattern)
      ══════════════════════════════════════════════════════════ */
-  var SKILLS_BASE_URL = 'skills/';
+  var SKILLS_BASE_URL = 'partner-skills/';
 
   var SKILLS = [
     {
@@ -93,7 +93,7 @@
 
     // Install code
     var installCode = $('#psInstallCode');
-    if (installCode) installCode.textContent = 'Install this skill: https://seekerclaw.xyz/skills/' + skill.id + '.md';
+    if (installCode) installCode.textContent = 'Install this skill: https://seekerclaw.xyz/partner-skills/' + skill.id + '.md';
 
     // Fetch and display raw content
     fetchContent(skill.id);
@@ -279,7 +279,7 @@
 
   if (sendBtn) {
     sendBtn.addEventListener('click', function () {
-      var url = 'https://seekerclaw.xyz/skills/' + activeSkill.id + '.md';
+      var url = 'https://seekerclaw.xyz/partner-skills/' + activeSkill.id + '.md';
       copyText('Install this skill: ' + url, 'Install link copied! Paste in Telegram.');
     });
   }

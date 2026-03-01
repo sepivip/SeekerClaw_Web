@@ -10,8 +10,7 @@ CLAUDE.md
 .continue/
 .cursor/
 .windsurf/
-skills/*
-!skills/*.md
+skills/
 
 # OS files
 .DS_Store
