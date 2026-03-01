@@ -61,7 +61,7 @@
         + '  <h2 class="ps-skill-header__name">' + skill.name + '</h2>'
         + '  <div class="ps-skill-header__meta">'
         + '    <span class="ps-chip">' + skill.category + '</span>'
-        + '    <span class="ps-chip ps-chip--muted" id="psVersionChip"></span>'
+        + '    <span class="ps-chip ps-chip--muted" id="psVersionChip" hidden></span>'
         + '  </div>'
         + '  <p class="ps-skill-header__partner">by <a href="' + skill.partnerUrl + '" target="_blank" rel="noopener noreferrer">' + skill.partner + '</a></p>'
         + '  <p class="ps-skill-header__desc">' + skill.description + '</p>'
@@ -105,12 +105,17 @@
     var preview = $('#psPreview');
     var code = $('#psPreviewCode');
 
+    function setVersion(content) {
+      var chip = $('#psVersionChip');
+      if (!chip) return;
+      var m = content.match(/^version:\s*"?(.+?)"?\s*$/m);
+      if (m) { chip.textContent = 'v' + m[1]; chip.hidden = false; }
+    }
+
     if (contentCache[id]) {
       code.textContent = contentCache[id];
       preview.classList.remove('ps-preview--loading');
-      var vMatch = contentCache[id].match(/^version:\s*"?(.+?)"?\s*$/m);
-      var chip = $('#psVersionChip');
-      if (vMatch && chip) chip.textContent = 'v' + vMatch[1];
+      setVersion(contentCache[id]);
       return;
     }
 
@@ -126,9 +131,7 @@
         contentCache[id] = text;
         code.textContent = text;
         preview.classList.remove('ps-preview--loading');
-        var vMatch = text.match(/^version:\s*"?(.+?)"?\s*$/m);
-        var chip = $('#psVersionChip');
-        if (vMatch && chip) chip.textContent = 'v' + vMatch[1];
+        setVersion(text);
       })
       .catch(function () {
         code.textContent = 'Could not load skill content.';
