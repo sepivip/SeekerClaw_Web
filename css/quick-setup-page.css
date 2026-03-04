@@ -655,7 +655,7 @@ body.quicksetup-page {
 }
 
 .setup-faq__answer ul { list-style: disc; }
-.setup-faq__answer ol { list-style: decimal; }
+.setup-faq__answer ol { list-style: decimal inside; }
 
 .setup-faq__answer ul li,
 .setup-faq__answer ol li {
