@@ -539,7 +539,7 @@ body.quicksetup-page {
 /* ── FAQ Section ──────────────────────────────────────────── */
 
 .setup-faq {
-  padding: 1.5rem 0 2.5rem;
+  padding: 2rem 0 4rem;
 }
 
 .setup-faq__heading {
@@ -547,14 +547,14 @@ body.quicksetup-page {
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: var(--text-primary);
 }
 
 .setup-faq__list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .setup-faq__item {
@@ -572,27 +572,28 @@ body.quicksetup-page {
   border-color: rgba(228, 31, 40, 0.3);
 }
 
+/* Nuke every browser's default <details> marker */
 .setup-faq__question {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.85rem 1rem;
+  padding: 0.9rem 1.15rem;
   font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-primary);
   cursor: pointer;
-  list-style: none;
   user-select: none;
+  list-style: none;
+  list-style-type: none;
 }
 
-.setup-faq__question::-webkit-details-marker {
-  display: none;
-}
-
+.setup-faq__question::-webkit-details-marker,
 .setup-faq__question::marker {
+  display: none;
   content: "";
+  font-size: 0;
 }
 
 .setup-faq__chevron {
@@ -607,7 +608,7 @@ body.quicksetup-page {
 }
 
 .setup-faq__answer {
-  padding: 0 1rem 1rem;
+  padding: 0 1.15rem 1.15rem;
   font-size: 0.82rem;
   line-height: 1.65;
   color: var(--text-secondary);
@@ -648,13 +649,14 @@ body.quicksetup-page {
 }
 
 .setup-faq__answer ul {
-  margin: 0.5rem 0 0;
-  padding-left: 1.2rem;
+  margin: 0.6rem 0 0;
+  padding-left: 1.6rem;
   list-style: disc;
 }
 
 .setup-faq__answer ul li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
+  padding-left: 0.2rem;
 }
 
 .setup-faq__answer ul li:last-child {
