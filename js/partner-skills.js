@@ -31,8 +31,24 @@
         { title: 'Domain Search', desc: 'Find and check .com, .io, .ai, .dev, .xyz domains' },
         { title: 'Swap Quotes', desc: 'Get Jupiter DEX swap quotes (read-only)' }
       ]
+    },
+    {
+      id: 'dune-analytics',
+      name: 'Dune Analytics',
+      logo: 'assets/partner-skills/dune.png',
+      category: 'Onchain Data',
+      tagline: 'Query onchain data from Dune Analytics',
+      description: 'Query blockchain data via the Dune API \u2014 Solana DEX trades, token stats, wallet activity, protocol metrics, and custom SQL. Optimized for Solana but supports all chains Dune covers.',
+      partner: 'Dune',
+      partnerUrl: 'https://dune.com',
+      disclaimer: 'Third-party service. Dune Analytics (dune.com) is an independent platform not affiliated with SeekerClaw. Requires a Dune API key. Query results may be cached and not real-time.',
+      features: [
+        { title: 'DEX Analytics', desc: 'Solana DEX volume, trades, and project breakdowns' },
+        { title: 'Wallet Activity', desc: 'Track token transfers, trading history, and balances' },
+        { title: 'Protocol Metrics', desc: 'TVL, staking stats, and usage data for Solana protocols' },
+        { title: 'Custom SQL', desc: 'Run inline SQL queries against Dune\u2019s data warehouse' }
+      ]
     }
-    // Future partner skills go here
   ];
 
   /* ── Helpers ─────────────────────────────────────────── */
