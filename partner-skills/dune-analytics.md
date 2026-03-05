@@ -1,13 +1,16 @@
 ---
 name: dune-analytics
-version: "1.0.0"
 description: "Query onchain data from Dune Analytics — Solana DEX trades, token stats, wallet activity, protocol metrics, and custom SQL"
-metadata:
-  openclaw:
-    emoji: "🔮"
-    requires:
-      bins: []
-      env: ["DUNE_API_KEY"]
+version: "1.0.0"
+emoji: "\U0001F52E"
+image: "https://seekerclaw.xyz/assets/partner-skills/dune.png"
+requires:
+  bins: []
+  env: ["DUNE_API_KEY"]
+allowed-tools:
+  - web_fetch
+  - file_read
+  - file_write
 ---
 
 # Dune Analytics
@@ -26,20 +29,24 @@ User asks about:
 
 ## Authentication
 
-Requires a Dune API key. Check memory first:
+Requires a Dune API key. The key is stored in `agent_settings.json` under `apiKeys.dune`.
 
-```javascript
-memory_search({ query: "DUNE_API_KEY" })
-```
+To check if already configured, read `agent_settings.json` and look for `apiKeys.dune`.
 
 If not found, ask the user to:
 1. Go to https://dune.com → Settings → API → Create New API Key
-2. Share the key (you'll save it securely)
+2. Share the key
 
-Save:
+Save to `agent_settings.json`:
 ```javascript
-memory_save({ content: "DUNE_API_KEY: <key>", section: "credentials" })
+file_write({
+  path: "agent_settings.json",
+  // Read existing settings first, then merge:
+  // settings.apiKeys.dune = "<key>"
+})
 ```
+
+**NEVER save API keys to memory files (MEMORY.md, daily notes). Keys go ONLY in agent_settings.json.**
 
 ## API Overview
 
