@@ -39,8 +39,8 @@
       category: 'Onchain Data',
       tagline: 'Query onchain data from Dune Analytics',
       description: 'Query blockchain data via the Dune API \u2014 Solana DEX trades, token stats, wallet activity, protocol metrics, and custom SQL. Optimized for Solana but supports all chains Dune covers.',
-      partner: 'Dune',
-      partnerUrl: 'https://dune.com',
+      partner: 'SeekerClaw',
+      partnerUrl: 'https://seekerclaw.xyz',
       disclaimer: 'Third-party service. Dune Analytics (dune.com) is an independent platform not affiliated with SeekerClaw. Requires a Dune API key. Query results may be cached and not real-time.',
       features: [
         { title: 'DEX Analytics', desc: 'Solana DEX volume, trades, and project breakdowns' },
