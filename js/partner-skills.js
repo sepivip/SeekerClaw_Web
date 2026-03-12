@@ -48,6 +48,23 @@
         { title: 'Protocol Metrics', desc: 'TVL, staking stats, and usage data for Solana protocols' },
         { title: 'Custom SQL', desc: 'Run inline SQL queries against Dune\u2019s data warehouse' }
       ]
+    },
+    {
+      id: 'home-assistant',
+      name: 'Home Assistant',
+      logo: 'assets/partner-skills/homeassistant.jpg',
+      category: 'Smart Home',
+      tagline: 'Control your smart home via Home Assistant',
+      description: 'Control and monitor your smart home via Home Assistant \u2014 lights, climate, fan, vacuum, alarm, media, scenes, automations, and presence detection.',
+      partner: 'SeekerClaw',
+      partnerUrl: 'https://seekerclaw.xyz',
+      disclaimer: 'Requires a Home Assistant instance with a long-lived access token. Your phone must be on the same network as your HA server (or use remote access).',
+      features: [
+        { title: 'Lights & Switches', desc: 'Toggle lights, switches, and scenes with natural language' },
+        { title: 'Climate Control', desc: 'Set temperature, HVAC mode, and fan speed' },
+        { title: 'Vacuum & Alarm', desc: 'Start/stop robot vacuum, arm/disarm alarm system' },
+        { title: 'Presence & Media', desc: 'Check who\u2019s home, control speakers and TV' }
+      ]
     }
   ];
 
