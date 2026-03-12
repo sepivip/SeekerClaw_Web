@@ -1,6 +1,6 @@
 # WEBSITE.md — Website Content
 
-> Last updated: 2026-02-23 | Last deployed: _never_
+> Last updated: 2026-03-13 | Last deployed: 2026-03-13
 >
 > **Rule:** Every item must earn its screen space. Less is more.
 > Before deploying, review the Editorial Notes in each section.
@@ -36,9 +36,9 @@
 
 | Value | Label | Why this stat? |
 |-------|-------|---------------|
-| 150,000+ | Seeker Devices | Social proof — large addressable market |
+| 200,000+ | Seeker Devices | Social proof — large addressable market |
 | 56+ | Built-in Tools | Shows depth — but consider "50+" for cleaner number |
-| 179+ | PRs Shipped | Shows velocity — but do users care about PRs? |
+| 255+ | PRs Shipped | Shows velocity — but do users care about PRs? |
 | 24/7 | Autonomous Agent | Key differentiator — always on |
 
 <!-- REVIEW: Is "PRs Shipped" the right 3rd stat? Alternatives:
@@ -66,15 +66,15 @@
 ## Feature Cards (6)
 <!-- Maps to: config.js → features.items[] + index.html static cards -->
 
-### 1. Solana Wallet Integration (icon: clock)
-Check SOL & SPL token balances, send transactions, swap tokens via Jupiter,
-create limit orders and DCA positions — all secured by Seed Vault hardware.
-
-### 2. Autonomous AI Agent (icon: brain)
-Powered by Claude (Opus / Sonnet / Haiku) with persistent memory,
-customizable personality, and scheduled automation running 24/7.
+### 1. Autonomous AI Agent (icon: brain)
+Powered by Claude or OpenAI (multi-provider) with persistent memory,
+session continuity, customizable personality, and scheduled AI turns running 24/7.
 Self-aware — knows its own capabilities, diagnoses its own issues,
 and tells you what went wrong instead of failing silently.
+
+### 2. Solana Wallet Integration (icon: clock)
+Check SOL & SPL token balances, send transactions, swap tokens via Jupiter,
+create limit orders and DCA positions — all secured by Seed Vault hardware.
 
 ### 3. Social & Messaging (icon: chat)
 Telegram integration with reactions, file sharing, and vision analysis.
@@ -90,11 +90,9 @@ and deep research on any topic — delivered to your chat.
 
 ### 6. Modular Skill System (icon: tool)
 35 built-in skills: crypto prices, calorie tracking, news briefings,
-reminders, research, and more. Add custom skills without touching code.
+reminders, research, and more. Export, import, and share skills as files.
 
-<!-- REVIEW: Card order matters. Currently: Wallet → AI → Social → Device → Web → Skills
-   Should Wallet lead? Or should AI Agent lead since that's the primary value prop?
-   Consider: AI Agent → Wallet → Web → Device → Social → Skills -->
+<!-- RESOLVED: Card order is AI Agent → Wallet → Social → Device → Web → Skills -->
 
 ---
 
@@ -131,9 +129,10 @@ reminders, research, and more. Add custom skills without touching code.
 ### Onchain Notifications (icon: bell)
 - Agent monitors your wallet and sends alerts for incoming/outgoing transactions.
 
-### Crypto Calendar (icon: calendar)
-- "Remind me about the Jupiter airdrop claim on March 15th"
-- "Every Friday at 6pm, show me my weekly portfolio performance"
+### Smart Home (icon: home)
+- "Turn off the outdoor lights"
+- "Set heating to 23 degrees"
+- Home Assistant integration — lights, climate, fan, vacuum, alarm, media, scenes
 
 ### Shell & DevOps (icon: terminal)
 - "Check disk space and clean up old files"
@@ -143,13 +142,8 @@ reminders, research, and more. Add custom skills without touching code.
 - "Search the web for the latest Solana Mobile news"
 - "Fetch this article and give me a 3-bullet summary"
 
-<!-- REVIEW: "Shell & DevOps" — does a Seeker owner care about this?
-   This is a developer use case on a consumer device.
-   Consider replacing with:
-   - "Health & Fitness" — "Track my calories from a food photo" (CalClaw!)
-   - "Daily Briefing" — "Every morning, send me crypto news + portfolio update"
-   - "Smart Home" — future, but aspirational
-   CalClaw is a strong candidate — food photo → calories is very visual and relatable -->
+<!-- Smart Home is now live via Home Assistant partner skill.
+   Consider also adding: "Health & Fitness" (CalClaw calorie tracker) -->
 
 ---
 
@@ -161,7 +155,7 @@ reminders, research, and more. Add custom skills without touching code.
 | Runs on device | Cloud only | ✓ Native on Seeker |
 | Wallet access | ✗ | ✓ Via Seed Vault |
 | Persistent memory | ✗ | ✓ Learns and remembers |
-| Shell access | ✗ | ✓ 22 Unix commands + curl |
+| Shell access | ✗ | ✓ 33 Unix commands + curl |
 | Messaging + reactions | ✗ | ✓ Telegram with full formatting |
 | Crypto-native | ✗ | ✓ Solana-first |
 | Cron scheduling | ✗ | ✓ Natural language + recurring |
@@ -193,19 +187,19 @@ reminders, research, and more. Add custom skills without touching code.
 - Natural language cron scheduling
 - Multi-provider web search + page reading
 - MCP server support for extensible tools
-- 35 skills including CalClaw calorie tracker and Netwatch security audit
-- OpenClaw v2026.2.22 parity
+- 35 skills with export/import — CalClaw calorie tracker, Netwatch security audit, and more
+- Skill marketplace: export as .md or ZIP, import custom skills from files
+- NFT holdings viewer (Helius DAS API — regular + compressed NFTs)
+- Cron agent turns — scheduled jobs run full AI conversations
+- Session memory — agent remembers context across restarts
+- Multi-provider support (Claude + OpenAI)
+- Self-aware agent: 100% SAB score (36/36 audit points)
+- dApp Store listing
 - Open-source: MIT license, CI/CD, community contribution ready
-
-<!-- REVIEW: 10 items. Max ~8 for readability. Consider cutting:
-   - "OpenClaw parity" — meaningless to users, internal metric
-   - "MCP server support" — developer feature
-   Keep the items that make users say "I want that" -->
 
 ### Next
 - Transaction monitoring & smart alerts
 - Vector embeddings for semantic memory
-- dApp Store listing
 - Community skill marketplace
 
 ### Future
@@ -230,9 +224,9 @@ reminders, research, and more. Add custom skills without touching code.
 <!-- These require index.html edits, not config.js -->
 
 **JSON-LD featureList** (index.html ~line 34-79):
-- Remove: "NFT tracking" (not implemented)
+- "NFT tracking" — now implemented (solana_nft_holdings via Helius DAS API)
 - Remove: "DeFi automation" (overpromise)
-- Add: "AI calorie tracking", "MCP extensibility"
+- Add: "AI calorie tracking", "MCP extensibility", "Smart home control"
 
 **OG/Twitter meta descriptions:**
 - Update to: "Turn your Seeker phone into an autonomous AI agent. Monitor wallets, trade on Jupiter, get Telegram alerts — 24/7 on-device."
@@ -242,12 +236,12 @@ reminders, research, and more. Add custom skills without touching code.
 ## Deployment Checklist
 
 When deploying WEBSITE.md to the website:
-- [ ] Review all `<!-- REVIEW -->` comments — resolve before deploying
-- [ ] Update `config.js → stats[]`
-- [ ] Update `config.js → features.items[]` descriptions
-- [ ] Update `config.js → roadmap.columns[]`
-- [ ] Update `config.js → comparison.rows[]`
-- [ ] Update `config.js → useCases.items[]`
-- [ ] Update `index.html` → feature cards (static HTML)
-- [ ] Update `index.html` → JSON-LD + OG meta
-- [ ] Set "Last deployed" date at top of this file
+- [x] Review all `<!-- REVIEW -->` comments — resolve before deploying
+- [x] Update `config.js → stats[]`
+- [x] Update `config.js → features.items[]` descriptions
+- [x] Update `config.js → roadmap.columns[]`
+- [x] Update `config.js → comparison.rows[]`
+- [x] Update `config.js → useCases.items[]`
+- [x] Update `index.html` → feature cards (static HTML)
+- [x] Update `index.html` → JSON-LD + OG meta
+- [x] Set "Last deployed" date at top of this file
