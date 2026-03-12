@@ -68,7 +68,7 @@ window.SITE_CONFIG = {
   stats: [
     { value: 200000, suffix: '+', label: 'Seeker Devices' },
     { value: 56,     suffix: '+', label: 'Built-in Tools' },
-    { value: 191,    suffix: '+', label: 'PRs Shipped' },
+    { value: 255,    suffix: '+', label: 'PRs Shipped' },
     { value: '24/7', suffix: '',  label: 'Autonomous Agent' },
   ],
 
@@ -79,14 +79,14 @@ window.SITE_CONFIG = {
     description: 'A full-stack AI agent running natively on the most crypto-native phone in the world.',
     items: [
       {
+        icon: 'brain',
+        title: 'Autonomous AI Agent',
+        desc: 'Powered by Claude or OpenAI (multi-provider) with persistent memory, customizable personality, and scheduled automation running 24/7. Self-aware — knows its own capabilities, diagnoses its own issues, and tells you what went wrong.',
+      },
+      {
         icon: 'clock',
         title: 'Solana Wallet Integration',
         desc: 'Check SOL & SPL token balances, send transactions, swap tokens via Jupiter, create limit orders and DCA positions — all secured by Seed Vault hardware.',
-      },
-      {
-        icon: 'brain',
-        title: 'Autonomous AI Agent',
-        desc: 'Powered by Claude (Opus / Sonnet / Haiku) with persistent memory, customizable personality, and scheduled automation running 24/7. Self-aware — knows its own capabilities, diagnoses its own issues, and tells you what went wrong.',
       },
       {
         icon: 'chat',
@@ -141,22 +141,22 @@ window.SITE_CONFIG = {
         title: 'DeFi Assistant',
         messages: [
           '"What\'s the current price of SOL, JUP, and BONK?"',
-          '"Check my wallet balance and alert me if it drops below 5 SOL"',
+          '"Swap 1 SOL to USDC with less than 1% slippage"',
         ],
       },
       {
         icon: 'bell',
         title: 'Onchain Notifications',
         messages: [
-          'Schedule regular balance checks and get Telegram alerts when your portfolio hits key thresholds.',
+          'Agent monitors your wallet and sends alerts for incoming/outgoing transactions.',
         ],
       },
       {
-        icon: 'calendar',
-        title: 'Crypto Calendar',
+        icon: 'home',
+        title: 'Smart Home',
         messages: [
-          '"Remind me about the Jupiter airdrop claim on March 15th"',
-          '"Every Friday at 6pm, show me my weekly portfolio performance"',
+          '"Turn off the outdoor lights"',
+          '"Set heating to 23 degrees"',
         ],
       },
       {
@@ -188,8 +188,9 @@ window.SITE_CONFIG = {
       ['Runs on device',           'Cloud only',  '\u2713 Native on Seeker'],
       ['Wallet access',            '\u2717',      '\u2713 Via Seed Vault'],
       ['Persistent memory',        '\u2717',      '\u2713 Learns and remembers'],
-      ['Shell access',              '\u2717',      '\u2713 33 sandboxed commands'],
+      ['Shell access',              '\u2717',      '\u2713 33 Unix commands + curl'],
       ['Messaging + reactions',    '\u2717',      '\u2713 Telegram with full formatting'],
+      ['Usage analytics',          '\u2717',      '\u2713 Per-session token tracking'],
       ['Crypto-native',            '\u2717',      '\u2713 Solana-first'],
       ['Cron scheduling',          '\u2717',      '\u2713 Natural language + recurring'],
       ['Self-diagnosis',           '\u2717',      '\u2713 Agent knows when something\u2019s wrong and tells you'],
@@ -216,6 +217,13 @@ window.SITE_CONFIG = {
           'Multi-provider web search + page reading',
           'MCP server support for extensible tools',
           '35 skills including CalClaw calorie tracker',
+          'Skill marketplace: export as .md or ZIP, import custom skills',
+          'NFT holdings viewer (Helius DAS API)',
+          'Cron agent turns — scheduled jobs run full AI conversations',
+          'Session memory — agent remembers context across restarts',
+          'Multi-provider support (Claude + OpenAI)',
+          'Self-aware agent: 100% SAB score (36/36 audit points)',
+          'dApp Store listing',
           'Open-source: MIT license, CI/CD, community ready',
         ],
       },
