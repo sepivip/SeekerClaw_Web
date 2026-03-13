@@ -73,8 +73,8 @@
       category: 'Career & Jobs',
       tagline: 'AI career coach for frontier tech jobs',
       description: 'AI career coach for frontier tech \u2014 search live job openings, tailor resumes & cover letters, run mock interviews, research salaries, and plan career transitions across aerospace, AI, robotics, and defense.',
-      partner: 'SeekerClaw',
-      partnerUrl: 'https://seekerclaw.xyz',
+      partner: 'Zero G Talent',
+      partnerUrl: 'https://zerogtalent.com',
       disclaimer: 'Job data powered by Zero G Talent (zerogtalent.com). Listings are sourced from third-party job boards and may not always be current. No API key required.',
       features: [
         { title: 'Live Job Search', desc: 'Search openings at 100+ frontier tech companies like SpaceX, Anthropic, NASA' },
