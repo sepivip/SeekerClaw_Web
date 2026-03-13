@@ -65,6 +65,23 @@
         { title: 'Vacuum & Alarm', desc: 'Start/stop robot vacuum, arm/disarm alarm system' },
         { title: 'Presence & Media', desc: 'Check who\u2019s home, control speakers and TV' }
       ]
+    },
+    {
+      id: 'career-companion',
+      name: 'Career Companion',
+      logo: 'assets/partner-skills/career-companion.jpg',
+      category: 'Career & Jobs',
+      tagline: 'AI career coach for frontier tech jobs',
+      description: 'AI career coach for frontier tech \u2014 search live job openings, tailor resumes & cover letters, run mock interviews, research salaries, and plan career transitions across aerospace, AI, robotics, and defense.',
+      partner: 'SeekerClaw',
+      partnerUrl: 'https://seekerclaw.xyz',
+      disclaimer: 'Job data powered by Zero G Talent (zerogtalent.com). Listings are sourced from third-party job boards and may not always be current. No API key required.',
+      features: [
+        { title: 'Live Job Search', desc: 'Search openings at 100+ frontier tech companies like SpaceX, Anthropic, NASA' },
+        { title: 'Resume & Cover Letters', desc: 'Tailor your resume and write cover letters for specific roles' },
+        { title: 'Mock Interviews', desc: 'Practice with role-specific interview questions and feedback' },
+        { title: 'Salary Research', desc: 'Research compensation data across AI, space, robotics, and defense' }
+      ]
     }
   ];
 
