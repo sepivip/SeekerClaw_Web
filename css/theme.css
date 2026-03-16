@@ -71,7 +71,7 @@
   --glow-sm: 0 0 24px rgba(228, 31, 40, 0.25);
   --glow-md: 0 0 32px rgba(228, 31, 40, 0.4);
   --glow-lg: 0 0 60px rgba(228, 31, 40, 0.08);
-  --shadow-card: 0 16px 48px rgba(228, 31, 40, 0.08);
+  --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.16);
 
   /* Grid background opacity (0 to hide, 0.04 default) */
   --grid-opacity: 0.04;

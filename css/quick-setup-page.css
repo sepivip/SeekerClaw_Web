@@ -6,8 +6,7 @@
 body.quicksetup-page {
   min-height: 100vh;
   background:
-    radial-gradient(900px 340px at 50% -8%, rgba(228, 31, 40, 0.14), transparent 60%),
-    radial-gradient(640px 260px at 18% 0%, rgba(149, 210, 230, 0.08), transparent 60%),
+    radial-gradient(900px 340px at 50% 0%, rgba(228, 31, 40, 0.08), transparent 80%),
     var(--bg-deep);
 }
 
@@ -735,5 +734,10 @@ body.quicksetup-page {
 
   .quicksetup-hero__desc {
     font-size: 0.82rem;
+  }
+
+  .quicksetup-page .qs-control,
+  .quicksetup-page .qs-select-trigger {
+    font-size: 1rem;
   }
 }

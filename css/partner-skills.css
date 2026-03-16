@@ -8,8 +8,7 @@ body.partnerskills-page {
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(900px 340px at 50% -8%, rgba(228, 31, 40, 0.14), transparent 60%),
-    radial-gradient(640px 260px at 82% 0%, rgba(149, 210, 230, 0.08), transparent 60%),
+    radial-gradient(900px 340px at 50% 0%, rgba(228, 31, 40, 0.08), transparent 80%),
     var(--bg-deep);
 }
 
@@ -43,11 +42,11 @@ body.partnerskills-page {
   display: inline-block;
   vertical-align: middle;
   font-family: var(--font-mono);
-  font-size: 0.38em;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--text-primary);
   background: var(--color-primary);
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
@@ -99,7 +98,7 @@ body.partnerskills-page {
   background: var(--bg-card-hover);
   border-color: rgba(228, 31, 40, 0.3);
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(228, 31, 40, 0.08);
+  box-shadow: var(--shadow-card);
 }
 
 .ps-card__top {
@@ -257,7 +256,7 @@ body.partnerskills-page {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.55;
-  max-width: 640px;
+  max-width: min(100%, 640px);
 }
 
 /* ── Layout (info + preview) ──────────────────────────────── */
@@ -425,6 +424,9 @@ body.partnerskills-page {
 .ps-preview--loading {
   color: var(--text-muted);
   font-style: italic;
+  background: rgba(228, 31, 40, 0.03);
+  border: 2px dashed var(--border);
+  border-radius: 0 0 12px 12px;
 }
 
 /* ── Install Guide ────────────────────────────────────────── */
