@@ -379,7 +379,8 @@ img {
 
 .hero__ph-badge {
   margin-top: 1.5rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .hero__ph-badge a {
