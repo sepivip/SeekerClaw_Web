@@ -377,6 +377,20 @@ img {
   flex-wrap: wrap;
 }
 
+.hero__ph-badge {
+  margin-top: 1.25rem;
+}
+
+.hero__ph-badge img {
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.hero__ph-badge img:hover {
+  opacity: 1;
+}
+
 /* Device — real Seeker phone image with terminal overlay */
 .hero__visual {
   display: flex;
@@ -1321,6 +1335,7 @@ img {
 
   .hero__desc { margin: 0 auto 2rem; }
   .hero__actions { justify-content: center; }
+  .hero__ph-badge { text-align: center; }
   .hero__visual { order: -1; }
   .hero__device { width: 360px; }
 
