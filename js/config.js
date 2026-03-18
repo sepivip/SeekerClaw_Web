@@ -11,7 +11,7 @@ window.SITE_CONFIG = {
   brand: {
     name: 'SeekerClaw',
     nameHtml: 'Seeker<span class="accent">Claw</span>',
-    tagline: 'Your phone. Your agent. Your keys. Your rules.',
+    tagline: 'Your phone. Your agent.',
     footer: 'Built for Seeker. Powered by Solana.',
     logo: 'assets/logo.svg',          // path to logo image (set '' to hide)
   },
