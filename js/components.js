@@ -93,7 +93,7 @@
       + '    </div>'
       + '    <div class="footer__bottom">'
       + '      <p>' + C.brand.footer + '</p>'
-      + '      <p class="footer__powered-by">Powered by <a href="' + C.links.openclaw + '" target="_blank" rel="noopener noreferrer">OpenClaw</a> \u2014 open-source AI agent framework</p>'
+      + '      <p class="footer__powered-by">Inspired by <a href="' + C.links.openclaw + '" target="_blank" rel="noopener noreferrer">OpenClaw</a> \u2014 open-source AI agent framework</p>'
       + '    </div>'
       + '  </div>'
       + '</footer>';

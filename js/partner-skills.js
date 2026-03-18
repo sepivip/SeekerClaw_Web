@@ -83,6 +83,23 @@
         { title: 'Salary Research', desc: 'Research compensation data across AI, space, robotics, and defense' }
       ]
     }
+    // {
+    //   id: 'byreal',
+    //   name: 'Byreal DEX',
+    //   logo: 'assets/partner-skills/byreal.jpg',
+    //   category: 'Crypto & DeFi',
+    //   tagline: 'Trade on Byreal DEX — concentrated liquidity on Solana',
+    //   description: 'Trade and analyze concentrated liquidity pools on Solana via Byreal \u2014 pool analytics, token prices, K-line charts, swap quotes, execute swaps, view positions, and copy top farmers.',
+    //   partner: 'Byreal',
+    //   partnerUrl: 'https://byreal.io',
+    //   disclaimer: 'Third-party service. Byreal (byreal.io) is an independent DEX not affiliated with SeekerClaw. Swaps involve real funds on Solana mainnet. Pool APR/TVL figures are estimates and not guaranteed. Use at your own risk.',
+    //   features: [
+    //     { title: 'Pool Analytics', desc: 'Browse pools by TVL, volume, fees, and APR with full detail views' },
+    //     { title: 'Swap via Byreal', desc: 'Get quotes and execute swaps through Byreal\u2019s CLMM router' },
+    //     { title: 'K-Line Charts', desc: 'Candlestick data from 1m to 1d intervals for any pool' },
+    //     { title: 'Copy Top Farmers', desc: 'Discover the most profitable LP positions in any pool' }
+    //   ]
+    // }
   ];
 
   /* ── Helpers ─────────────────────────────────────────── */

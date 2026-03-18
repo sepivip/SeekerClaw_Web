@@ -21,7 +21,7 @@ SeekerClaw is a mobile application built specifically for the Solana Seeker phon
 ## Links
 
 - [X / Twitter](https://x.com/SeekerClaw): Official SeekerClaw social account
-- [OpenClaw](https://github.com/openclaw/openclaw): Core AI agent framework used by SeekerClaw
+- [OpenClaw](https://github.com/openclaw/openclaw): Open-source AI agent framework that inspired SeekerClaw
 
 ## Optional
 
