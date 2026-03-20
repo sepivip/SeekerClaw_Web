@@ -413,9 +413,9 @@
 
       if (field.type === "select") {
         var value = getByPath(formState, field.path);
-        var allowed = {};
-        (field.options || []).forEach(function (o) { allowed[o.value] = true; });
-        if (!allowed[value]) {
+        var allowed = new Set();
+        (field.options || []).forEach(function (o) { allowed.add(o.value); });
+        if (!allowed.has(value)) {
           errors[field.path] = "Please choose a valid option.";
         }
         continue;
@@ -591,6 +591,15 @@
       touched.delete("auth.type");
       touched.delete("auth.credential");
       touched.delete("agent.model");
+
+      // Invalidate stale QR from previous provider
+      lastDeepLink = "";
+      captionEl.textContent = "Generate a QR to preview your SeekerClaw config import link.";
+      setStatus("", "");
+      clearCanvas(canvas);
+      var canvasWrap = canvas.parentElement;
+      if (canvasWrap) canvasWrap.classList.remove("has-qr");
+      if (copyBtn) copyBtn.hidden = true;
 
       renderFields();
     }
