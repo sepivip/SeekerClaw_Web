@@ -256,7 +256,7 @@
 
     var config = {
       ...baseConfig,
-      provider: normalizeString(formState.provider) || 'claude',
+      provider: PROVIDERS[normalizeString(formState.provider)] ? normalizeString(formState.provider) : 'claude',
       auth: {
         ...(isPlainObject(baseConfig.auth) ? baseConfig.auth : {}),
         type: normalizeString(getByPath(formState, "auth.type")) || "api_key",
@@ -957,6 +957,9 @@
     encodeBase64Url: encodeBase64Url,
     buildSeekerConfigLink: buildSeekerConfigLink,
     validateQuickSetup: validateQuickSetup,
+    validateState: function (formState) {
+      return validateQuickSetup(formState, buildSchema(normalizeString(formState.provider) || 'claude'));
+    },
     buildSeekerLink: buildSeekerLink,
     initQuickSetup: initQuickSetup,
   };
