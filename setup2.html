@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SeekerClaw Quick Setup QR — V2 (Testing)</title>
+  <meta name="description" content="Build a SeekerClaw deep-link QR in under a minute and import config directly into the app.">
+  <meta name="theme-color" content="#06080f">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com;">
+  <meta property="og:title" content="Quick Setup — SeekerClaw">
+  <meta property="og:description" content="Generate a config QR code to import credentials and defaults into SeekerClaw in under a minute.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta property="og:site_name" content="SeekerClaw">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quick-setup-page.css">
+</head>
+<body class="quicksetup-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="site-nav"></div>
+
+  <main id="main">
+  <header class="quicksetup-hero">
+    <div class="quicksetup-hero__bg">
+      <div class="hero__orb"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
+    <div class="container quicksetup-hero__container">
+      <h1 class="quicksetup-hero__title reveal">
+        Deploy SeekerClaw config<br>
+        <span class="quicksetup-hero__title-sub gradient-text">in under 1 minute</span>
+      </h1>
+      <p class="quicksetup-hero__desc reveal">
+        Fill the compact form, generate a QR deep link, then scan from SeekerClaw to import credentials and defaults in one step.
+      </p>
+    </div>
+  </header>
+
+  <section class="quick-setup" id="builder">
+    <div class="container quicksetup-page__container">
+      <div class="quick-setup__panel reveal">
+        <p class="quick-setup__warning">
+          Warning: Anyone who scans this QR can import these credentials.
+        </p>
+
+        <div class="quick-setup__layout">
+          <div class="quick-setup__form-wrap">
+            <form id="quickSetupForm" class="quick-setup__form" novalidate>
+              <div class="quick-setup__fields" id="quickSetupFields"></div>
+            </form>
+
+            <div class="quick-setup__actions">
+              <button type="button" class="btn btn--primary" id="quickSetupGenerateBtn">Generate QR</button>
+              <button type="button" class="btn btn--outline" id="quickSetupClearBtn">Clear</button>
+            </div>
+            <p class="quick-setup__status" id="quickSetupStatus" aria-live="polite"></p>
+          </div>
+
+          <aside class="quick-setup__qr-wrap">
+            <div class="quick-setup__qr-card">
+              <div class="quick-setup__qr-canvas-wrap">
+                <canvas id="quickSetupQrCanvas" width="400" height="400" aria-label="SeekerClaw Quick Setup QR"></canvas>
+              </div>
+              <p class="quick-setup__qr-caption" id="quickSetupQrCaption">Generate a QR to preview your SeekerClaw config import link.</p>
+              <button type="button" class="btn btn--outline quick-setup__copy-btn" id="quickSetupCopyBtn" hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Deep Link
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="setup-faq" id="faq">
+    <div class="container quicksetup-page__container">
+      <h2 class="setup-faq__heading reveal">FAQ</h2>
+
+      <div class="setup-faq__list">
+        <details class="setup-faq__item reveal" open>
+          <summary class="setup-faq__question">
+            <span>How to Get a Claude Code Setup Token</span>
+            <svg class="setup-faq__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="setup-faq__answer">
+            <p>A setup token (<code>sk-ant-oat-*</code>) is an OAuth credential automatically generated by the Claude Code CLI when you authenticate with your Claude.ai subscription. Instead of paying per token like a standard API key, it bills usage against your flat monthly plan. Setup tokens are supported on <strong>Pro</strong> ($20/mo), <strong>Max</strong> ($100/mo), <strong>Team</strong> ($30/user/mo), and <strong>Enterprise</strong> plans&nbsp;&mdash; the Free plan is not eligible.</p>
+            <p>To get one, subscribe at <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">claude.ai/upgrade</a>, install Claude Code using the native installer for your OS, then run <code>claude</code> and log in with your Claude.ai credentials&nbsp;&mdash; the CLI stores the token automatically:</p>
+            <ul>
+              <li><strong>Mac</strong> &mdash; <code>curl -fsSL https://claude.ai/install.sh | bash</code> (the native installer)</li>
+              <li><strong>Windows</strong> &mdash; <code>winget install Anthropic.ClaudeCode</code> after installing Git for Windows&nbsp;&mdash; no WSL required, though WSL works too</li>
+            </ul>
+          </div>
+        </details>
+        <details class="setup-faq__item reveal">
+          <summary class="setup-faq__question">
+            <span>How to Create Your Telegram Bot</span>
+            <svg class="setup-faq__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="setup-faq__answer">
+            <ol>
+              <li>In Telegram, search <strong>@BotFather</strong> (verified blue checkmark) and tap <strong>Start</strong></li>
+              <li>Send <code>/newbot</code></li>
+              <li>Choose a display name (e.g. "My AI Agent")</li>
+              <li>Choose a username ending in <code>bot</code> (e.g. <code>my_agent_bot</code>)</li>
+              <li>Copy the <strong>Bot Token</strong> BotFather gives you (format: <code>123456789:ABCdefGHIjklmnoPQR</code>)</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/vendor/qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/quick-setup2.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
