@@ -363,7 +363,7 @@
     var errors = {};
     var fields = flatFields(schema);
     var providerId = normalizeString(formState.provider) || 'claude';
-    var provider = PROVIDERS[providerId];
+    var provider = PROVIDERS[providerId] || PROVIDERS.claude;
 
     var authType = normalizeString(getByPath(formState, "auth.type"));
     var credential = normalizeString(getByPath(formState, "auth.credential"));
