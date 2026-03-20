@@ -391,7 +391,7 @@
     if (botToken === "") {
       errors["telegram.botToken"] = "Telegram bot token is required.";
     } else if (!TELEGRAM_BOT_TOKEN_REGEX.test(botToken)) {
-      errors["telegram.botToken"] = "Bot token must match 123456:ABCDEFGHIJKLMNOPQRSTUVWXYZ format.";
+      errors["telegram.botToken"] = "Bot token must start with 6-12 digits, a colon, then at least 20 characters (letters, digits, '_' or '-').";
     }
 
     if (ownerId !== "" && !OWNER_ID_REGEX.test(ownerId)) {
@@ -581,7 +581,6 @@
 
       currentProvider = newProviderId;
       currentSchema = buildSchema(newProviderId);
-      var p = PROVIDERS[newProviderId];
 
       state = createDefaultState(newProviderId);
       state.telegram = savedTelegram;
@@ -705,6 +704,7 @@
             trigger.addEventListener("click", function (e) {
               e.stopPropagation();
               closeAllTooltips();
+              closeAllSelects();
               var isOpen = wrap.classList.toggle("is-open");
               trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
             });
@@ -890,13 +890,19 @@
     if (copyBtn) {
       copyBtn.addEventListener("click", function () {
         if (!lastDeepLink) return;
-        navigator.clipboard.writeText(lastDeepLink).then(function () {
-          copyBtn.textContent = "Copied!";
-          setTimeout(function () {
-            copyBtn.innerHTML =
-              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Deep Link';
-          }, 1500);
-        });
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(lastDeepLink).then(function () {
+            copyBtn.textContent = "Copied!";
+            setTimeout(function () {
+              copyBtn.innerHTML =
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Deep Link';
+            }, 1500);
+          }).catch(function () {
+            setStatus("Copy failed — try manually.", "error");
+          });
+        } else {
+          setStatus("Clipboard API not available in this browser.", "error");
+        }
       });
     }
 
