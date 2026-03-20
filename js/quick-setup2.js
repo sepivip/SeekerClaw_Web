@@ -141,7 +141,7 @@
             secret: true,
             fullWidth: true,
             placeholder: p.credentialPlaceholder,
-            tooltip: 'Paste your API key here. This stays on your device — never sent to our servers.',
+            tooltip: 'Paste your API key or setup token here. This stays on your device — never sent to our servers.',
             tooltipLink: { label: 'Open ' + p.consoleName, url: p.consoleUrl },
           },
         ],
