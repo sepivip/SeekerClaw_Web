@@ -712,10 +712,16 @@
 
             trigger.addEventListener("click", function (e) {
               e.stopPropagation();
+              var wasOpen = wrap.classList.contains("is-open");
               closeAllTooltips();
-              closeAllSelects();
-              var isOpen = wrap.classList.toggle("is-open");
-              trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+              if (wasOpen) {
+                wrap.classList.remove("is-open");
+                trigger.setAttribute("aria-expanded", "false");
+              } else {
+                closeAllSelects();
+                wrap.classList.add("is-open");
+                trigger.setAttribute("aria-expanded", "true");
+              }
             });
 
             wrap.appendChild(trigger);
