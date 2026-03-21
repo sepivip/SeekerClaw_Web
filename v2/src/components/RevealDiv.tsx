@@ -1,19 +1,24 @@
-import { type CSSProperties, type ReactNode } from 'react'
-import { useReveal } from '@/lib/hooks'
+import { type ReactNode } from 'react'
+import { motion } from 'motion/react'
 
 interface Props {
   children: ReactNode
   className?: string
-  style?: CSSProperties
-  as?: 'div' | 'section'
+  style?: React.CSSProperties
+  delay?: number
 }
 
-export function RevealDiv({ children, className = '', style, as: Tag = 'div' }: Props) {
-  const ref = useReveal<HTMLDivElement>()
-
+export function RevealDiv({ children, className = '', style, delay = 0 }: Props) {
   return (
-    <Tag ref={ref as React.RefObject<never>} className={`reveal ${className}`} style={style}>
+    <motion.div
+      className={className}
+      style={style}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
+    >
       {children}
-    </Tag>
+    </motion.div>
   )
 }

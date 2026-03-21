@@ -22,63 +22,39 @@ export function Footer() {
 
   return (
     <footer className="mt-16 border-t border-white/10">
-      <div className="mx-auto max-w-[var(--container-max)] px-6 py-12">
+      <div className="mx-auto max-w-[1180px] px-6 py-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
-          {/* Brand column */}
           <div className="md:col-span-2">
             <div className="mb-3 flex items-center gap-2.5">
               <img src={brand.logo} alt={brand.name} className="h-8 w-8" />
-              <span className="font-[var(--font-heading)] text-base font-bold text-[var(--text-primary)]">
-                Seeker<span className="text-[var(--primary)]">Claw</span>
+              <span className="font-heading text-base font-bold text-text-primary">
+                Seeker<span className="text-primary">Claw</span>
               </span>
             </div>
-            <p className="mb-4 text-sm font-light text-[var(--text-muted)]">
-              {brand.footer}
-            </p>
+            <p className="mb-4 text-sm font-light text-text-muted">{brand.footer}</p>
             <div className="flex items-center gap-4">
-              <a
-                href={links.x}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--text-muted)] transition hover:text-[var(--text-primary)]"
-                aria-label="X (Twitter)"
-              >
+              <a href={links.x} target="_blank" rel="noopener noreferrer"
+                className="text-text-muted transition hover:text-text-primary" aria-label="X (Twitter)">
                 <XIcon />
               </a>
-              <a
-                href={links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--text-muted)] transition hover:text-[var(--text-primary)]"
-                aria-label="GitHub"
-              >
+              <a href={links.github} target="_blank" rel="noopener noreferrer"
+                className="text-text-muted transition hover:text-text-primary" aria-label="GitHub">
                 <Github size={18} />
               </a>
-              <a
-                href={links.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--text-muted)] transition hover:text-[var(--text-primary)]"
-                aria-label="Telegram"
-              >
+              <a href={links.telegram} target="_blank" rel="noopener noreferrer"
+                className="text-text-muted transition hover:text-text-primary" aria-label="Telegram">
                 <TelegramIcon />
               </a>
             </div>
           </div>
 
-          {/* Link columns */}
           {footer.columns.map((col, i) => (
             <div key={i}>
-              <h4 className="mb-3 font-[var(--font-heading)] text-sm font-semibold text-[var(--text-primary)]">
-                {col.title}
-              </h4>
+              <h4 className="mb-3 font-heading text-sm font-semibold text-text-primary">{col.title}</h4>
               <ul className="flex flex-col gap-2">
                 {col.links.map((link, j) => (
                   <li key={j}>
-                    <a
-                      href={link.href}
-                      className="text-sm font-light text-[var(--text-muted)] transition hover:text-[var(--text-primary)]"
-                    >
+                    <a href={link.href} className="text-sm font-light text-text-muted transition hover:text-text-primary">
                       {link.label}
                     </a>
                   </li>
@@ -88,8 +64,7 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-[var(--text-muted)]">
+        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-text-muted">
           &copy; {new Date().getFullYear()} SeekerClaw. {brand.footer}
         </div>
       </div>

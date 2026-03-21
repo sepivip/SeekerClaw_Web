@@ -12,8 +12,8 @@ export function Roadmap() {
   const { tag, title, columns } = siteConfig.roadmap
 
   return (
-    <section className="py-[var(--section-pad)]" id="roadmap">
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+    <section className="py-section" id="roadmap">
+      <div className="mx-auto max-w-[1180px] px-6">
         <RevealDiv className="mb-12 text-center">
           <span className="liquid-glass section-badge">{tag}</span>
           <h2 className="section-heading">{title}</h2>
@@ -21,29 +21,19 @@ export function Roadmap() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {columns.map((col, i) => (
-            <RevealDiv
-              key={i}
-              className="liquid-glass rounded-2xl p-6"
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
+            <RevealDiv key={i} delay={i * 0.12} className="liquid-glass rounded-2xl p-6">
               <div className="mb-4 flex items-center gap-2.5">
                 <span className={`h-2.5 w-2.5 rounded-full ${phaseColors[col.phase]}`} />
-                <span className="font-[var(--font-heading)] text-sm font-semibold text-[var(--text-primary)]">
-                  {col.label}
-                  {col.phase === 'now' && ' ✅'}
+                <span className="font-heading text-sm font-semibold text-text-primary">
+                  {col.label}{col.phase === 'now' && ' ✅'}
                 </span>
               </div>
               <ul className="flex flex-col gap-2">
                 {col.items.map((item, j) => (
-                  <li
-                    key={j}
-                    className="flex items-start gap-2 text-sm font-light text-[var(--text-secondary)]"
-                  >
-                    {col.phase === 'now' ? (
-                      <Check size={14} className="mt-0.5 shrink-0 text-emerald-500" />
-                    ) : (
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/20" />
-                    )}
+                  <li key={j} className="flex items-start gap-2 text-sm font-light text-text-secondary">
+                    {col.phase === 'now'
+                      ? <Check size={14} className="mt-0.5 shrink-0 text-emerald-500" />
+                      : <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/20" />}
                     {item}
                   </li>
                 ))}

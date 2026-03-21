@@ -8,8 +8,8 @@ export function UseCases() {
   const { tag, title, description, items } = siteConfig.useCases
 
   return (
-    <section className="py-[var(--section-pad)]" id="usecases">
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+    <section className="py-section" id="usecases">
+      <div className="mx-auto max-w-[1180px] px-6">
         <RevealDiv className="mb-12 text-center">
           <span className="liquid-glass section-badge">{tag}</span>
           <h2 className="section-heading">{title}</h2>
@@ -20,25 +20,17 @@ export function UseCases() {
           {items.map((item, i) => {
             const Icon = iconMap[item.icon]
             return (
-              <RevealDiv
-                key={i}
-                className="liquid-glass rounded-[var(--radius-card)] p-6 transition hover:bg-[var(--bg-card-hover)]"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
+              <RevealDiv key={i} delay={i * 0.08}
+                className="liquid-glass rounded-2xl p-6 transition hover:bg-card-hover">
                 <div className="mb-3 flex items-center gap-2.5">
-                  <Icon size={18} className="text-[var(--primary)]" />
-                  <h3 className="font-[var(--font-heading)] text-base font-semibold text-[var(--text-primary)]">
-                    {item.title}
-                  </h3>
+                  <Icon size={18} className="text-primary" />
+                  <h3 className="font-heading text-base font-semibold text-text-primary">{item.title}</h3>
                 </div>
                 <div className="flex flex-col gap-2">
                   {item.messages.map((msg, j) => (
-                    <div
-                      key={j}
-                      className="flex gap-2 text-sm font-light text-[var(--text-secondary)]"
-                    >
-                      <span className="font-[var(--font-mono)] text-[var(--primary)] shrink-0">&gt;</span>
-                      <span className="font-[var(--font-mono)]">{msg}</span>
+                    <div key={j} className="flex gap-2 text-sm font-light text-text-secondary">
+                      <span className="font-mono text-primary shrink-0">&gt;</span>
+                      <span className="font-mono">{msg}</span>
                     </div>
                   ))}
                 </div>

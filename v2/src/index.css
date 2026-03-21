@@ -2,46 +2,59 @@
 
 @import "tailwindcss";
 
+/* ── Tailwind v4 Theme ────────────────────────────────── */
+@theme {
+  --font-heading: 'Rethink Sans', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-primary: #E41F28;
+  --color-primary-fg: #ffffff;
+  --color-bg: #06080f;
+  --color-fg: #eaf0ff;
+  --color-surface: #0b0f1a;
+  --color-card: #0f1420;
+  --color-card-hover: #131a28;
+  --color-elevated: #161d2d;
+  --color-border: #1a2235;
+  --color-text-primary: #eaf0ff;
+  --color-text-secondary: #8892b0;
+  --color-text-muted: #7a8ab0;
+  --spacing-section: clamp(4rem, 8vw, 7rem);
+  --width-container: 1180px;
+  --radius-card: 16px;
+}
+
 /* ── Design Tokens ────────────────────────────────────── */
 :root {
   --background: #06080f;
   --foreground: #eaf0ff;
   --primary: #E41F28;
   --primary-foreground: #ffffff;
-
   --bg-surface: #0b0f1a;
   --bg-card: #0f1420;
   --bg-card-hover: #131a28;
   --bg-elevated: #161d2d;
-
   --border: #1a2235;
   --border-subtle: #141b2a;
   --border-glow: rgba(228, 31, 40, 0.25);
-
   --text-primary: #eaf0ff;
   --text-secondary: #8892b0;
   --text-muted: #7a8ab0;
-
   --glow-sm: 0 0 24px rgba(228, 31, 40, 0.25);
   --glow-md: 0 0 32px rgba(228, 31, 40, 0.4);
   --glow-lg: 0 0 60px rgba(228, 31, 40, 0.08);
   --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.16);
-
   --font-heading: 'Rethink Sans', sans-serif;
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-
   --radius-card: 16px;
   --section-pad: clamp(4rem, 8vw, 7rem);
   --container-max: 1180px;
-
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-slow: 0.7s;
 }
 
 /* ── Base ─────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -56,85 +69,94 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Tailwind v4 Theme ────────────────────────────────── */
-@theme {
-  --font-heading: 'Rethink Sans', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+/* ── Custom classes (outside @layer so they always apply) ── */
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01) !important;
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  border: none !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-/* ── Liquid Glass ─────────────────────────────────────── */
-@layer components {
-  .liquid-glass {
-    background: rgba(255, 255, 255, 0.01);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(4px);
-    border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-  }
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(228, 31, 40, 0.35) 0%, rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%, rgba(228, 31, 40, 0.35) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
-  .liquid-glass::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(180deg,
-      rgba(228, 31, 40, 0.35) 0%, rgba(255, 255, 255, 0.15) 20%,
-      rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.15) 80%, rgba(228, 31, 40, 0.35) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
+.liquid-glass-strong {
+  background: rgba(255, 255, 255, 0.02) !important;
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(50px);
+  border: none !important;
+  box-shadow:
+    4px 4px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
 
-  .liquid-glass-strong {
-    background: rgba(255, 255, 255, 0.02);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(50px);
-    border: none;
-    box-shadow:
-      4px 4px 4px rgba(0, 0, 0, 0.05),
-      inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    position: relative;
-    overflow: hidden;
-  }
+.liquid-glass-strong::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(228, 31, 40, 0.45) 0%, rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.2) 80%, rgba(228, 31, 40, 0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
-  .liquid-glass-strong::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(180deg,
-      rgba(228, 31, 40, 0.45) 0%, rgba(255, 255, 255, 0.2) 20%,
-      rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.2) 80%, rgba(228, 31, 40, 0.45) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
+.gradient-text {
+  background: linear-gradient(135deg, #E41F28, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  .gradient-text {
-    background: linear-gradient(135deg, #E41F28, #ff6b6b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+.section-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.875rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-radius: 9999px;
+}
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity var(--duration-slow) var(--ease-out),
-                transform var(--duration-slow) var(--ease-out);
-  }
+.section-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.section-desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  max-width: 640px;
+  margin: 0 auto;
 }

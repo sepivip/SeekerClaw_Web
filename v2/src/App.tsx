@@ -12,7 +12,7 @@ import { Footer } from '@/components/Footer'
 
 export default function App() {
   return (
-    <div className="bg-[var(--background)] overflow-visible">
+    <div className="bg-bg overflow-visible">
       <Navbar />
       <main>
         <Hero />
