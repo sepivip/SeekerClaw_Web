@@ -25,3 +25,6 @@ desktop.ini
 
 # Dependencies
 node_modules/
+
+# V2 build output
+v2/dist/
