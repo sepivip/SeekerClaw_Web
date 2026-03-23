@@ -162,7 +162,7 @@
       </div>
       <div class="stats__divider"></div>
       <div class="stats__item">
-        <span class="stats__number">191</span><span class="stats__suffix">+</span>
+        <span class="stats__number">255</span><span class="stats__suffix">+</span>
         <span class="stats__label">PRs Shipped</span>
       </div>
       <div class="stats__divider"></div>
@@ -312,16 +312,16 @@
         <div class="usecase-card reveal">
           <h3 class="usecase-card__title">DeFi Assistant</h3>
           <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "What's the current price of SOL, JUP, and BONK?"</div>
-          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Check my wallet balance and alert me if it drops below 5 SOL"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Swap 1 SOL to USDC with less than 1% slippage"</div>
         </div>
         <div class="usecase-card reveal">
           <h3 class="usecase-card__title">Onchain Notifications</h3>
-          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> Schedule regular balance checks and get Telegram alerts when your portfolio hits key thresholds.</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> Agent monitors your wallet and sends alerts for incoming/outgoing transactions.</div>
         </div>
         <div class="usecase-card reveal">
-          <h3 class="usecase-card__title">Crypto Calendar</h3>
-          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Remind me about the Jupiter airdrop claim on March 15th"</div>
-          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Every Friday at 6pm, show me my weekly portfolio performance"</div>
+          <h3 class="usecase-card__title">Smart Home</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Turn off the outdoor lights"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Set heating to 23 degrees"</div>
         </div>
         <div class="usecase-card reveal">
           <h3 class="usecase-card__title">Shell & DevOps</h3>
@@ -356,12 +356,14 @@
           <tbody>
             <tr><td>Runs on device</td><td><span class="comparison__muted">Cloud only</span></td><td><span class="comparison__check">&#10003;</span> Native on Seeker</td></tr>
             <tr><td>Wallet access</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Via Seed Vault</td></tr>
-            <tr><td>Persistent memory</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Remembers everything</td></tr>
-            <tr><td>Shell access</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> 33 sandboxed commands</td></tr>
-            <tr><td>Messaging integration</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Telegram (more coming)</td></tr>
+            <tr><td>Persistent memory</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Learns and remembers</td></tr>
+            <tr><td>Shell access</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> 33 Unix commands + curl</td></tr>
+            <tr><td>Messaging + reactions</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Telegram with full formatting</td></tr>
+            <tr><td>Usage analytics</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Per-session token tracking</td></tr>
             <tr><td>Crypto-native</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Solana-first</td></tr>
-            <tr><td>Autonomous scheduling</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Runs tasks 24/7</td></tr>
-            <tr><td>Extensible skills</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Modular system</td></tr>
+            <tr><td>Cron scheduling</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Natural language + recurring</td></tr>
+            <tr><td>Self-diagnosis</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Agent knows when something&#8217;s wrong and tells you</td></tr>
+            <tr><td>Error resilience</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Auto-retry + graceful fallback</td></tr>
             <tr><td>Hardware wallet security</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Seed Vault signing</td></tr>
           </tbody>
         </table>
@@ -390,6 +392,13 @@
             <li>Multi-provider web search + page reading</li>
             <li>MCP server support for extensible tools</li>
             <li>35 skills including CalClaw calorie tracker</li>
+            <li>Skill marketplace: export as .md or ZIP, import custom skills</li>
+            <li>NFT holdings viewer (Helius DAS API)</li>
+            <li>Cron agent turns — scheduled jobs run full AI conversations</li>
+            <li>Session memory — agent remembers context across restarts</li>
+            <li>Multi-provider support (Claude + OpenAI)</li>
+            <li>Self-aware agent: 100% SAB score (36/36 audit points)</li>
+            <li>dApp Store listing</li>
             <li>Open-source: MIT license, CI/CD, community ready</li>
           </ul>
         </div>

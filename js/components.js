@@ -86,7 +86,7 @@
       + '      </div>'
       + '      <div class="footer__links">' + linksHtml + '</div>'
       + '      <div class="footer__social">'
-      + '        <a href="' + C.links.github + '" class="footer__social-link" aria-label="GitHub">' + githubSvg + '</a>'
+      + '        <a href="' + C.links.github + '" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">' + githubSvg + '</a>'
       + '        <a href="' + C.links.x + '" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)">' + xSvg + '</a>'
       + '        <a href="' + C.links.telegram + '" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Telegram">' + telegramSvg + '</a>'
       + '      </div>'

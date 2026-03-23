@@ -295,12 +295,17 @@
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
       navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.contains('open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      navLinks.setAttribute('aria-hidden', String(!isOpen));
     });
 
     navLinks.querySelectorAll('.nav__link').forEach((link) => {
       link.addEventListener('click', () => {
         burger.classList.remove('active');
         navLinks.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        navLinks.setAttribute('aria-hidden', 'true');
       });
     });
   }

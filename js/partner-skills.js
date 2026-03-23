@@ -290,8 +290,16 @@
         + '</div>'
         + '<p class="ps-card__tagline">' + skill.tagline + '</p>'
         + '<span class="ps-card__partner">by ' + skill.partner + '</span>';
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
       card.addEventListener('click', function () {
         showDetail(skill.id);
+      });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          showDetail(skill.id);
+        }
       });
       cardsGrid.appendChild(card);
     });
@@ -366,7 +374,7 @@
         showToast('Downloading ' + id + '.md');
       } else {
         fetch(SKILLS_BASE_URL + id + '.md')
-          .then(function (res) { return res.text(); })
+          .then(function (res) { if (!res.ok) throw new Error('Failed to fetch'); return res.text(); })
           .then(function (text) {
             contentCache[id] = text;
             downloadFile(text, id + '.md');

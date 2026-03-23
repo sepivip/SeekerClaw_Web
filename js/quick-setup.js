@@ -779,7 +779,6 @@
           return;
         }
         navigator.clipboard.writeText(lastDeepLink).then(function () {
-          var original = copyBtn.textContent;
           copyBtn.textContent = "Copied!";
           setTimeout(function () {
             copyBtn.innerHTML =

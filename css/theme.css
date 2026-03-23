@@ -10,6 +10,7 @@
   --color-primary: #E41F28;           /* Main brand color (logo red) */
   --color-secondary: #E41F28;         /* Secondary accent (logo red) */
   --color-accent: #E41F28;            /* Tertiary accent (logo red) */
+  --accent: #E41F28;                   /* Alias for --color-accent */
   --color-danger: #ff4d6a;            /* Error / negative states */
   --color-warning: #f5a623;           /* Warning / caution */
 
