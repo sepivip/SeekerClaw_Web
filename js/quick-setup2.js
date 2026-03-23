@@ -708,21 +708,21 @@
                 })(option);
                 dropdown.appendChild(optBtn);
               }
-            })(field, triggerText, wrap, trigger, dropdown);
+              trigger.addEventListener("click", function (e) {
+                e.stopPropagation();
+                var wasOpen = wrap.classList.contains("is-open");
+                closeAllTooltips();
+                if (wasOpen) {
+                  wrap.classList.remove("is-open");
+                  trigger.setAttribute("aria-expanded", "false");
+                } else {
+                  closeAllSelects();
+                  wrap.classList.add("is-open");
+                  trigger.setAttribute("aria-expanded", "true");
+                }
+              });
 
-            trigger.addEventListener("click", function (e) {
-              e.stopPropagation();
-              var wasOpen = wrap.classList.contains("is-open");
-              closeAllTooltips();
-              if (wasOpen) {
-                wrap.classList.remove("is-open");
-                trigger.setAttribute("aria-expanded", "false");
-              } else {
-                closeAllSelects();
-                wrap.classList.add("is-open");
-                trigger.setAttribute("aria-expanded", "true");
-              }
-            });
+            })(field, triggerText, wrap, trigger, dropdown);
 
             wrap.appendChild(trigger);
             wrap.appendChild(dropdown);
