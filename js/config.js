@@ -23,6 +23,7 @@ window.SITE_CONFIG = {
     x: 'https://x.com/SeekerClaw',    // X (Twitter) profile
     telegram: 'https://t.me/seekerclaw', // Telegram channel
     openclaw: 'https://github.com/openclaw/openclaw', // OpenClaw framework
+    googlePlay: 'https://play.google.com/store/apps/details?id=com.seekerclaw.app&pcampaignid=web_share', // Google Play Store
   },
 
   /* ── Navigation (shared across all pages) ──────────── */
@@ -58,8 +59,8 @@ window.SITE_CONFIG = {
     tag: 'Built for Solana Seeker',
     titleLine1: 'The AI Agent Layer',
     titleLine2: 'for Solana Seeker',   // rendered with gradient
-    description: 'SeekerClaw turns your Seeker phone into an autonomous AI agent. Monitor your wallet, trade on Jupiter, get Telegram alerts, control your device — all running 24/7 on your phone.',
-    ctaPrimary: 'Get on dApp Store',
+    description: 'SeekerClaw is an AI agent that lives on your Android phone. It connects to your world and handles things for you — autonomously, 24/7. Nobody has found its limits yet.',
+    ctaPrimary: 'Get it on dApp Store',
     ctaSecondary: 'Quick Setup',
     ctaSecondaryHref: 'setup.html',
   },

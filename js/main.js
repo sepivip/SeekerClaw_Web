@@ -52,6 +52,7 @@
   setAllAttr('[data-link-dapp]', 'href', C.links.dappStore);
   setAllAttr('[data-link-github]', 'href', C.links.github);
   setAllAttr('[data-link-x]', 'href', C.links.x);
+  setAllAttr('[data-link-googleplay]', 'href', C.links.googlePlay);
 
   /* ── Hero ─────────────────────────────────────────────── */
   setText('[data-hero-tag]', C.hero.tag);
@@ -125,9 +126,6 @@
       statsContainer.appendChild(item);
     });
   }
-
-  /* ── Links: OpenClaw ─────────────────────────────────── */
-  setAllAttr('[data-link-openclaw]', 'href', C.links.openclaw);
 
   /* ── Features ────────────────────────────────────────── */
   setText('[data-features-tag]', C.features.tag);
