@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SeekerClaw — The AI Agent Layer for Solana Seeker</title>
+  <meta name="description" content="SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Monitor your wallet, control your device, and stay connected via Telegram — all from one app.">
+  <meta name="theme-color" content="#06080f">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com; connect-src 'self' https://cloudflareinsights.com;">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://seekerclaw.xyz/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SeekerClaw - Turn Your Solana Seeker Into an AI Agent">
+  <meta property="og:description" content="Turn your Seeker phone into an autonomous AI agent. Monitor wallets, trade on Jupiter, get Telegram alerts — 24/7 on-device.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seekerclaw.xyz/">
+  <meta property="og:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="SeekerClaw - Turn Your Solana Seeker Into an AI Agent">
+  <meta property="og:site_name" content="SeekerClaw">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SeekerClaw">
+  <meta name="twitter:title" content="SeekerClaw — The AI Agent Layer for Solana Seeker">
+  <meta name="twitter:description" content="Turn your Seeker phone into an autonomous AI agent. Monitor wallets, trade on Jupiter, get Telegram alerts — 24/7 on-device.">
+  <meta name="twitter:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta name="twitter:image:alt" content="SeekerClaw — The AI Agent Layer for Solana Seeker">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://seekerclaw.xyz/#organization",
+        "name": "SeekerClaw",
+        "url": "https://seekerclaw.xyz",
+        "logo": "https://seekerclaw.xyz/assets/logo.svg",
+        "sameAs": ["https://x.com/SeekerClaw"],
+        "description": "The AI Agent Layer for Solana Seeker phone"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://seekerclaw.xyz/#website",
+        "url": "https://seekerclaw.xyz",
+        "name": "SeekerClaw",
+        "publisher": { "@id": "https://seekerclaw.xyz/#organization" }
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://seekerclaw.xyz/#app",
+        "name": "SeekerClaw",
+        "description": "SeekerClaw turns the Solana Seeker phone into an autonomous AI agent. Monitor your wallet, control your device, and stay connected via Telegram.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Android",
+        "offers": {
+          "@type": "Offer",
+          "price": 0,
+          "priceCurrency": "USD"
+        },
+        "creator": { "@id": "https://seekerclaw.xyz/#organization" },
+        "featureList": [
+          "Wallet monitoring",
+          "Telegram notifications",
+          "On-device AI agent",
+          "Device control",
+          "AI calorie tracking",
+          "MCP extensibility",
+          "Smart home control",
+          "Modular skill system"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles: theme tokens first, then layout -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <div id="site-nav"></div>
+
+  <main id="main">
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <header class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__grid"></div>
+      <div class="hero__orb"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
+    <div class="hero__container">
+      <div class="hero__content">
+        <p class="hero__tag reveal" data-hero-tag>Built for Solana Seeker</p>
+        <h1 class="hero__title reveal" data-hero-title>
+          The AI Agent Layer<br>
+          <span class="gradient-text">for Solana Seeker</span>
+        </h1>
+        <p class="hero__desc reveal" data-hero-desc>
+          SeekerClaw is an AI agent that lives on your Android phone. It connects to your world and handles things for you — autonomously, 24/7. Nobody has found its limits yet.
+        </p>
+        <div class="hero__actions reveal">
+          <a data-link-googleplay href="#" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Get it on Google Play
+          </a>
+          <a data-link-dapp data-hero-cta-primary href="#" class="btn btn--primary btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Get it on dApp Store
+          </a>
+          <a data-link-github href="#" class="btn btn--outline btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="https://github.com/sepivip/SeekerClaw/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download APK
+          </a>
+          <a href="setup.html" class="btn btn--outline btn--lg" data-hero-cta-secondary>Quick Setup</a>
+        </div>
+      </div>
+      <div class="hero__visual reveal">
+        <div class="hero__device">
+          <div class="hero__slides">
+            <img src="assets/hero_scr1.png" alt="SeekerClaw Home — agent dashboard" class="hero__slide hero__slide--active" data-slide="0" width="601" height="776">
+            <img src="assets/hero_scr2.png" alt="SeekerClaw Console — system logs" class="hero__slide" data-slide="1" width="601" height="776" loading="lazy">
+            <img src="assets/hero_scr3.png" alt="SeekerClaw Skills — agent tools" class="hero__slide" data-slide="2" width="601" height="776" loading="lazy">
+            <img src="assets/hero_scr4.png" alt="SeekerClaw Settings — configuration" class="hero__slide" data-slide="3" width="601" height="776" loading="lazy">
+          </div>
+          <!-- Invisible hotspots over the phone's bottom nav bar -->
+          <button class="hero__hotspot hero__hotspot--home" data-tab="0" aria-label="Home"></button>
+          <button class="hero__hotspot hero__hotspot--console" data-tab="1" aria-label="Console"></button>
+          <button class="hero__hotspot hero__hotspot--skills" data-tab="2" aria-label="Skills"></button>
+          <button class="hero__hotspot hero__hotspot--settings" data-tab="3" aria-label="Settings"></button>
+        </div>
+      </div>
+    </div>
+    <!-- Stats strip — enhanced dynamically from config -->
+    <div class="stats reveal">
+      <div class="stats__item">
+        <span class="stats__number">200,000</span><span class="stats__suffix">+</span>
+        <span class="stats__label">Seeker Devices</span>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <span class="stats__number">56</span><span class="stats__suffix">+</span>
+        <span class="stats__label">Built-in Tools</span>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <span class="stats__number">255</span><span class="stats__suffix">+</span>
+        <span class="stats__label">PRs Shipped</span>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <span class="stats__number">24/7</span>
+        <span class="stats__label">Autonomous Agent</span>
+      </div>
+    </div>
+    <div class="hero__ph-badge reveal">
+      <a href="https://www.producthunt.com/products/seekerclaw?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-seekerclaw" target="_blank" rel="noopener noreferrer"><img alt="SeekerClaw - Turn your Android phone into a 24/7 personal AI agent | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1099773&amp;theme=dark&amp;t=1773756464650"></a>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ FEATURES ═══════════════════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag" data-features-tag>Capabilities</p>
+        <h2 class="section-title" data-features-title>What SeekerClaw Does</h2>
+        <p class="section-desc" data-features-desc>A full-stack AI agent running natively on the most crypto-native phone in the world.</p>
+      </div>
+      <div class="features__grid">
+        <!-- Feature cards kept in HTML (SVG icons are hard to config-drive) -->
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 9.93A4.002 4.002 0 0 1 12 2"/><path d="M17 17H7a5 5 0 0 1 10 0z"/><circle cx="12" cy="17" r="1"/><path d="M12 14v3"/></svg>
+          </div>
+          <h3 class="feature-card__title">Autonomous AI Agent</h3>
+          <p class="feature-card__desc">Powered by Claude or OpenAI (multi-provider) with persistent memory, customizable personality, and scheduled automation running 24/7. Self-aware — knows its own capabilities, diagnoses its own issues, and tells you what went wrong.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="feature-card__title">Solana Wallet Integration</h3>
+          <p class="feature-card__desc">Check SOL & SPL token balances, send transactions, swap tokens via Jupiter, create limit orders and DCA positions — all secured by Seed Vault hardware.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Social & Messaging</h3>
+          <p class="feature-card__desc">Telegram integration with reactions, file sharing, and vision analysis. Send SMS, make calls, manage contacts — your agent handles it all.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="feature-card__title">Deep Device Control</h3>
+          <p class="feature-card__desc">GPS location, camera with AI vision, app launching, clipboard, battery monitoring, text-to-speech — full native control of your Seeker.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Web Intelligence</h3>
+          <p class="feature-card__desc">Real-time web search, page reading, crypto prices, news, weather, and deep research on any topic — delivered to your chat.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E41F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Modular Skill System</h3>
+          <p class="feature-card__desc">35 built-in skills: crypto prices, calorie tracking, news briefings, reminders, research, and more. Add custom skills without touching code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+  <section class="how-it-works" id="howitworks">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag" data-hiw-tag>Get Started</p>
+        <h2 class="section-title" data-hiw-title>How It Works</h2>
+      </div>
+      <!-- Steps — enhanced dynamically from config -->
+      <div class="hiw__steps">
+        <div class="hiw__step reveal">
+          <div class="hiw__step-number">01</div>
+          <h3 class="hiw__step-title">Install SeekerClaw</h3>
+          <p class="hiw__step-desc">Download from the dApp Store onto your Solana Seeker phone.</p>
+        </div>
+        <div class="hiw__connector reveal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="hiw__step reveal">
+          <div class="hiw__step-number">02</div>
+          <h3 class="hiw__step-title">Connect Telegram & AI</h3>
+          <p class="hiw__step-desc">Add your Telegram bot token and AI provider key — takes under a minute.</p>
+        </div>
+        <div class="hiw__connector reveal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="hiw__step reveal">
+          <div class="hiw__step-number">03</div>
+          <h3 class="hiw__step-title">Your Claw Goes Live</h3>
+          <p class="hiw__step-desc">SeekerClaw runs 24/7 — monitoring, alerting, and acting autonomously.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SELF-AWARE AGENT ═══════════════════ -->
+  <section class="selfaware" id="selfaware">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Self-Aware Agent</p>
+        <h2 class="section-title">An Agent That Knows Itself</h2>
+        <p class="section-desc">SeekerClaw scores 100% on SAB (Self-Awareness Benchmark) &mdash; 36 audit points across knowledge and diagnostics.</p>
+      </div>
+      <div class="selfaware__grid">
+        <div class="selfaware__card reveal">
+
+          <h3 class="selfaware__card-title">Knows what it can do</h3>
+          <p class="selfaware__card-desc">Your agent understands its own tools, limits, and configuration. Ask it anything about itself and it answers accurately.</p>
+        </div>
+        <div class="selfaware__card reveal">
+
+          <h3 class="selfaware__card-title">Diagnoses its own problems</h3>
+          <p class="selfaware__card-desc">When something breaks, it checks logs, reads health files, and pinpoints the issue &mdash; across Telegram, wallet, memory, scheduling, and device control.</p>
+        </div>
+        <div class="selfaware__card reveal">
+
+          <h3 class="selfaware__card-title">Tells you what's wrong</h3>
+          <p class="selfaware__card-desc">No silent failures. If the API is down, a permission is missing, or a tool times out &mdash; your agent explains what happened and what to do next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ USE CASES ═══════════════════ -->
+  <section class="usecases" id="usecases">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag" data-usecases-tag>Real-World Scenarios</p>
+        <h2 class="section-title" data-usecases-title>What Seeker Owners Are Doing</h2>
+        <p class="section-desc" data-usecases-desc>From portfolio monitoring to DeFi research — SeekerClaw handles it all autonomously.</p>
+      </div>
+      <!-- Cards — enhanced dynamically from config -->
+      <div class="usecases__grid">
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Wallet Watcher</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Alert me on Telegram when my SOL balance drops below 5"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Check my portfolio every morning and send me a summary"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">DeFi Assistant</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "What's the current price of SOL, JUP, and BONK?"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Swap 1 SOL to USDC with less than 1% slippage"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Onchain Notifications</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> Agent monitors your wallet and sends alerts for incoming/outgoing transactions.</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Smart Home</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Turn off the outdoor lights"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Set heating to 23 degrees"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Shell & DevOps</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Check disk space and clean up old files"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Curl this API endpoint and summarize the JSON response"</div>
+        </div>
+        <div class="usecase-card reveal">
+          <h3 class="usecase-card__title">Web Research</h3>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Search the web for the latest Solana Mobile news"</div>
+          <div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> "Fetch this article and give me a 3-bullet summary"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ COMPARISON ═══════════════════ -->
+  <section class="comparison" id="comparison">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag" data-comparison-tag>The Difference</p>
+        <h2 class="section-title" data-comparison-title>Why SeekerClaw is Different</h2>
+        <p class="section-desc" data-comparison-desc>No other AI agent runs natively on a crypto phone with hardware wallet integration, device control, and messaging — all at once.</p>
+      </div>
+      <div class="comparison__table-wrap reveal">
+        <!-- Table — enhanced dynamically from config -->
+        <table class="comparison__table">
+          <thead><tr>
+            <th scope="col" class="comparison__feature-col">Feature</th>
+            <th scope="col" class="comparison__other-col">Regular AI Apps</th>
+            <th scope="col" class="comparison__seeker-col">SeekerClaw on Seeker</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Runs on device</td><td><span class="comparison__muted">Cloud only</span></td><td><span class="comparison__check">&#10003;</span> Native on Seeker</td></tr>
+            <tr><td>Wallet access</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Via Seed Vault</td></tr>
+            <tr><td>Persistent memory</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Learns and remembers</td></tr>
+            <tr><td>Shell access</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> 33 Unix commands + curl</td></tr>
+            <tr><td>Messaging + reactions</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Telegram with full formatting</td></tr>
+            <tr><td>Usage analytics</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Per-session token tracking</td></tr>
+            <tr><td>Crypto-native</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Solana-first</td></tr>
+            <tr><td>Cron scheduling</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Natural language + recurring</td></tr>
+            <tr><td>Self-diagnosis</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Agent knows when something&#8217;s wrong and tells you</td></tr>
+            <tr><td>Error resilience</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Auto-retry + graceful fallback</td></tr>
+            <tr><td>Hardware wallet security</td><td><span class="comparison__x">&#10007;</span></td><td><span class="comparison__check">&#10003;</span> Seed Vault signing</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ROADMAP ═══════════════════ -->
+  <section class="roadmap" id="roadmap">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag" data-roadmap-tag>What's Coming</p>
+        <h2 class="section-title" data-roadmap-title>Roadmap</h2>
+      </div>
+      <!-- Columns — enhanced dynamically from config -->
+      <div class="roadmap__grid">
+        <div class="roadmap__col roadmap__col--now reveal">
+          <div class="roadmap__col-header"><span class="roadmap__status roadmap__status--now"></span> Shipped &#10003;</div>
+          <ul class="roadmap__list">
+            <li>Persistent memory with ranked search</li>
+            <li>Android device bridge (SMS, calls, GPS, camera, apps, contacts)</li>
+            <li>Solana wallet (balance, send, swap, limit orders, DCA)</li>
+            <li>Telegram with reactions, file sharing, and AI vision</li>
+            <li>56 built-in tools with analytics</li>
+            <li>Natural language cron scheduling</li>
+            <li>Multi-provider web search + page reading</li>
+            <li>MCP server support for extensible tools</li>
+            <li>35 skills including CalClaw calorie tracker</li>
+            <li>Skill marketplace: export as .md or ZIP, import custom skills</li>
+            <li>NFT holdings viewer (Helius DAS API)</li>
+            <li>Cron agent turns — scheduled jobs run full AI conversations</li>
+            <li>Session memory — agent remembers context across restarts</li>
+            <li>Multi-provider support (Claude + OpenAI)</li>
+            <li>Self-aware agent: 100% SAB score (36/36 audit points)</li>
+            <li>dApp Store listing</li>
+            <li>Open-source: MIT license, CI/CD, community ready</li>
+          </ul>
+        </div>
+        <div class="roadmap__col roadmap__col--next reveal">
+          <div class="roadmap__col-header"><span class="roadmap__status roadmap__status--next"></span> Next</div>
+          <ul class="roadmap__list">
+            <li>Transaction monitoring &amp; smart alerts</li>
+            <li>Vector embeddings for semantic memory</li>
+            <li>Community skill marketplace</li>
+          </ul>
+        </div>
+        <div class="roadmap__col roadmap__col--future reveal">
+          <div class="roadmap__col-header"><span class="roadmap__status roadmap__status--future"></span> Future</div>
+          <ul class="roadmap__list">
+            <li>Multi-agent coordination</li>
+            <li>X, Discord &amp; WhatsApp integration</li>
+            <li>Multi-chain support</li>
+            <li>DePIN &amp; IoT device control</li>
+            <li>Agent-to-agent economy on Solana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ VISION ═══════════════════ -->
+  <section class="vision">
+    <div class="container">
+      <div class="vision__content reveal">
+        <h2 class="vision__title" data-vision-title><span class="gradient-text">The Vision</span></h2>
+        <p class="vision__text" data-vision-text>
+          Every Seeker owner gets a personal AI agent that lives on their phone 24/7, monitors their wallet, keeps them informed via Telegram — and gets smarter every day.
+        </p>
+        <p class="vision__tagline" data-vision-tagline>
+          SeekerClaw is how Solana Seeker becomes the first true <strong>AI + Crypto phone</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ GET STARTED CTA ═══════════════════ -->
+  <section class="cta-setup" id="cta-setup">
+    <div class="container">
+      <div class="cta-setup__content reveal">
+        <p class="section-tag">Get Started</p>
+        <h2 class="section-title">Set Up Your Agent in Under a Minute</h2>
+        <p class="section-desc">Use our Quick Setup tool to generate a config QR code, then scan it with SeekerClaw to import your credentials and defaults instantly.</p>
+        <a href="setup.html" class="btn btn--primary btn--lg cta-setup__btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+          Quick Setup
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <div id="site-footer"></div>
+
+  <!-- Config → Components → App logic -->
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "038074ada36d4b01ae030f2450a496ea"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Skills — SeekerClaw</title>
+  <meta name="description" content="Official partner skills for your SeekerClaw AI agent. Vetted integrations from trusted partners.">
+  <meta name="theme-color" content="#06080f">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com;">
+  <link rel="canonical" href="https://seekerclaw.xyz/partner-skills.html">
+  <meta property="og:title" content="Partner Skills — SeekerClaw">
+  <meta property="og:description" content="Official partner skills for your SeekerClaw AI agent. Vetted integrations from trusted partners.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seekerclaw.xyz/partner-skills.html">
+  <meta property="og:image" content="https://seekerclaw.xyz/assets/og-image.png">
+  <meta property="og:site_name" content="SeekerClaw">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SeekerClaw">
+  <meta name="twitter:title" content="Partner Skills — SeekerClaw">
+  <meta name="twitter:description" content="Official partner skills for your SeekerClaw AI agent. Vetted integrations from trusted partners.">
+  <meta name="twitter:image" content="https://seekerclaw.xyz/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/partner-skills.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Partner Skills — SeekerClaw",
+    "description": "Official partner skills for your SeekerClaw AI agent. Vetted integrations from trusted partners.",
+    "url": "https://seekerclaw.xyz/partner-skills.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "SeekerClaw",
+      "url": "https://seekerclaw.xyz"
+    }
+  }
+  </script>
+</head>
+<body class="partnerskills-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="site-nav"></div>
+
+  <main id="main">
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <header class="ps-hero">
+    <div class="ps-hero__bg">
+      <div class="hero__orb"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
+    <div class="container ps-hero__container">
+      <h1 class="ps-hero__title reveal">
+        Partner Skills<br>
+        <span class="ps-hero__title-sub gradient-text">Vetted integrations for your agent</span>
+      </h1>
+      <p class="ps-hero__desc reveal">
+        Third-party integrations that extend your SeekerClaw agent with new capabilities. Always do your own research before using any partner skill.
+      </p>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ SKILL CARDS (multi-skill view) ═══════════════════ -->
+  <section class="ps-cards-section" id="psCardsSection" hidden>
+    <div class="container">
+      <div class="ps-cards-grid" id="psCardsGrid">
+        <!-- Populated by JS when 2+ skills -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SKILL DETAIL ═══════════════════ -->
+  <section class="ps-detail" id="detail">
+    <div class="container">
+
+      <!-- Back to list (shown when navigating from cards) -->
+      <button type="button" class="ps-back" id="psBackBtn" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        All Partner Skills
+      </button>
+
+      <!-- Skill Header -->
+      <div class="ps-skill-header reveal" id="psSkillHeader">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Layout: Info + Preview -->
+      <div class="ps-layout">
+        <div>
+          <!-- Features -->
+          <div class="ps-features reveal" id="psFeatures">
+            <h2 class="ps-features__title">Capabilities</h2>
+            <div class="ps-features__grid" id="psFeaturesGrid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="ps-actions reveal" id="psActions">
+            <button type="button" class="btn btn--primary" id="psSendBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send to Agent
+            </button>
+            <button type="button" class="btn btn--outline" id="psDownloadBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download .md
+            </button>
+<button type="button" class="btn btn--outline" id="psShareBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share Link
+            </button>
+          </div>
+
+          <!-- Disclaimer -->
+          <div class="ps-disclaimer reveal" id="psDisclaimer">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Raw Preview -->
+        <aside class="ps-preview-wrap reveal">
+          <div class="ps-preview-card">
+            <div class="ps-preview-header">
+              <span class="ps-preview-dot"></span>
+              <span class="ps-preview-dot"></span>
+              <span class="ps-preview-dot"></span>
+              <span class="ps-preview-filename" id="psPreviewFilename">SKILL.md</span>
+            </div>
+            <pre class="ps-preview ps-preview--loading" id="psPreview"><code id="psPreviewCode">Loading skill content...</code></pre>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ──── INSTALL GUIDE ──── -->
+      <details class="ps-install reveal">
+        <summary class="ps-install__summary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          How to Install This Skill
+        </summary>
+        <div class="ps-install__body">
+          <div class="ps-install__option">
+            <h3>Option 1: Send Install Link <span class="ps-install__tag">Easiest</span></h3>
+            <p>Click "Send to Agent" above to copy the install link, then paste it to your SeekerClaw agent in Telegram:</p>
+            <pre class="ps-install__code" id="psInstallCode">Install this skill: https://seekerclaw.xyz/partner-skills/clawpump.md</pre>
+          </div>
+          <div class="ps-install__option">
+            <h3>Option 2: Send as File</h3>
+            <p>Click "Download .md" above, then send the downloaded <code>.md</code> file directly to your agent in Telegram. It will read and install it automatically.</p>
+          </div>
+<p class="ps-install__note">After installation, your agent will automatically detect the new skill on the next message. Try sending a trigger like "launch a token" to test it!</p>
+        </div>
+      </details>
+
+      <!-- ──── BECOME A PARTNER ──── -->
+      <div class="ps-partner-cta reveal">
+        <h2 class="ps-partner-cta__title">Want to List Your Skill?</h2>
+        <p class="ps-partner-cta__desc">We're looking for partners building on Solana. If you have an API or service that could work as a SeekerClaw skill, let's talk.</p>
+        <a href="https://t.me/seekerclaw" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Contact on Telegram
+        </a>
+      </div>
+
+    </div>
+  </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/partner-skills.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "038074ada36d4b01ae030f2450a496ea"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>
