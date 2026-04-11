@@ -20,43 +20,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # ── Build V2 (React + Vite) ──
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: v2/package-lock.json
-
-      - name: Install V2 dependencies
-        run: npm ci
-        working-directory: v2
-
-      - name: Build V2
-        run: npm run build
-        working-directory: v2
-
-      # ── Assemble site ──
-      # Copy everything from root (V1 static site) into _site/
-      # Then overlay V2 build output into _site/v2/
+      # V1 (root) and V2 (v2/) are both static sites — no build step.
+      # V2 lives at /v2/ on the deployed site as a staging mirror.
       - name: Assemble site
         run: |
           mkdir -p _site
 
-          # Copy V1 static files (exclude dirs that aren't part of the site)
           rsync -a \
             --exclude='.git' \
             --exclude='.github' \
-            --exclude='v2' \
             --exclude='docs' \
             --exclude='node_modules' \
             --exclude='_site' \
             --exclude='CLAUDE.md' \
-            --exclude='.impeccable.md' \
-            --exclude='PLAN-skill-image-support.md' \
+            --exclude='DESIGN.md' \
+            --exclude='WEBSITE.md' \
+            --exclude='README.md' \
+            --exclude='SKILL-CREATOR.md' \
+            --exclude='.env' \
+            --exclude='.env.example' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
             ./ _site/
-
-          # Copy V2 build output
-          cp -r v2/dist/ _site/v2/
 
       - uses: actions/upload-pages-artifact@v3
         with:
