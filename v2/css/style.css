@@ -5,14 +5,12 @@
    Theme tokens live in theme.css — edit that file to rebrand.
    ═══════════════════════════════════════════════════════════ */
 
-/* ── Aliases (map theme tokens → legacy names used below) ─ */
+/* ── Legacy aliases (map to semantic theme tokens) ────── */
 :root {
-  --purple: var(--color-primary);
-  --green: var(--color-primary);
-  --cyan: var(--color-primary);
-  --red: var(--color-danger);
-  --gradient-solana: var(--gradient-brand);
-  --gradient-solana-subtle: var(--gradient-brand-subtle);
+  --purple: var(--color-purple);
+  --green:  var(--color-green);
+  --cyan:   var(--color-cyan);
+  --red:    var(--color-danger);
 }
 
 /* ── Reset & Base ──────────────────────────────────────── */
@@ -56,7 +54,11 @@ img {
 }
 
 .gradient-text {
-  color: var(--color-primary);
+  background: var(--gradient-solana);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .accent { color: var(--color-accent); font-weight: inherit; }
