@@ -61,8 +61,8 @@ window.SITE_CONFIG = {
     titleLine2: 'in your pocket.',   // rendered with gradient
     description: "SeekerClaw turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, and more. Text it on Telegram or Discord. It thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.",
     ctaPrimary: 'Get it on dApp Store',
-    ctaSecondary: 'See it in action',
-    ctaSecondaryHref: '#chat-moment',
+    ctaSecondary: 'Quick Setup',
+    ctaSecondaryHref: 'setup.html',
   },
 
   /* ── Stats ───────────────────────────────────────────── */
