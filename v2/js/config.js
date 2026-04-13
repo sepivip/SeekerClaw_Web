@@ -56,13 +56,13 @@ window.SITE_CONFIG = {
 
   /* ── Hero Section ────────────────────────────────────── */
   hero: {
-    tag: 'Built for Solana Seeker',
-    titleLine1: 'The AI Agent Layer',
-    titleLine2: 'for Solana Seeker',   // rendered with gradient
-    description: 'SeekerClaw is an AI agent that lives on your Android phone. It connects to your world and handles things for you — autonomously, 24/7. Nobody has found its limits yet.',
+    tag: '🦞📲 AgentOS for your Android phone',
+    titleLine1: 'Like having someone brilliant',
+    titleLine2: 'in your pocket.',   // rendered with gradient
+    description: "SeekerClaw turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, and more. Text it on Telegram or Discord. It thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.",
     ctaPrimary: 'Get it on dApp Store',
-    ctaSecondary: 'Quick Setup',
-    ctaSecondaryHref: 'setup.html',
+    ctaSecondary: 'See it in action',
+    ctaSecondaryHref: '#chat-moment',
   },
 
   /* ── Stats ───────────────────────────────────────────── */
