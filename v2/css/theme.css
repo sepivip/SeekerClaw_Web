@@ -93,6 +93,13 @@
   --glow-lg: 0 0 60px rgba(228, 31, 40, 0.08);
   --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.16);
 
+  /* Corner-glow border — ported 1:1 from native app (SharedComponents.kt)
+     Two radial gradients painted only on the 1px border stroke, anchored to
+     TL + BR corners. Gradient radius = 45% of MIN(width, height). */
+  --corner-glow-color: #ffffff;
+  --corner-glow-alpha: 0.28;
+  --corner-glow-extent: 45%;
+
   /* Grid background opacity (0 to hide, 0.04 default) */
   --grid-opacity: 0.04;
 

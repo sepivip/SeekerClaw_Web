@@ -31,7 +31,6 @@ window.SITE_CONFIG = {
     links: [
       { label: 'Features',    href: '#features',        type: 'anchor' },
       { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
-      { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
       { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
       { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' },
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
@@ -44,7 +43,6 @@ window.SITE_CONFIG = {
     links: [
       { label: 'Features',    href: '#features',        type: 'anchor' },
       { label: 'Use Cases',   href: '#usecases',        type: 'anchor' },
-      { label: 'Roadmap',     href: '#roadmap',         type: 'anchor' },
       { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
       { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' },
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
@@ -68,8 +66,8 @@ window.SITE_CONFIG = {
   /* ── Stats ───────────────────────────────────────────── */
   stats: [
     { value: 200000, suffix: '+', label: 'Seeker Devices' },
-    { value: 56,     suffix: '+', label: 'Built-in Tools' },
-    { value: 255,    suffix: '+', label: 'PRs Shipped' },
+    { value: 56,     suffix: '+', label: 'Tools it can use' },
+    { value: 35,     suffix: '+', label: 'Skills & always updating' },
     { value: '24/7', suffix: '',  label: 'Autonomous Agent' },
   ],
 
@@ -80,34 +78,34 @@ window.SITE_CONFIG = {
     description: 'A full-stack AI agent running natively on the most crypto-native phone in the world.',
     items: [
       {
-        icon: 'brain',
-        title: 'Autonomous AI Agent',
-        desc: 'Powered by Claude or OpenAI (multi-provider) with persistent memory, customizable personality, and scheduled automation running 24/7. Self-aware — knows its own capabilities, diagnoses its own issues, and tells you what went wrong.',
+        emoji: '\uD83E\uDD16',
+        title: 'The best AI on earth',
+        desc: 'Claude Opus, GPT-5, Sonnet, 100+ models via OpenRouter. Pick your brain.',
       },
       {
-        icon: 'clock',
-        title: 'Solana Wallet Integration',
-        desc: 'Check SOL & SPL token balances, send transactions, swap tokens via Jupiter, create limit orders and DCA positions — all secured by Seed Vault hardware.',
+        emoji: '\uD83D\uDCAC',
+        title: 'Chat wherever you already are',
+        desc: 'Telegram and Discord, with reactions, file sharing, and photo analysis.',
       },
       {
-        icon: 'chat',
-        title: 'Social & Messaging',
-        desc: 'Telegram integration with reactions, file sharing, and vision analysis. Send SMS, make calls, manage contacts — your agent handles it all.',
+        emoji: '\uD83D\uDCF1',
+        title: 'Full phone powers',
+        desc: 'GPS, camera, SMS, calls, contacts, apps, clipboard, text-to-speech.',
       },
       {
-        icon: 'terminal',
-        title: 'Deep Device Control',
-        desc: 'GPS location, camera with AI vision, app launching, clipboard, battery monitoring, text-to-speech — full native control of your Seeker.',
+        emoji: '\uD83C\uDF10',
+        title: 'The web, read for you',
+        desc: 'Search, page reading, research, news, weather, crypto prices.',
       },
       {
-        icon: 'globe',
-        title: 'Web Intelligence',
-        desc: 'Real-time web search, page reading, crypto prices, news, weather, and deep research on any topic — delivered to your chat.',
+        emoji: '\uD83E\uDDE9',
+        title: '35+ skills, extensible',
+        desc: 'Calorie tracker, security audits, news briefings, smart home, and you can add your own.',
       },
       {
-        icon: 'tool',
-        title: 'Modular Skill System',
-        desc: '35 built-in skills: crypto prices, calorie tracking, news briefings, reminders, research, and more. Add custom skills without touching code.',
+        emoji: '\uD83D\uDCB0',
+        title: 'Crypto-native',
+        desc: 'Solana wallet, Jupiter swaps, DCA, limit orders, NFT tracking, secured by Seed Vault.',
       },
     ],
   },
@@ -117,9 +115,9 @@ window.SITE_CONFIG = {
     tag: 'Get Started',
     title: 'How It Works',
     steps: [
-      { number: '01', title: 'Install SeekerClaw', desc: 'Download from the dApp Store onto your Solana Seeker phone.' },
-      { number: '02', title: 'Connect Telegram & AI', desc: 'Add your Telegram bot token and AI provider key — takes under a minute.' },
-      { number: '03', title: 'Your Claw Goes Live', desc: 'SeekerClaw runs 24/7 — monitoring, alerting, and acting autonomously.' },
+      { number: '01', title: 'Install on your phone', desc: 'Download from Google Play or the dApp Store onto your Seeker — or any Android phone.' },
+      { number: '02', title: 'Connect Telegram or Discord', desc: 'Link your chat app and pick your AI. Takes under a minute.' },
+      { number: '03', title: 'Start chatting. It\u2019s live.', desc: 'That\u2019s it. Your helper is running 24/7 — text it anytime.' },
     ],
   },
 
@@ -130,7 +128,7 @@ window.SITE_CONFIG = {
     description: 'From portfolio monitoring to DeFi research — SeekerClaw handles it all autonomously.',
     items: [
       {
-        icon: 'eye',
+        emoji: '\uD83D\uDC40',
         title: 'Wallet Watcher',
         messages: [
           '"Alert me on Telegram when my SOL balance drops below 5"',
@@ -138,22 +136,23 @@ window.SITE_CONFIG = {
         ],
       },
       {
-        icon: 'trending-up',
-        title: 'DeFi Assistant',
+        emoji: '\uD83D\uDCB9',
+        title: 'DeFi Trading',
         messages: [
           '"What\'s the current price of SOL, JUP, and BONK?"',
           '"Swap 1 SOL to USDC with less than 1% slippage"',
         ],
       },
       {
-        icon: 'bell',
-        title: 'Onchain Notifications',
+        emoji: '\uD83D\uDEE1\uFE0F',
+        title: 'Token Safety',
         messages: [
-          'Agent monitors your wallet and sends alerts for incoming/outgoing transactions.',
+          '"Is this token a rug?"',
+          '"Alert me on new inflows to my wallet every 15 min"',
         ],
       },
       {
-        icon: 'home',
+        emoji: '\uD83C\uDFE0',
         title: 'Smart Home',
         messages: [
           '"Turn off the outdoor lights"',
@@ -161,15 +160,15 @@ window.SITE_CONFIG = {
         ],
       },
       {
-        icon: 'terminal',
-        title: 'Shell & DevOps',
+        emoji: '\u23F0',
+        title: 'Scheduled Briefings',
         messages: [
-          '"Check disk space and clean up old files"',
-          '"Curl this API endpoint and summarize the JSON response"',
+          '"Every morning: portfolio + SOL news + BTC price"',
+          '"Summarize my unread emails at 9am daily"',
         ],
       },
       {
-        icon: 'globe',
+        emoji: '\uD83C\uDF10',
         title: 'Web Research',
         messages: [
           '"Search the web for the latest Solana Mobile news"',
@@ -182,21 +181,19 @@ window.SITE_CONFIG = {
   /* ── Comparison Table ────────────────────────────────── */
   comparison: {
     tag: 'The Difference',
-    title: 'Why SeekerClaw is Different',
-    description: 'No other AI agent runs natively on a crypto phone with hardware wallet integration, shell access, and messaging — all at once.',
-    headers: ['Feature', 'Regular AI Apps', 'SeekerClaw on Seeker'],
+    title: 'Regular AI Services vs SeekerClaw',
+    description: 'The AI you already know — but running on your phone, 24/7, with real-world powers.',
+    headers: ['Feature', 'Regular AI Services', 'SeekerClaw'],
     rows: [
-      ['Runs on device',           'Cloud only',  '\u2713 Native on Seeker'],
-      ['Wallet access',            '\u2717',      '\u2713 Via Seed Vault'],
-      ['Persistent memory',        '\u2717',      '\u2713 Learns and remembers'],
-      ['Shell access',              '\u2717',      '\u2713 33 Unix commands + curl'],
-      ['Messaging + reactions',    '\u2717',      '\u2713 Telegram with full formatting'],
-      ['Usage analytics',          '\u2717',      '\u2713 Per-session token tracking'],
-      ['Crypto-native',            '\u2717',      '\u2713 Solana-first'],
-      ['Cron scheduling',          '\u2717',      '\u2713 Natural language + recurring'],
-      ['Self-diagnosis',           '\u2717',      '\u2713 Agent knows when something\u2019s wrong and tells you'],
-      ['Error resilience',         '\u2717',      '\u2713 Auto-retry + graceful fallback'],
-      ['Hardware wallet security', '\u2717',      '\u2713 Seed Vault signing'],
+      ['Runs on your phone',       '\u2717 Cloud only',       '\u2713 Runs on device'],
+      ['Persistent memory',        '\u2717 Session only',     '\u2713 Learns and remembers'],
+      ['Runs in background',       '\u2717',                  '\u2713 24/7, always on'],
+      ['Can text you first',       '\u2717',                  '\u2713 Proactive alerts + cron'],
+      ['Messaging + reactions',    '\u2717',                  '\u2713 Telegram + Discord'],
+      ['Control your phone',       '\u2717',                  '\u2713 SMS, calls, GPS, camera, apps'],
+      ['Self-diagnosis',           '\u2717',                  '\u2713 Knows when something\u2019s wrong'],
+      ['Wallet access',            '\u2717',                  '\u2713 Solana via Seed Vault'],
+      ['Crypto-native',            '\u2717',                  '\u2713 Swaps, DCA, limit orders, NFTs'],
     ],
   },
 
@@ -254,8 +251,8 @@ window.SITE_CONFIG = {
   /* ── Vision ──────────────────────────────────────────── */
   vision: {
     title: 'The Vision',
-    text: 'Every Seeker owner gets a personal AI agent that lives on their phone 24/7, monitors their wallet, keeps them informed via Telegram — and gets smarter every day.',
-    taglineHtml: 'SeekerClaw is how Solana Seeker becomes the first true <strong>AI + Crypto phone</strong>.',
+    text: 'Every phone owner gets a brilliant helper that lives in their pocket, thinks with them, and quietly handles the boring parts of life. The first and best one runs on Solana Seeker.',
+    taglineHtml: 'SeekerClaw is <strong>AgentOS for your Android phone</strong>.',
   },
 
   /* ── Terminal Mock (hero phone) ──────────────────────── */
