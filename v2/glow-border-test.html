@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SeekerClaw · Corner-Glow Border — Test Harness</title>
+
+<!--
+================================================================================
+  CORNER-GLOW BORDER — port spec (Android Compose → Web CSS)
+  Source: SharedComponents.kt · Modifier.cornerGlowBorder()
+================================================================================
+
+  EFFECT
+    Two radial gradients painted ONLY on the 1px border stroke of a rounded rect:
+      • top-left corner, bright white fading to transparent
+      • bottom-right corner, bright white fading to transparent
+    Gradient radius is 45% of the card's MIN(width, height).
+    Net visual: a diagonal "lit-edge" — TL+BR glow, TR+BL stay dim.
+    Surface fill is untouched; only the stroke receives the highlight.
+
+  TOKENS (1:1 with Compose)
+    Compose                          →  CSS variable           (default)
+    ────────────────────────────────────────────────────────────────────
+    SeekerClawColors.CornerRadius    →  --corner               12px
+    Sizing.borderThin                →  --stroke               1px
+    BrandAlpha.cardHighlight (0.28f) →  --highlight-alpha      0.28
+    highlightRadius = minDim * 0.45f →  min(45cqw, 45cqh)      hard-coded
+    Color.White                      →  --highlight-color      #ffffff
+
+  IMPLEMENTATION
+    ::before pseudo-element holds two radial gradients. The "padding + mask
+    exclude" technique clips the gradient layer to a 1px ring, so the surface
+    fill shows through and the gradients are visible only on the border.
+    Container queries (cqw/cqh) give us min-dimension-relative gradient radius,
+    matching Compose's size.minDimension * 0.45.
+
+  BROWSER SUPPORT
+    • mask-composite: exclude  → Chrome 120+, Safari 15.4+, Firefox 120+
+    • Container query units    → Chrome 105+, Safari 16+, Firefox 110+
+    All current evergreen browsers. No IE, no legacy Safari.
+
+  HOW TO PORT INTO THE LIVE SITE
+    1. Copy the :root tokens into v2/css/theme.css (namespaced as --glow-*).
+    2. Add the `.glow-border` class to v2/css/main.css (or equivalent).
+    3. Apply class to use-case cards, feature cards, any surface needing the
+       SeekerClaw "lit-edge" treatment. Also applies to buttons via the same
+       ::before trick — just ensure the host element has `position: relative`
+       and `isolation: isolate`.
+================================================================================
+-->
+
+<style>
+  :root {
+    /* Site theme (matches v2/css/theme.css) */
+    --bg-deep:        #06080f;
+    --bg-card:        #0f1420;
+    --bg-card-hover:  #131a28;
+    --border:         #1a2235;
+    --text-primary:   #eaf0ff;
+    --text-secondary: #8892b0;
+    --text-muted:     #7a8ab0;
+    --accent:         #ff5a61;
+
+    /* Corner-glow tokens — change these to retune the effect globally */
+    --corner:           16px;          /* card radius */
+    --stroke:           1px;           /* border thickness */
+    --highlight-color:  #ffffff;       /* glow tint */
+    --highlight-alpha:  0.28;          /* 0.28 = Compose BrandAlpha.cardHighlight */
+    --glow-extent:      45%;           /* % of MIN(width, height); matches Compose 0.45f */
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    min-height: 100vh;
+  }
+
+  body { padding: 64px 24px 120px; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; }
+
+  header.hero {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  header.hero .eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  header.hero h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.05;
+    margin: 0 0 16px;
+    font-weight: 800;
+  }
+  header.hero p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     THE EFFECT — apply `.glow-border` to any rounded surface.
+     ────────────────────────────────────────────────────────────────────── */
+  .glow-border {
+    position: relative;
+    isolation: isolate;                          /* keeps the ::before above bg, below content */
+    container-type: size;                        /* enables cqw/cqh for gradient sizing */
+    border-radius: var(--corner);
+    background: var(--bg-card);
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--stroke);                      /* thickness of the border ring */
+    pointer-events: none;
+    z-index: 0;
+
+    /* Two radial gradients, anchored at the two diagonal corners.
+       Radius = min(45% of width, 45% of height) — matches Compose minDim*0.45f. */
+    background:
+      radial-gradient(
+        circle min(var(--glow-extent) * 1cqw / 1%, var(--glow-extent) * 1cqh / 1%)
+        at 0% 0%,
+        rgb(from var(--highlight-color) r g b / var(--highlight-alpha)) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        circle min(var(--glow-extent) * 1cqw / 1%, var(--glow-extent) * 1cqh / 1%)
+        at 100% 100%,
+        rgb(from var(--highlight-color) r g b / var(--highlight-alpha)) 0%,
+        transparent 100%
+      );
+
+    /* Mask-composite ring trick: keeps the gradient visible only on the
+       1px border, not on the card fill. */
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+            mask-composite: exclude;
+  }
+
+  /* Content above the ring */
+  .glow-border > * { position: relative; z-index: 1; }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     Demo grid — matches the live site's "What Seeker Owners Are Doing"
+     ────────────────────────────────────────────────────────────────────── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { padding: 28px 24px; }
+  .card .emoji { font-size: 28px; margin-bottom: 14px; display: block; }
+  .card h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .card .msg {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #b5a8ff;
+    background: rgba(181, 168, 255, 0.06);
+    border-left: 2px solid rgba(181, 168, 255, 0.35);
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     Tuning panel — live sliders so a designer/agent can eyeball values
+     before committing to tokens. Strip this section when porting.
+     ────────────────────────────────────────────────────────────────────── */
+  .panel {
+    margin: 72px auto 48px;
+    max-width: 720px;
+    padding: 24px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .panel h2 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .panel p.hint {
+    margin: 0 0 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .panel label {
+    display: grid;
+    grid-template-columns: 160px 1fr 72px;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .panel input[type=range] { width: 100%; accent-color: var(--accent); }
+  .panel code {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    color: var(--text-primary);
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .section-label {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+  }
+
+  /* Edge-case showcase: prove the effect holds on extreme aspect ratios */
+  .edge-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .tall  { min-height: 280px; display: flex; align-items: center; justify-content: center; }
+  .wide  { min-height: 120px; display: flex; align-items: center; justify-content: center; }
+  .edge-grid .glow-border { padding: 24px; color: var(--text-secondary); font-size: 14px; }
+  @media (max-width: 600px) { .edge-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Corner-Glow Border · Test Harness</div>
+    <h1>Diagonal lit-edge effect<br>ported from the app</h1>
+    <p>Two radial gradients on a 1px stroke, anchored to opposite corners.
+       Only the border ring picks up the highlight — the surface fill stays flat.</p>
+  </header>
+
+  <!-- 1. LIVE TUNING PANEL ────────────────────────────────────────────────── -->
+  <div class="panel">
+    <h2>Live tokens</h2>
+    <p class="hint">Adjust the CSS custom properties in real time. Read final values off the right column, drop them into <code>theme.css</code>.</p>
+
+    <label>
+      Highlight alpha
+      <input type="range" min="0" max="1" step="0.01" value="0.28" data-var="--highlight-alpha">
+      <code id="out-alpha">0.28</code>
+    </label>
+    <label>
+      Glow extent
+      <input type="range" min="10" max="80" step="1" value="45" data-var="--glow-extent" data-unit="%">
+      <code id="out-extent">45%</code>
+    </label>
+    <label>
+      Stroke width
+      <input type="range" min="1" max="4" step="0.5" value="1" data-var="--stroke" data-unit="px">
+      <code id="out-stroke">1px</code>
+    </label>
+    <label>
+      Corner radius
+      <input type="range" min="0" max="32" step="1" value="16" data-var="--corner" data-unit="px">
+      <code id="out-corner">16px</code>
+    </label>
+  </div>
+
+  <!-- 2. REAL-LAYOUT DEMO — mirrors the live "What Seeker Owners Are Doing" grid -->
+  <p class="section-label">Use-case grid · 3×2 layout</p>
+  <div class="grid">
+
+    <div class="glow-border card">
+      <span class="emoji">👀</span>
+      <h3>Wallet Watcher</h3>
+      <div class="msg">"Alert me on Telegram when my SOL balance drops below 5"</div>
+      <div class="msg">"Check my portfolio every morning and send me a summary"</div>
+    </div>
+
+    <div class="glow-border card">
+      <span class="emoji">💹</span>
+      <h3>DeFi Assistant</h3>
+      <div class="msg">"What's the current price of SOL, JUP, and BONK?"</div>
+      <div class="msg">"Swap 1 SOL to USDC with less than 1% slippage"</div>
+    </div>
+
+    <div class="glow-border card">
+      <span class="emoji">🔔</span>
+      <h3>Onchain Notifications</h3>
+      <div class="msg">Agent monitors your wallet and sends alerts for incoming / outgoing transactions.</div>
+    </div>
+
+    <div class="glow-border card">
+      <span class="emoji">🏠</span>
+      <h3>Smart Home</h3>
+      <div class="msg">"Turn off the outdoor lights"</div>
+      <div class="msg">"Set heating to 23 degrees"</div>
+    </div>
+
+    <div class="glow-border card">
+      <span class="emoji">⚡</span>
+      <h3>Shell &amp; DevOps</h3>
+      <div class="msg">"Check disk space and clean up old files"</div>
+      <div class="msg">"Curl this API endpoint and summarize the JSON response"</div>
+    </div>
+
+    <div class="glow-border card">
+      <span class="emoji">🌐</span>
+      <h3>Web Research</h3>
+      <div class="msg">"Search the web for the latest Solana Mobile news"</div>
+      <div class="msg">"Fetch this article and give me a 3-bullet summary"</div>
+    </div>
+
+  </div>
+
+  <!-- 3. EDGE CASES — effect should stay consistent on non-square cards ───── -->
+  <p class="section-label" style="margin-top:64px">Aspect-ratio stress test</p>
+  <div class="edge-grid">
+    <div class="glow-border tall">Tall card<br>(glow radius tracks the shorter side)</div>
+    <div class="glow-border wide">Wide card — same radius, same brightness, TL + BR both lit</div>
+  </div>
+
+</div>
+
+<script>
+  // Live-bind sliders to the root's CSS custom properties.
+  const root = document.documentElement;
+  document.querySelectorAll('input[type=range][data-var]').forEach(input => {
+    const varName = input.dataset.var;
+    const unit    = input.dataset.unit || '';
+    const out     = document.getElementById('out-' + varName.replace('--', '').split('-').pop());
+    const render  = () => {
+      const v = input.value + unit;
+      root.style.setProperty(varName, v);
+      if (out) out.textContent = v;
+    };
+    input.addEventListener('input', render);
+    render();
+  });
+</script>
+
+</body>
+</html>
