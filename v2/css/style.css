@@ -496,10 +496,46 @@ img {
   position: relative;
 }
 
+/* Two-phone arrangement — fluid scaling, percentage-based positions.
+   Both phones are 70% of the wrapper width so they always match each other.
+   The wrapper shifts left by 15% of its own width to center the visual group
+   (compensates for the overlay sticking ~21% past the right edge). */
+.hero__devices {
+  position: relative;
+  width: clamp(300px, 100%, 520px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-15%);
+}
+
 .hero__device {
   position: relative;
-  width: 420px;
   filter: drop-shadow(0 0 60px rgba(228, 31, 40, 0.08)) drop-shadow(0 0 120px rgba(228, 31, 40, 0.04));
+}
+
+/* Primary (dashboard) — sits centered/back */
+.hero__device--primary {
+  width: 70%;
+  z-index: 1;
+}
+
+/* Secondary (chat overlay) — front, offset to the right, same size as primary */
+.hero__device--secondary {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 70%;
+  /* translateX(30%) of own width = ~21% of wrapper width past right edge */
+  transform: translateY(-50%) translateX(30%);
+  z-index: 2;
+}
+
+.hero__device-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 32px;
 }
 
 /* Slideshow — stacked images with crossfade */
@@ -1611,7 +1647,7 @@ img {
   .hero__desc { margin: 0 auto 2rem; }
   .hero__actions { justify-content: center; }
   .hero__visual { order: -1; }
-  .hero__device { width: 360px; }
+  /* Hero devices scale fluidly — no per-breakpoint width overrides needed */
 
   .features__grid,
   .usecases__grid,
@@ -1669,7 +1705,7 @@ img {
     min-height: auto;
   }
 
-  .hero__device { width: 320px; }
+  /* Hero devices scale fluidly */
 
   .stats {
     flex-direction: column;
@@ -1765,9 +1801,7 @@ img {
     font-size: 1.5rem;
   }
 
-  .hero__device {
-    width: min(100%, 300px);
-  }
+  /* Hero devices scale fluidly via clamp() — no override needed */
 }
 
 /* ── Reduced motion (disabled for v2 testing) ────────── */
