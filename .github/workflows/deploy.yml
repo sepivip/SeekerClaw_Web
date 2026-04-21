@@ -20,8 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # V1 (root) and V2 (v2/) are both static sites — no build step.
-      # V2 lives at /v2/ on the deployed site as a staging mirror.
+      # Static site — no build step. The v2 redesign was promoted to root;
+      # the previous version lives in /old/ for reference and is NOT deployed.
       - name: Assemble site
         run: |
           mkdir -p _site
@@ -32,11 +32,14 @@ jobs:
             --exclude='docs' \
             --exclude='node_modules' \
             --exclude='_site' \
+            --exclude='old' \
             --exclude='CLAUDE.md' \
             --exclude='DESIGN.md' \
             --exclude='WEBSITE.md' \
+            --exclude='WEBSITE-V2-DESIGN.md' \
             --exclude='README.md' \
             --exclude='SKILL-CREATOR.md' \
+            --exclude='glow-border-test.html' \
             --exclude='.env' \
             --exclude='.env.example' \
             --exclude='package.json' \

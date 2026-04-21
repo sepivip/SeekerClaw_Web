@@ -7,34 +7,53 @@
 
 :root {
   /* ── Brand Colors ────────────────────────────────────── */
-  --color-primary: #E41F28;           /* Main brand color (logo red) */
-  --color-secondary: #E41F28;         /* Secondary accent (logo red) */
-  --color-accent: #E41F28;            /* Tertiary accent (logo red) */
-  --accent: #E41F28;                   /* Alias for --color-accent */
-  --color-danger: #ff4d6a;            /* Error / negative states */
-  --color-warning: #f5a623;           /* Warning / caution */
+  --color-primary: #E41F28;           /* SeekerClaw Red — singular brand accent */
+  --color-secondary: #E41F28;         /* Secondary accent (brand red) */
+  --color-accent: #E41F28;            /* Tertiary accent (brand red) */
+  --accent: #E41F28;                  /* Alias for --color-accent */
+  --color-danger: #FF5B61;            /* Error / negative states (lighter red on dark) */
+  --color-error: #FF5B61;             /* Alias */
+  --color-warning: #FFB84D;           /* Warning / caution */
+  --color-success: #14F195;           /* Success (reuses Solana Green) */
+
+  /* ── Solana Decorative Palette ───────────────────────── */
+  /* Reserved for logo, hero headline, stat numbers, and subtle
+     accent lines. NEVER on body text, buttons, or large surfaces. */
+  --color-purple: #9945FF;            /* Solana Purple — gradient start */
+  --color-green:  #14F195;            /* Solana Green  — gradient end */
+  --color-cyan:   #00D4FF;            /* Terminal syntax accent */
 
   /* ── Background Layers ───────────────────────────────── */
   --bg-deep: #06080f;                 /* Page background */
-  --bg-surface: #0b0f1a;             /* Alternate section background */
-  --bg-card: #0f1420;                /* Card background */
-  --bg-card-hover: #131a28;          /* Card hover state */
-  --bg-elevated: #161d2d;            /* Elevated surfaces */
+  --bg-surface: #0b0f1a;              /* Alternate section background */
+  --bg-card: #0f1420;                 /* Card background */
+  --bg-card-hover: #131a28;           /* Card hover state */
+  --bg-elevated: #161d2d;             /* Modals, dropdowns, elevated surfaces */
+  --bg-code: #0a0e18;                 /* Code blocks, terminal mocks */
 
   /* ── Borders ─────────────────────────────────────────── */
   --border: #1a2235;                  /* Default border */
   --border-subtle: #141b2a;           /* Subtle dividers */
-  --border-glow: rgba(228, 31, 40, 0.25); /* Glow border */
+  --border-hover: rgba(228, 31, 40, 0.30); /* Hovered cards */
+  --border-focus: rgba(228, 31, 40, 0.55); /* Focused inputs */
+  --border-glow: rgba(228, 31, 40, 0.25);  /* Glow border */
 
   /* ── Text Colors ─────────────────────────────────────── */
   --text-primary: #eaf0ff;            /* Headings & body */
   --text-secondary: #8892b0;          /* Descriptions */
-  --text-muted: #7a8ab0;             /* Captions & hints (WCAG AA 4.8:1 on --bg-deep) */
+  --text-muted: #7a8ab0;              /* Captions & hints (WCAG AA 4.8:1 on --bg-deep) */
+  --text-accent: #ff8f94;             /* Inline links on dark (lighter red for contrast) */
 
-  /* ── Gradients (derived from brand colors) ───────────── */
+  /* ── Gradients ───────────────────────────────────────── */
+  /* Brand gradient = solid red (used for brand surfaces) */
   --gradient-brand: #E41F28;
   --gradient-brand-subtle: rgba(228, 31, 40, 0.12);
   --gradient-glow: radial-gradient(ellipse at center, rgba(228, 31, 40, 0.12) 0%, transparent 70%);
+
+  /* Solana gradient = decorative signature
+     (logo, hero headline, stat numbers, vision tagline, accent lines) */
+  --gradient-solana: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+  --gradient-solana-subtle: linear-gradient(135deg, rgba(153, 69, 255, 0.18) 0%, rgba(20, 241, 149, 0.18) 100%);
 
   /* ── Typography ──────────────────────────────────────── */
   --font-heading: 'Rethink Sans', sans-serif;
@@ -73,6 +92,13 @@
   --glow-md: 0 0 32px rgba(228, 31, 40, 0.4);
   --glow-lg: 0 0 60px rgba(228, 31, 40, 0.08);
   --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+  /* Corner-glow border — ported 1:1 from native app (SharedComponents.kt)
+     Two radial gradients painted only on the 1px border stroke, anchored to
+     TL + BR corners. Gradient radius = 45% of MIN(width, height). */
+  --corner-glow-color: #ffffff;
+  --corner-glow-alpha: 0.28;
+  --corner-glow-extent: 45%;
 
   /* Grid background opacity (0 to hide, 0.04 default) */
   --grid-opacity: 0.04;

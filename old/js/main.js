@@ -181,11 +181,15 @@
     C.useCases.items.forEach((uc) => {
       const card = document.createElement('div');
       card.className = 'usecase-card reveal';
-      var emojiHtml = uc.emoji
-        ? '<span class="usecase-card__emoji">' + uc.emoji + '</span>'
+      var iconPath = ucIcons[uc.icon] || '';
+      var isStroke = uc.icon === 'trending-up';
+      var iconSvg = iconPath
+        ? '<svg width="24" height="24" viewBox="0 0 24 24"'
+          + (isStroke ? ' fill="none" stroke="#E41F28"' : ' fill="#E41F28"')
+          + '>' + iconPath + '</svg>'
         : '';
       card.innerHTML =
-        emojiHtml
+        '<div class="usecase-card__icon">' + iconSvg + '</div>'
         + '<h3 class="usecase-card__title">' + uc.title + '</h3>'
         + uc.messages.map((m) =>
           '<div class="usecase-card__msg"><span class="usecase-card__prompt">&gt;</span> ' + m + '</div>'
