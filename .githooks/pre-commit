@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# ────────────────────────────────────────────────────────────────
+# Pre-commit hook: nag when site content changes but llms.txt doesn't
+#
+# Triggers if any "content" file is staged (index.html / js/config.js /
+# WEBSITE.md) and llms.txt is NOT also staged. Blocks the commit so
+# you make a conscious decision — either update llms.txt, or bypass
+# with `git commit --no-verify` when the change genuinely doesn't
+# affect what LLMs should know about the site.
+#
+# Enable this hook (once per clone):
+#   git config core.hooksPath .githooks
+# ────────────────────────────────────────────────────────────────
+set -e
+
+# Files that indicate the site's user-facing content changed
+CONTENT_FILES=(
+  "index.html"
+  "js/config.js"
+  "WEBSITE.md"
+)
+
+STAGED=$(git diff --cached --name-only --diff-filter=ACMR)
+
+content_changed=false
+for f in "${CONTENT_FILES[@]}"; do
+  if printf '%s\n' "$STAGED" | grep -qx -- "$f"; then
+    content_changed=true
+    break
+  fi
+done
+
+llms_updated=false
+if printf '%s\n' "$STAGED" | grep -qx -- "llms.txt"; then
+  llms_updated=true
+fi
+
+if [ "$content_changed" = true ] && [ "$llms_updated" = false ]; then
+  echo ""
+  echo "⚠️  Site content changed but llms.txt was not updated."
+  echo ""
+  echo "   These files affect how LLMs describe the site:"
+  for f in "${CONTENT_FILES[@]}"; do
+    if printf '%s\n' "$STAGED" | grep -qx -- "$f"; then
+      echo "     • $f (staged)"
+    fi
+  done
+  echo ""
+  echo "   Review llms.txt and decide:"
+  echo "     • If it needs an update — edit it, 'git add llms.txt', commit again."
+  echo "     • If this change doesn't affect llms.txt — bypass with:"
+  echo "         git commit --no-verify"
+  echo ""
+  exit 1
+fi
+
+exit 0

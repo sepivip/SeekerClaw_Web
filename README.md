@@ -2,6 +2,25 @@
 
 Static marketing site for SeekerClaw, including a GitHub Pages-compatible Quick Setup QR builder.
 
+## Git Hooks
+
+The repo ships a pre-commit hook (`.githooks/pre-commit`) that blocks commits
+where `index.html`, `js/config.js`, or `WEBSITE.md` changed but `llms.txt`
+didn't — a reminder to keep the LLM-facing summary in sync with user-facing
+content.
+
+Enable once per clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+Bypass when the change genuinely doesn't affect `llms.txt`:
+
+```
+git commit --no-verify
+```
+
 ## Quick Setup QR (Schema v1)
 
 The browser-only builder generates a deep link in this format:
