@@ -1,28 +1,34 @@
 # SeekerClaw
 
-> SeekerClaw is the AI Agent Layer for the Solana Seeker phone. It turns the Seeker into an autonomous AI agent that monitors wallets, controls device functions, and connects via Telegram — all running 24/7 on-device.
+> SeekerClaw is AgentOS for your Android phone. It turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, and more. Text it on Telegram or Discord: it thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.
 
-SeekerClaw is a mobile application built specifically for the Solana Seeker phone (200K+ devices). It provides 55+ built-in tools including wallet monitoring, DeFi automation, NFT tracking, Telegram notifications, and device control. The agent scores 100% on SAB (Self-Awareness Benchmark) — 36 audit points across knowledge and diagnostics. The app runs autonomously on-device with user-held keys — no cloud custody. Open-source under the MIT License.
+SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android 14+). It brings a full AI agent on-device: 56+ built-in tools, 35+ skills, persistent memory, and natural-language scheduling. Users chat with it through Telegram or Discord; the agent runs autonomously in the background 24/7. The agent scores 100% on SAB (Self-Awareness Benchmark) — it knows its own tools, diagnoses its own problems, and reports failures in plain English. Crypto is one capability among many: wallet, swaps, limit orders, and NFT tracking via Solana's Seed Vault — not the identity of the product.
 
-- Operating system: Android (Solana Seeker phone only)
-- Wallet security: Hardware-secured via Seed Vault (private keys never leave the enclave)
-- AI: Uses third-party LLM APIs (user provides their own API key, stored locally)
-- Messaging: Telegram integration (user provides their own bot token)
-- Privacy: No analytics, no tracking, no cloud servers, all data on-device
-- Self-awareness: 100% SAB score — the agent knows its own tools, diagnoses its own problems, and reports failures
+- Operating system: Android 14+ (made for Solana Seeker; works on any Android phone)
+- AI providers: Claude (Anthropic), OpenAI / GPT-5, 100+ models via OpenRouter (user provides their own API key, stored locally)
+- Chat interfaces: Telegram and Discord (user provides their own bot token)
+- Phone powers: GPS, camera, SMS, calls, contacts, apps, clipboard, text-to-speech
+- Web: search, page reading, research, news, weather, crypto prices
+- Skills system: 35+ built-in skills plus a Skill Creator for custom ones (no coding required)
+- Crypto (optional): Solana wallet hardware-secured via Seed Vault; swaps, DCA, limit orders, NFT tracking
+- Self-awareness: 100% SAB score (36/36 audit points) — no hallucinated features, no silent failures
+- Privacy: No analytics, no tracking, no cloud servers, all data on-device. Open-source under MIT License.
 
 ## Pages
 
-- [Home](https://seekerclaw.xyz/): Main landing page with features, use cases, comparison, and roadmap
-- [Quick Setup](https://seekerclaw.xyz/setup.html): Generate a config QR code to import credentials into SeekerClaw
+- [Home](https://seekerclaw.xyz/): Main landing page — hero, how it works, lifestyle scenarios, features, self-awareness, use cases, Seeker hardware, comparison vs regular AI services, vision
+- [Quick Setup](https://seekerclaw.xyz/setup.html): Generate a config QR code to import credentials and defaults into SeekerClaw in under a minute
 - [Skill Creator](https://seekerclaw.xyz/skill-creator.html): Interactive 3-mode tool to build custom skills (blank editor, templates, Claude prompt generator)
+- [Partner Skills](https://seekerclaw.xyz/partner-skills.html): Vetted integrations that extend the agent — ClawPump, Dune Analytics, Byreal DEX, Home Assistant, Career Companion
 - [Privacy Policy](https://seekerclaw.xyz/privacy.html): Privacy policy — no data collection, no tracking, all on-device
 
 ## Links
 
 - [X / Twitter](https://x.com/SeekerClaw): Official SeekerClaw social account
+- [Telegram](https://t.me/seekerclaw): Community and support
 - [OpenClaw](https://github.com/openclaw/openclaw): Open-source AI agent framework that inspired SeekerClaw
 
 ## Optional
 
 - [Copyright](https://seekerclaw.xyz/copyright.html): MIT License and third-party attributions
+- [License](https://seekerclaw.xyz/license.html): MIT License full text
