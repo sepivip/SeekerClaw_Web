@@ -432,10 +432,70 @@ img {
   flex-wrap: wrap;
 }
 
-.hero__ph-badge {
+.hero__badges {
   margin-top: 1.5rem;
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+}
+
+/* Hackathon winner — a member of the card family: same bg + base border
+   + corner-glow ring (added to the shared corner-glow rule below), with a
+   Solana-gradient trophy and "Winner" matching the stat numbers above. */
+.award-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 18px 9px 13px;
+  min-height: 56px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(153, 69, 255, 0.10);
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s var(--ease-out);
+}
+
+.award-badge:hover {
+  box-shadow: 0 0 34px rgba(153, 69, 255, 0.20);
+  transform: translateY(-2px);
+}
+
+.award-badge__mark {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  filter: drop-shadow(0 0 6px rgba(153, 69, 255, 0.45));
+}
+
+.award-badge__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+  text-align: left;
+}
+
+.award-badge__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Gradient fill comes from the shared .gradient-text class on the element */
+.award-badge__name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .ph-badge {
@@ -748,7 +808,8 @@ img {
 .selfaware__card::before,
 .usecase-card::before,
 .seeker-section__card::before,
-.hiw__step::before {
+.hiw__step::before,
+.award-badge::before {
   content: '';
   position: absolute;
   inset: 0;

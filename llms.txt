@@ -13,6 +13,7 @@ SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android
 - Crypto (optional): Solana wallet hardware-secured via Seed Vault; swaps, DCA, limit orders, NFT tracking
 - Self-awareness: 100% SAB score (36/36 audit points) — no hallucinated features, no silent failures
 - Privacy: No analytics, no tracking, no cloud servers, all data on-device. Open-source under MIT License.
+- Recognition: Winner of the Solana Mobile Hackathon; live on Product Hunt.
 
 ## Pages
 
