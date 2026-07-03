@@ -46,6 +46,7 @@ window.SITE_CONFIG = {
       { label: 'Quick Setup', href: 'setup.html', type: 'page'   },
       { label: 'Partner Skills', href: 'partner-skills.html', type: 'page' },
       { label: 'Skill Creator', href: 'skill-creator.html', type: 'page' },
+      { label: 'Terms',       href: 'terms.html',       type: 'page'   },
       { label: 'Copyright',   href: 'copyright.html',   type: 'page'   },
       { label: 'License',     href: 'license.html',     type: 'page'   },
       { label: 'Privacy',     href: 'privacy.html',     type: 'page'   },

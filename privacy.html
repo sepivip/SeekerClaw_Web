@@ -36,7 +36,7 @@
   <main id="main" class="legal">
     <div class="legal-container">
       <h1 class="legal__title">Privacy Policy</h1>
-      <p class="legal__updated">Last updated: February 2026</p>
+      <p class="legal__updated">Last updated: July 2026</p>
 
       <section class="legal__section">
         <h2>Overview</h2>
@@ -50,7 +50,14 @@
 
       <section class="legal__section">
         <h2>Wallet Data</h2>
-        <p>SeekerClaw interacts with your Solana wallet through the <strong>Seed Vault</strong> hardware security module on the Seeker phone. Your private keys and seed phrases are managed by Seed Vault and <strong>never leave the hardware enclave</strong>. SeekerClaw does not have access to your private keys. Wallet balance and transaction data queried from the Solana blockchain is processed on-device and is not transmitted to us.</p>
+        <p>SeekerClaw interacts with your <strong>primary</strong> Solana wallet through the <strong>Seed Vault</strong> hardware security module on the Seeker phone. Your private keys and seed phrases for that wallet are managed by Seed Vault and <strong>never leave the hardware enclave</strong> — SeekerClaw does not have access to them.</p>
+        <p>SeekerClaw also includes an optional, <strong>experimental "burner wallet"</strong> feature for autonomous trading. If you choose to use it, you import a private key that <em>you</em> provide, and that key is stored locally on your device so the agent can sign transactions. This experimental key is held on your device only and is <strong>never transmitted to us</strong>; because it is kept in app-accessible storage rather than in Seed Vault, it is far less secure — use it only with small amounts you can afford to lose, and never import your main wallet's key.</p>
+        <p>Wallet balances and transaction data queried from the Solana blockchain are processed on-device and are not transmitted to us.</p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Device Data &amp; Permissions</h2>
+        <p>To act as a hands-on assistant, SeekerClaw can request access to device features — depending on your app version and the permissions you grant, these may include location, camera, SMS, phone calls, contacts, clipboard, and notifications. The App accesses these <strong>only on your device and only when you instruct the agent to</strong> (for example, "text this contact" or "what's my location"). This data is processed locally; when a request requires AI reasoning, the relevant content may be sent to your configured LLM provider as part of that request (see below). <strong>We never receive this data.</strong> You control every permission through your device's system settings and can revoke any of them at any time.</p>
       </section>
 
       <section class="legal__section">
@@ -60,8 +67,8 @@
       </section>
 
       <section class="legal__section">
-        <h2>Telegram Integration</h2>
-        <p>SeekerClaw connects to Telegram using a <strong>bot token that you provide</strong>. This token is stored locally on your device. Messages between you and your SeekerClaw agent are routed through Telegram's infrastructure. We do not have access to your Telegram bot token, messages, or account information. Refer to <a href="https://telegram.org/privacy" target="_blank" rel="noopener noreferrer">Telegram's Privacy Policy</a> for details on their data handling.</p>
+        <h2>Messaging Integrations (Telegram &amp; Discord)</h2>
+        <p>SeekerClaw connects to messaging platforms — <strong>Telegram and Discord</strong> — using a bot token that you provide for each. These tokens are stored locally on your device. Messages between you and your SeekerClaw agent are routed through the respective platform's infrastructure. We do not have access to your bot tokens, your messages, or your account information. Refer to <a href="https://telegram.org/privacy" target="_blank" rel="noopener noreferrer">Telegram's Privacy Policy</a> and <a href="https://discord.com/privacy" target="_blank" rel="noopener noreferrer">Discord's Privacy Policy</a> for details on their data handling.</p>
       </section>
 
       <section class="legal__section">

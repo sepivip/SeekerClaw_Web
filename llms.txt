@@ -22,6 +22,7 @@ SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android
 - [Skill Creator](https://seekerclaw.xyz/skill-creator.html): Interactive 3-mode tool to build custom skills (blank editor, templates, Claude prompt generator)
 - [Partner Skills](https://seekerclaw.xyz/partner-skills.html): Vetted integrations that extend the agent — ClawPump, Dune Analytics, Byreal DEX, Home Assistant, Career Companion
 - [Privacy Policy](https://seekerclaw.xyz/privacy.html): Privacy policy — no data collection, no tracking, all on-device
+- [Terms of Use](https://seekerclaw.xyz/terms.html): End-user Terms of Use — usage terms, risk disclosures, and liability for the app and its autonomous agent
 
 ## Links
 
