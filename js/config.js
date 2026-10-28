@@ -58,7 +58,7 @@ window.SITE_CONFIG = {
     tag: '🦞📲 AgentOS for your Android phone',
     titleLine1: 'Like having someone brilliant',
     titleLine2: 'in your pocket.',   // rendered with gradient
-    description: "SeekerClaw turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, and more. Text it on Telegram or Discord. It thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.",
+    description: "SeekerClaw turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, Grok, and more. Text it on Telegram or Discord. It thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.",
     ctaPrimary: 'Get it on dApp Store',
     ctaSecondary: 'Quick Setup',
     ctaSecondaryHref: 'setup.html',
@@ -67,8 +67,8 @@ window.SITE_CONFIG = {
   /* ── Stats ───────────────────────────────────────────── */
   stats: [
     { value: 200000, suffix: '+', label: 'Seeker Devices' },
-    { value: 56,     suffix: '+', label: 'Tools it can use' },
-    { value: 35,     suffix: '+', label: 'Skills & always updating' },
+    { value: 60,     suffix: '+', label: 'Tools it can use' },
+    { value: 22,     suffix: '+', label: 'Skills, and you can add more' },
     { value: '24/7', suffix: '',  label: 'Autonomous Agent' },
   ],
 
@@ -81,7 +81,7 @@ window.SITE_CONFIG = {
       {
         emoji: '\uD83E\uDD16',
         title: 'The best AI on earth',
-        desc: 'Claude Opus, GPT-5, Sonnet, 100+ models via OpenRouter. Pick your brain.',
+        desc: 'Claude, GPT, Grok, and 100+ more via OpenRouter. Bring an API key or your Claude, ChatGPT or Grok subscription.',
       },
       {
         emoji: '\uD83D\uDCAC',
@@ -91,7 +91,7 @@ window.SITE_CONFIG = {
       {
         emoji: '\uD83D\uDCF1',
         title: 'Full phone powers',
-        desc: 'GPS, camera, SMS, calls, contacts, apps, clipboard, text-to-speech.',
+        desc: 'GPS, camera, contacts, apps, clipboard, text-to-speech, plus texts and calls you confirm before they go out.',
       },
       {
         emoji: '\uD83C\uDF10',
@@ -100,13 +100,13 @@ window.SITE_CONFIG = {
       },
       {
         emoji: '\uD83E\uDDE9',
-        title: '35+ skills, extensible',
-        desc: 'Calorie tracker, security audits, news briefings, smart home, and you can add your own.',
+        title: '22 skills, and room for yours',
+        desc: 'Calorie tracker, network security audit, news briefings, reminders, research, partner skills like Home Assistant, and your own.',
       },
       {
         emoji: '\uD83D\uDCB0',
         title: 'Crypto-native',
-        desc: 'Solana wallet, Jupiter swaps, DCA, limit orders, NFT tracking, secured by Seed Vault.',
+        desc: 'Solana wallet, Jupiter swaps, DCA, NFT tracking, secured by Seed Vault. Plus an optional burner wallet the agent can spend from on its own, within caps you set.',
       },
     ],
   },
@@ -165,7 +165,7 @@ window.SITE_CONFIG = {
         title: 'Scheduled Briefings',
         messages: [
           '"Every morning: portfolio + SOL news + BTC price"',
-          '"Summarize my unread emails at 9am daily"',
+          '"Every evening at 8, tell me tomorrow\'s weather"',
         ],
       },
       {
@@ -194,7 +194,8 @@ window.SITE_CONFIG = {
       ['Control your phone',       '\u2717',                  '\u2713 SMS, calls, GPS, camera, apps'],
       ['Self-diagnosis',           '\u2717',                  '\u2713 Knows when something\u2019s wrong'],
       ['Wallet access',            '\u2717',                  '\u2713 Solana via Seed Vault'],
-      ['Crypto-native',            '\u2717',                  '\u2713 Swaps, DCA, limit orders, NFTs'],
+      ['Pays for paid APIs',       '\u2717',                  '\u2713 USDC via x402, within caps you set'],
+      ['Crypto-native',            '\u2717',                  '\u2713 Swaps, DCA, NFTs'],
     ],
   },
 
@@ -208,21 +209,24 @@ window.SITE_CONFIG = {
         label: 'Shipped ✅',
         items: [
           'Persistent memory with ranked search',
-          'Android device bridge (SMS, calls, GPS, camera, apps, contacts)',
-          'Solana wallet (balance, send, swap, limit orders, DCA)',
+          'Android device bridge (GPS, camera, apps, contacts, SMS and calls you confirm)',
+          'Solana wallet (balance, send, swap, DCA)',
           'Telegram with reactions, file sharing, and AI vision',
-          '56 built-in tools with analytics',
+          '64 built-in tools with analytics',
           'Natural language cron scheduling',
           'Multi-provider web search + page reading',
           'MCP server support for extensible tools',
-          '35 skills including CalClaw calorie tracker',
+          '22 bundled skills including CalClaw calorie tracker, plus partner skills',
           'Skill marketplace: export as .md or ZIP, import custom skills',
           'NFT holdings viewer (Helius DAS API)',
           'Cron agent turns — scheduled jobs run full AI conversations',
           'Session memory — agent remembers context across restarts',
-          'Multi-provider support (Claude + OpenAI)',
+          'Five AI providers: Claude, OpenAI, xAI Grok, OpenRouter, any OpenAI-compatible gateway',
+          'Sign in with a Claude, ChatGPT or Grok subscription',
+          'Discord as a second chat channel',
+          'Burner wallet: capped autonomous trading and x402 USDC payments',
           'Self-aware agent: 100% SAB score (36/36 audit points)',
-          'dApp Store listing',
+          'Google Play and Solana dApp Store listings',
           'Open-source: MIT license, CI/CD, community ready',
         ],
       },
@@ -240,7 +244,7 @@ window.SITE_CONFIG = {
         label: 'Future',
         items: [
           'Multi-agent coordination',
-          'X, Discord & WhatsApp integration',
+          'WhatsApp & Slack channels',
           'Multi-chain support',
           'DePIN & IoT device control',
           'Agent-to-agent economy on Solana',

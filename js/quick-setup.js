@@ -48,11 +48,12 @@
           type: "select",
           required: true,
           options: [
-            { value: "claude-sonnet-4-6", label: "Sonnet 4.6 — balanced" },
-            { value: "claude-opus-4-6", label: "Opus 4.6 — smartest" },
+            { value: "claude-opus-5", label: "Opus 5 — smartest (app default)" },
+            { value: "claude-fable-5-1", label: "Fable 5.1 — most powerful" },
+            { value: "claude-sonnet-5", label: "Sonnet 5 — balanced" },
             { value: "claude-haiku-4-5", label: "Haiku 4.5 — fast" },
           ],
-          tooltip: '<strong>Sonnet 4.6</strong> — Best balance of speed and quality for daily use.<br><strong>Opus 4.6</strong> — Most capable, best for complex tasks.<br><strong>Haiku 4.5</strong> — Fastest and most affordable.<br><br>Uses aliases — the API resolves to the latest snapshot automatically. Changeable later in the app.',
+          tooltip: '<strong>Opus 5</strong> — The app\'s default. Most capable for everyday and complex tasks.<br><strong>Fable 5.1</strong> — The most powerful tier, at a higher price.<br><strong>Sonnet 5</strong> — Best balance of speed and quality for daily use.<br><strong>Haiku 4.5</strong> — Fastest and most affordable.<br><br>Uses aliases — the API resolves to the latest snapshot automatically. Changeable later in the app or with <code>/model</code>.',
         },
         {
           path: "agent.name",
@@ -116,7 +117,7 @@
       ownerId: "",
     },
     agent: {
-      model: "claude-sonnet-4-6",
+      model: "claude-opus-5",
       name: "SeekerClaw",
     },
     integrations: {
@@ -187,7 +188,7 @@
       },
       agent: {
         ...(isPlainObject(baseConfig.agent) ? baseConfig.agent : {}),
-        model: normalizeString(getByPath(formState, "agent.model")) || "claude-sonnet-4-6",
+        model: normalizeString(getByPath(formState, "agent.model")) || "claude-opus-5",
         name: normalizeString(getByPath(formState, "agent.name")) || "SeekerClaw",
       },
       integrations: {

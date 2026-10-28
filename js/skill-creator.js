@@ -81,11 +81,11 @@
   ];
 
   /* ══════════════════════════════════════════════════════════
-     TOOL REFERENCE (56 tools grouped by category)
+     TOOL REFERENCE (64 tools grouped by category)
      ══════════════════════════════════════════════════════════ */
   var TOOL_CATEGORIES = [
     { cat: 'Web & Search', tools: [
-      { id: 'web_search', desc: 'Search the web via DuckDuckGo' },
+      { id: 'web_search', desc: 'Search the web (provider set in Settings)' },
       { id: 'web_fetch', desc: 'Fetch a URL, returns markdown/JSON/text' }
     ]},
     { cat: 'Memory', tools: [
@@ -100,7 +100,8 @@
       { id: 'write', desc: 'Write/create a workspace file' },
       { id: 'edit', desc: 'Edit an existing file' },
       { id: 'ls', desc: 'List files and directories' },
-      { id: 'delete', desc: 'Delete a workspace file' }
+      { id: 'delete', desc: 'Delete a workspace file' },
+      { id: 'send_file', desc: 'Send a workspace file to the chat' }
     ]},
     { cat: 'Skills', tools: [
       { id: 'skill_read', desc: 'Read a skill\'s full instructions' },
@@ -147,7 +148,9 @@
       { id: 'solana_balance', desc: 'SOL + SPL token balances' },
       { id: 'solana_history', desc: 'Transaction history' },
       { id: 'solana_send', desc: 'Send SOL (requires confirmation)' },
-      { id: 'solana_price', desc: 'Token USD prices' }
+      { id: 'solana_send_token', desc: 'Send an SPL token (USDC, USDT, ...)' },
+      { id: 'solana_price', desc: 'Token USD prices' },
+      { id: 'solana_nft_holdings', desc: 'NFTs held by a wallet (needs Helius key)' }
     ]},
     { cat: 'Solana \u2014 Jupiter Swap', tools: [
       { id: 'solana_quote', desc: 'Get swap quote from Jupiter' },
@@ -168,6 +171,11 @@
       { id: 'jupiter_token_security', desc: 'Token safety via Jupiter Shield' },
       { id: 'jupiter_wallet_holdings', desc: 'Wallet token holdings' }
     ]},
+    { cat: 'Burner Wallet & Payments', tools: [
+      { id: 'wallet_status', desc: 'Burner and main wallet status, caps, spend' },
+      { id: 'wallet_set_caps', desc: 'Change burner caps (asks to confirm)' },
+      { id: 'agent_pay', desc: 'Pay an x402 API in USDC and fetch it' }
+    ]},
     { cat: 'Telegram', tools: [
       { id: 'telegram_react', desc: 'Send reaction emoji' },
       { id: 'telegram_send_file', desc: 'Send a file' },
@@ -176,7 +184,9 @@
     ]},
     { cat: 'System', tools: [
       { id: 'shell_exec', desc: 'Execute shell command (sandboxed)' },
-      { id: 'js_eval', desc: 'Execute JavaScript in Node.js' }
+      { id: 'js_eval', desc: 'Execute JavaScript in Node.js' },
+      { id: 'tool_search', desc: 'Find tools by keyword' },
+      { id: 'env_list', desc: 'List env var names (never values)' }
     ]}
   ];
 
