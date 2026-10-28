@@ -225,7 +225,7 @@ window.SITE_CONFIG = {
           'Sign in with a Claude, ChatGPT or Grok subscription',
           'Discord as a second chat channel',
           'Burner wallet: capped autonomous trading and x402 USDC payments',
-          'Self-aware agent, checked by SAB audits',
+          'Self-aware agent: 100% SAB score (36/36 audit points)',
           'Google Play and Solana dApp Store listings',
           'Open-source: MIT license, CI/CD, community ready',
         ],
