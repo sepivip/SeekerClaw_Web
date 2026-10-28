@@ -1,31 +1,34 @@
 # SeekerClaw
 
-> SeekerClaw is AgentOS for your Android phone. It turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, and more. Text it on Telegram or Discord: it thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.
+> SeekerClaw is AgentOS for your Android phone. It turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, Grok, and more. Text it on Telegram or Discord: it thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.
 
-SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android 14+). It brings a full AI agent on-device: 56+ built-in tools, 35+ skills, persistent memory, and natural-language scheduling. Users chat with it through Telegram or Discord; the agent runs autonomously in the background 24/7. The agent scores 100% on SAB (Self-Awareness Benchmark) — it knows its own tools, diagnoses its own problems, and reports failures in plain English. Crypto is one capability among many: wallet, swaps, limit orders, and NFT tracking via Solana's Seed Vault — not the identity of the product.
+SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android 14+). It brings a full AI agent on-device: 64 built-in tools, 22 bundled skills plus partner and custom skills, persistent memory, and natural-language scheduling. Users chat with it through Telegram or Discord; the agent runs autonomously in the background 24/7. Its self-knowledge is checked with SAB (Self-Awareness Benchmark) audits — it knows its own tools, diagnoses its own problems, and reports failures in plain English. Crypto is one capability among many: wallet, swaps, limit orders, and NFT tracking via Solana's Seed Vault, plus an optional capped burner wallet — not the identity of the product.
 
 - Operating system: Android 14+ (made for Solana Seeker; works on any Android phone)
-- AI providers: Claude (Anthropic), OpenAI / GPT-5, 100+ models via OpenRouter (user provides their own API key, stored locally)
+- Get it: Google Play, the Solana dApp Store, or the APK from GitHub Releases
+- AI providers: Claude (Anthropic), OpenAI (GPT-5.6, GPT-6 Astra), xAI Grok, 100+ models via OpenRouter, or any OpenAI-compatible gateway. Bring your own API key, or use a Claude, ChatGPT or Grok subscription; credentials are stored on the device
 - Chat interfaces: Telegram and Discord (user provides their own bot token)
-- Phone powers: GPS, camera, SMS, calls, contacts, apps, clipboard, text-to-speech
+- Phone powers: GPS, camera, contacts, apps, clipboard, text-to-speech, plus texts and calls the user confirms before they go out
 - Web: search, page reading, research, news, weather, crypto prices
-- Skills system: 35+ built-in skills plus a Skill Creator for custom ones (no coding required)
-- Crypto (optional): Solana wallet hardware-secured via Seed Vault; swaps, DCA, limit orders, NFT tracking
-- Self-awareness: 100% SAB score (36/36 audit points) — no hallucinated features, no silent failures
-- Privacy: No analytics, no tracking, no cloud servers, all data on-device. Open-source under MIT License.
+- Skills system: 22 bundled skills, 5 partner skills, and a Skill Creator for custom ones (no coding required)
+- Crypto (optional): Solana wallet hardware-secured via Seed Vault; swaps, DCA, limit orders, NFT tracking. An optional burner wallet lets the agent trade and pay for x402 APIs in USDC on its own, within per-transaction and daily caps the user sets
+- Self-awareness: checked with SAB audits — no hallucinated features, no silent failures
+- Privacy: No cloud servers; conversations, memory and keys stay on the device. The app sends anonymous usage analytics (Firebase: service starts, model selection, feature usage; no messages, keys or wallet addresses), on by default and can be turned off in Settings. Open-source under MIT License.
 - Recognition: Winner of the Solana Mobile Hackathon; live on Product Hunt.
 
 ## Pages
 
 - [Home](https://seekerclaw.xyz/): Main landing page — hero, how it works, lifestyle scenarios, features, self-awareness, use cases, Seeker hardware, comparison vs regular AI services, vision
-- [Quick Setup](https://seekerclaw.xyz/setup.html): Generate a config QR code to import credentials and defaults into SeekerClaw in under a minute
+- [Quick Setup](https://seekerclaw.xyz/setup.html): Generate a config QR code to import Claude and Telegram credentials into SeekerClaw in under a minute
 - [Skill Creator](https://seekerclaw.xyz/skill-creator.html): Interactive 3-mode tool to build custom skills (blank editor, templates, Claude prompt generator)
 - [Partner Skills](https://seekerclaw.xyz/partner-skills.html): Vetted integrations that extend the agent — ClawPump, Dune Analytics, Byreal DEX, Home Assistant, Career Companion
-- [Privacy Policy](https://seekerclaw.xyz/privacy.html): Privacy policy — no data collection, no tracking, all on-device
+- [Privacy Policy](https://seekerclaw.xyz/privacy.html): What stays on the device, what goes to your AI and chat providers, and the optional usage analytics
 - [Terms of Use](https://seekerclaw.xyz/terms.html): End-user Terms of Use — usage terms, risk disclosures, and liability for the app and its autonomous agent
 
 ## Links
 
+- [GitHub](https://github.com/sepivip/SeekerClaw): Source code, releases and changelog
+- [Google Play](https://play.google.com/store/apps/details?id=com.seekerclaw.app): Store listing
 - [X / Twitter](https://x.com/SeekerClaw): Official SeekerClaw social account
 - [Telegram](https://t.me/seekerclaw): Community and support
 - [OpenClaw](https://github.com/openclaw/openclaw): Open-source AI agent framework that inspired SeekerClaw
