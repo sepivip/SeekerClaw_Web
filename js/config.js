@@ -106,7 +106,7 @@ window.SITE_CONFIG = {
       {
         emoji: '\uD83D\uDCB0',
         title: 'Crypto-native',
-        desc: 'Solana wallet, Jupiter swaps, DCA, limit orders, NFT tracking, secured by Seed Vault. Plus an optional burner wallet the agent can spend from on its own, within caps you set.',
+        desc: 'Solana wallet, Jupiter swaps, DCA, NFT tracking, secured by Seed Vault. Plus an optional burner wallet the agent can spend from on its own, within caps you set.',
       },
     ],
   },
@@ -195,7 +195,7 @@ window.SITE_CONFIG = {
       ['Self-diagnosis',           '\u2717',                  '\u2713 Knows when something\u2019s wrong'],
       ['Wallet access',            '\u2717',                  '\u2713 Solana via Seed Vault'],
       ['Pays for paid APIs',       '\u2717',                  '\u2713 USDC via x402, within caps you set'],
-      ['Crypto-native',            '\u2717',                  '\u2713 Swaps, DCA, limit orders, NFTs'],
+      ['Crypto-native',            '\u2717',                  '\u2713 Swaps, DCA, NFTs'],
     ],
   },
 
@@ -210,7 +210,7 @@ window.SITE_CONFIG = {
         items: [
           'Persistent memory with ranked search',
           'Android device bridge (GPS, camera, apps, contacts, SMS and calls you confirm)',
-          'Solana wallet (balance, send, swap, limit orders, DCA)',
+          'Solana wallet (balance, send, swap, DCA)',
           'Telegram with reactions, file sharing, and AI vision',
           '64 built-in tools with analytics',
           'Natural language cron scheduling',

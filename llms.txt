@@ -2,7 +2,7 @@
 
 > SeekerClaw is AgentOS for your Android phone. It turns your phone into a 24/7 helper powered by the world's best AI — Claude, GPT, Grok, and more. Text it on Telegram or Discord: it thinks, remembers, watches over your stuff, and quietly handles the boring parts of your day.
 
-SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android 14+). It brings a full AI agent on-device: 64 built-in tools, 22 bundled skills plus partner and custom skills, persistent memory, and natural-language scheduling. Users chat with it through Telegram or Discord; the agent runs autonomously in the background 24/7. Its self-knowledge is checked with SAB (Self-Awareness Benchmark) audits — it knows its own tools, diagnoses its own problems, and reports failures in plain English. Crypto is one capability among many: wallet, swaps, limit orders, and NFT tracking via Solana's Seed Vault, plus an optional capped burner wallet — not the identity of the product.
+SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android 14+). It brings a full AI agent on-device: 64 built-in tools, 22 bundled skills plus partner and custom skills, persistent memory, and natural-language scheduling. Users chat with it through Telegram or Discord; the agent runs autonomously in the background 24/7. Its self-knowledge is checked with SAB (Self-Awareness Benchmark) audits — it knows its own tools, diagnoses its own problems, and reports failures in plain English. Crypto is one capability among many: wallet, swaps, DCA, and NFT tracking via Solana's Seed Vault, plus an optional capped burner wallet — not the identity of the product.
 
 - Operating system: Android 14+ (made for Solana Seeker; works on any Android phone)
 - Get it: Google Play, the Solana dApp Store, or the APK from GitHub Releases
@@ -11,7 +11,7 @@ SeekerClaw is a native Android app (Solana Seeker-optimized, runs on any Android
 - Phone powers: GPS, camera, contacts, apps, clipboard, text-to-speech, plus texts and calls the user confirms before they go out
 - Web: search, page reading, research, news, weather, crypto prices
 - Skills system: 22 bundled skills, 5 partner skills, and a Skill Creator for custom ones (no coding required)
-- Crypto (optional): Solana wallet hardware-secured via Seed Vault; swaps, DCA, limit orders, NFT tracking. An optional burner wallet lets the agent trade and pay for x402 APIs in USDC on its own, within per-transaction and daily caps the user sets
+- Crypto (optional): Solana wallet hardware-secured via Seed Vault; swaps, DCA, NFT tracking. An optional burner wallet lets the agent trade and pay for x402 APIs in USDC on its own, within per-transaction and daily caps the user sets
 - Self-awareness: checked with SAB audits — no hallucinated features, no silent failures
 - Privacy: No cloud servers; conversations, memory and keys stay on the device. The app sends anonymous usage analytics (Firebase: service starts, model selection, feature usage; no messages, keys or wallet addresses), on by default and can be turned off in Settings. Open-source under MIT License.
 - Recognition: Winner of the Solana Mobile Hackathon; live on Product Hunt.
